@@ -39,7 +39,7 @@ function App() {
             </div>
         </div>
         <div className='desktop-header hidden lg:block'>
-             <p className='w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px]'>با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید</p>
+             <p className='w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer'>با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید</p>
              <div className='w-full h-[70px] p-[10px] flex justify-between items-center'>
                 <div className='search w-4/12 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center '>
                     <div className='w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]'>
@@ -49,17 +49,36 @@ function App() {
                       <input className='w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56]' placeholder='جستجو'></input>
                     </div>
                 </div>
-                <div className='w-4/12 '><p   >کاستومی لوگو</p></div>
+                <div className='w-4/12 cursor-pointer'><p   >کاستومی لوگو</p></div>
                 <div className='w-4/12 flex justify-end items-center gap-[10px]'>
-                    <div className='text-[24px]'><MdOutlineManageAccounts  color="#A72F3B" /></div>
-                    <div className='text-[24px]'><HiOutlineShoppingBag color="#A72F3B" /></div>
-                    <div className='text-[24px]'><IoMdHeartEmpty color="#A72F3B" /></div>
-                    
+                    <div className='text-[24px] cursor-pointer'><MdOutlineManageAccounts  color="#A72F3B" /></div>
+                    <div className='text-[24px] cursor-pointer'><HiOutlineShoppingBag color="#A72F3B" /></div>
+                    <div className='text-[24px] cursor-pointer'><IoMdHeartEmpty color="#A72F3B" /></div>   
                 </div>
+             </div>
+             <div className='flex justify-center items-center gap-[40px] pt-[10px] pb-[10px]'>
+                <p className='cursor-pointer'>زنانه</p>
+                <p className='cursor-pointer'>مردانه</p>
+                <p className='cursor-pointer'>بچه گانه</p>
+                <p className='cursor-pointer'>زیبایی و سلامت</p>
+                <p className='cursor-pointer'>کلاه روسری شال</p>
+                <p className='cursor-pointer'>کیف</p>
              </div>
         </div>
       </header>
-      <main>
+      <main className='w-full h-full '>
+        <div className='w-full h-[360px] bg-[#767B7F]'>
+        {/* <img src='./image/banner1' alt='کوهنوردی' className='w-full h-full'></img> */}
+        </div >
+        <div className='container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  pt-[10px] pb-[10px] gap-[10px] '>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>شومیز</p></div>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>بالا پوش مردانه</p></div>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>نوزاد</p></div>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>لوازم شخصی برقی</p></div>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>کلاه</p></div>
+          <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>کیف</p></div>
+          
+        </div>
         
       </main>
       <footer>
