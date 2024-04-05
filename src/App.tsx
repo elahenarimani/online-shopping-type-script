@@ -84,7 +84,7 @@ function App() {
           <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>کیف</p></div>
           
         </div>
-        <div className='advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] '>
+        <div className='advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]'>
                     <div className='w-full  flex flex-col justify-between items-center cursor-pointer'>
                         <div className='w-[30px] h-[30px]'><LiaShippingFastSolid className='w-full h-full '/></div>
                         <div><p className='text-[12px] pt-[5px]'>تحویل سریع و ارزان</p></div>
@@ -99,12 +99,60 @@ function App() {
                     </div>
           </div>
       </main>
-      <footer>
-      <div className='socials flex justify-content items-between gap-[10px]'>
-              <div><p>ما را در شبکه های اجتماعی دنبال کنید</p></div>
-              <div><FaInstagram /></div> 
-              <div><LiaTelegramPlane /></div>
+      <footer className='w-full '>
+         <div className='w-full lg:hidden'>
+         <div className='socials  w-full h-[50px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px] pt-[10px] pb-[10px] border-b-[1px] border-[#F1F1F1] border-solid'>
+              <div><p className='text-[#7B7B7B] text-[13px]'>ما را در شبکه های اجتماعی دنبال کنید</p></div>
+              <div  className='w-24px h-[24px]'><FaInstagram color='#7B7B7B' className='w-full h-full'/></div> 
+              <div  className='w-24px h-[24px]'><LiaTelegramPlane color='#7B7B7B' className='w-full h-full'/></div>
           </div>
+          <div className='quick-access-mobile w-full h-[168px] flex justify-center items-center gap-[25px] pl-[16px] pr-[16px] pt-[12px] pb-[12px]'>
+            <div className='w-full flex flex-col justify-between items-center gap-[15px]'>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>پشتیبانی مشتریان</p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>سوالات متداول</p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>دانلود اپلیکیشن </p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>بازگردانی کالا</p>
+            </div>
+            <div className='w-full flex flex-col justify-between items-center gap-[15px]'>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>شرایط استفاده</p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>حریم خصوصی</p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>درباره ما</p>
+              <p className='text-[#7B7B7B]  cursor-pointer text-[14px]'>تماس با ما</p>
+            </div>
+          </div>
+         </div>
+         <div className='hidden lg:block w-full h-[214px]'>
+            <div className='quick-access-desktop w-full h-full flex justify-between items-center'>
+              <div className='flex flex-col justify-between items-center '>
+                <p>خرید</p>
+                <p>زنانه</p>
+                <p>مردانه</p>
+                <p>بچگانه</p>
+                <p>زیبایی و سلامت</p>
+              </div>
+              <div className='flex flex-col justify-between items-center'>
+                <p>خدمات مشتریان</p>
+                <p>پاسخ به پرسش های متداول</p>
+                <p>رویه های بازگرداندن کالا</p>
+                <p>شرایط استفاده</p>
+                <p>حریم خصوصی</p>
+              </div>
+              <div className='flex flex-col justify-between items-center'>
+                <p>اطلاعات دیجی استایل</p>
+                <p>درباره دیجی استایل</p>
+                <p>تماس با دیجی استایل</p>
+                <p>همکاری با دیجی استایل</p>
+              </div>
+              <div>
+                <p>تلفن پشتیبانی:</p>
+                <div className='flex justify-between items-center'>
+                  <div  className='w-24px h-[24px]'><FaInstagram color='#7B7B7B' className='w-full h-full'/></div> 
+                  <div  className='w-24px h-[24px]'><LiaTelegramPlane color='#7B7B7B' className='w-full h-full'/></div>
+                </div>
+                <p>ثبت نام در خبرنامه دیجی استایل</p>
+              </div>
+            </div>
+         </div>
       </footer>
     </div>
   );

@@ -46,7 +46,11 @@ body,html{
   margin:0;
   padding: 0;
 }
-
+.quick-access-desktop{
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media only screen and (min-width : 1280px){
   .container-cart >div:hover{
