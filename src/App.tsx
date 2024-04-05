@@ -100,7 +100,11 @@ function App() {
           </div>
       </main>
       <footer>
-          
+      <div className='socials flex justify-content items-between gap-[10px]'>
+              <div><p>ما را در شبکه های اجتماعی دنبال کنید</p></div>
+              <div><FaInstagram /></div> 
+              <div><LiaTelegramPlane /></div>
+          </div>
       </footer>
     </div>
   );
