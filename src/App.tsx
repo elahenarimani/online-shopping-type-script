@@ -6,6 +6,11 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Input from "./components/input/Input";
 import { CiSearch } from "react-icons/ci";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { TbRewindBackward15 } from "react-icons/tb";
+import { IoBagCheckOutline } from "react-icons/io5";
+import { FaInstagram } from "react-icons/fa";
+import { LiaTelegramPlane } from "react-icons/lia";
 function App() {
   const [search , setSearch] = useState<string|number>("")
   return (
@@ -79,10 +84,23 @@ function App() {
           <div className='w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer'><p>کیف</p></div>
           
         </div>
-        
+        <div className='advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] '>
+                    <div className='w-full  flex flex-col justify-between items-center cursor-pointer'>
+                        <div className='w-[30px] h-[30px]'><LiaShippingFastSolid className='w-full h-full '/></div>
+                        <div><p className='text-[12px] pt-[5px]'>تحویل سریع و ارزان</p></div>
+                    </div>
+                    <div className='w-full  flex flex-col justify-between items-center cursor-pointer'>
+                        <div className='w-[30px] h-[30px]'><TbRewindBackward15 className='w-full h-full'/></div>
+                        <div><p className='text-[12px] pt-[5px]'> ضمانت بازگشت کالا</p></div>
+                    </div>
+                    <div className='w-full  flex flex-col justify-between items-center cursor-pointer '>
+                        <div className='w-[30px] h-[30px]'><IoBagCheckOutline className='w-full h-full'/></div>
+                        <div><p className='text-[12px] pt-[5px]'>کالای اورجینال</p></div>
+                    </div>
+          </div>
       </main>
       <footer>
-
+          
       </footer>
     </div>
   );

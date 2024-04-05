@@ -46,20 +46,24 @@ body,html{
   margin:0;
   padding: 0;
 }
-.container-cart >div:hover{
-  outline: var(--outline);
-  outline-offset: 4px;
-}
-.container-cart >div:focus{
-  outline: var(--outline);
-  outline-offset: 5px;
-}
-.container-cart >div{--clr: #A72F3B;
---outline: 3px solid var(--clr);
-color: var(--clr);
-outline: var(--outline);
-border: var(--outline);
-outline-offset: -2px;
-transition: outline-offset 200ms ease;
-color: white;
+
+
+@media only screen and (min-width : 1280px){
+  .container-cart >div:hover{
+    outline: var(--outline);
+    outline-offset: 4px;
+  }
+  .container-cart >div:focus{
+    outline: var(--outline);
+    outline-offset: 5px;
+  }
+  .container-cart >div{--clr: #A72F3B;
+    --outline: 3px solid var(--clr);
+    color: var(--clr);
+    outline: var(--outline);
+    border: var(--outline);
+    outline-offset: -2px;
+    transition: outline-offset 200ms ease;
+    color: white;
+    }
 }
