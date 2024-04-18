@@ -1,4 +1,4 @@
-import React, { useEffect,  useState  } from "react";
+import React, { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 import "./App.css";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -20,30 +20,33 @@ import BeautyHealthy from "./components/beauty-healthy/BeautyHealthy";
 import HeadCover from "./components/headCover/HeadCover";
 import Bag from "./components/bag/Bag";
 import { relative } from "path";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import Slider from "./components/slider/Slider";
 
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
-  const [menIsOpen , setMenIsOpen] = useState<boolean>(false);
-  const [headCoverIsOpen , setHeadCoverIsOpen] = useState<boolean>(false);
-  const [childIsOpen , setChildIsOpen] = useState<boolean>(false);
-  const [beautyHealthyIsOpen , setBeautyHealthyIsOpen] = useState<boolean>(false);
-  const [bagIsOpen , setBagIsOpen] = useState<boolean>(false);
-  
+  const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
+  const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
+  const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
+  const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
+  const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
+
   interface ICustomeStyles {
     content: {
       top: string;
       left: string;
       right: string;
       bottom: string;
-      
+
       width?: string;
       transform: string;
       borderRadius?: string;
-      
+
     };
     overlay?: {
       backgroundColor: string;
-      
+
     };
   }
   const customStyles: ICustomeStyles = {
@@ -53,14 +56,14 @@ function App() {
       right: "auto",
       bottom: "auto",
       width: "90%",
- 
-       transform: "translate(-6% , 0)",
-       borderRadius: "15px",
-       
+
+      transform: "translate(-6% , 0)",
+      borderRadius: "15px",
+
     },
     overlay: {
-      backgroundColor: "rgba(0, 0, 0, 0)", 
-      
+      backgroundColor: "rgba(0, 0, 0, 0)",
+
     },
   };
   const openWomenModal = () => {
@@ -174,45 +177,44 @@ function App() {
           </div>
           <div className="flex justify-center items-center gap-[40px] pt-[10px] pb-[10px]">
             <div>
-              <button onClick={() => openWomenModal ()}>
+              <button onClick={() => openWomenModal()}>
                 <p className="cursor-pointer">زنانه</p>
               </button>
-             
-             <Modal
+
+              <Modal
                 isOpen={womenIsOpen}
                 onRequestClose={closeWomenModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-               
-                
+
+
               >
-                 <div onMouseLeave={closeWomenModal}>
-                 <button onClick={() =>closeWomenModal()}></button>
-                <Women />
-                 </div>
-                
+                <div onMouseLeave={closeWomenModal}>
+                  <button onClick={() => closeWomenModal()}></button>
+                  <Women />
+                </div>
+
               </Modal>
-             
+
             </div>
             <div>
-              <button onClick={() =>  openMenModal()}>
+              <button onClick={() => openMenModal()}>
                 <p className="cursor-pointer">مردانه</p>
               </button>
-              
               <Modal
-                isOpen={menIsOpen }
+                isOpen={menIsOpen}
                 onRequestClose={closeMenModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-              
+
               >
                 <div onMouseLeave={closeMenModal}>
-                <button onClick={() => closeMenModal()}></button>
-                <Men />
+                  <button onClick={() => closeMenModal()}></button>
+                  <Men />
                 </div>
-                
+
               </Modal>
-              
+
             </div>
             <div>
               <button onClick={() => openChildModal()}>
@@ -223,16 +225,16 @@ function App() {
                 onRequestClose={closeChildModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-                
+
               >
                 <div onMouseLeave={closeChildModal}>
-                <button onClick={() => closeChildModal()}></button>
-                <Child />
+                  <button onClick={() => closeChildModal()}></button>
+                  <Child />
                 </div>
-               
+
               </Modal>
             </div>
-           
+
             <div>
               <button onClick={() => openBeautyHealthyModal()}>
                 <p className="cursor-pointer"> زیبایی و سلامت</p>
@@ -242,12 +244,12 @@ function App() {
                 onRequestClose={closeBeautyHealthyModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-              > 
-              <div onMouseLeave={closeBeautyHealthyModal}>
-              <button onClick={() => closeBeautyHealthyModal()}></button>
-                <BeautyHealthy />
-              </div>
-                
+              >
+                <div onMouseLeave={closeBeautyHealthyModal}>
+                  <button onClick={() => closeBeautyHealthyModal()}></button>
+                  <BeautyHealthy />
+                </div>
+
               </Modal>
             </div>
             <div>
@@ -255,16 +257,16 @@ function App() {
                 <p className="cursor-pointer">کلاه/روسری/شال</p>
               </button>
               <Modal
-                isOpen={headCoverIsOpen }
+                isOpen={headCoverIsOpen}
                 onRequestClose={closeHeadCoverModal}
                 contentLabel="Example Modal"
                 style={customStyles}
               >
                 <div onMouseLeave={closeHeadCoverModal}>
-                <button onClick={() => closeHeadCoverModal()}></button>
-                <HeadCover />
+                  <button onClick={() => closeHeadCoverModal()}></button>
+                  <HeadCover />
                 </div>
-                
+
               </Modal>
             </div>
             <div>
@@ -278,17 +280,17 @@ function App() {
                 style={customStyles}
               >
                 <div onMouseLeave={closeBagModal}>
-                <button onClick={() => closeBagModal()}></button>
-                <Bag />
+                  <button onClick={() => closeBagModal()}></button>
+                  <Bag />
                 </div>
-               
+
               </Modal>
             </div>
           </div>
         </div>
       </div>
       <main className="w-full h-full ">
-        <div className="w-full h-[360px] bg-[#767B7F]"></div>
+        <Slider/>
         <div className="container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  pt-[10px] pb-[10px] gap-[10px] ">
           <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
             <p>شومیز</p>
