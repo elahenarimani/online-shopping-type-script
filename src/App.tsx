@@ -19,8 +19,6 @@ import Child from "./components/child/Child";
 import BeautyHealthy from "./components/beauty-healthy/BeautyHealthy";
 import HeadCover from "./components/headCover/HeadCover";
 import Bag from "./components/bag/Bag";
-import { relative } from "path";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Slider from "./components/slider/Slider";
 
@@ -38,7 +36,7 @@ function App() {
       left: string;
       right: string;
       bottom: string;
-
+      zIndex :Number;
       width?: string;
       transform: string;
       borderRadius?: string;
@@ -46,7 +44,7 @@ function App() {
     };
     overlay?: {
       backgroundColor: string;
-
+      zIndex: Number;
     };
   }
   const customStyles: ICustomeStyles = {
@@ -56,14 +54,14 @@ function App() {
       right: "auto",
       bottom: "auto",
       width: "90%",
-
+      zIndex: 9999,
       transform: "translate(-6% , 0)",
       borderRadius: "15px",
 
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-
+      zIndex: 9998
     },
   };
   const openWomenModal = () => {
@@ -289,8 +287,11 @@ function App() {
           </div>
         </div>
       </div>
+     
       <main className="w-full h-full ">
+      <div className="w-full h-full">
         <Slider/>
+      </div>
         <div className="container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  pt-[10px] pb-[10px] gap-[10px] ">
           <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
             <p>شومیز</p>
