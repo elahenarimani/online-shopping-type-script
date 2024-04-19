@@ -1,0 +1,17 @@
+.off-box{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), linear-gradient(89.53deg, #9D2C38 0.74%, #FF6E2C 81.34%, #FF6E2C 98.91%);
+    background-blend-mode: normal, multiply;
+    background-position: top left, bottom;
+    background-repeat: no-repeat;
+}
+.swiper-button-prev-2,
+.swiper-button-next-2 {
+  color: black; /* Change the color of the buttons */
+   /* Change the font size of the buttons */
+}
+
+/* Optional: Hover styles for better interactivity */
+/* .swiper-button-prev-2:hover,
+.swiper-button-next-2:hover {
+  color: #A72F3B; 
+} */

@@ -21,6 +21,7 @@ import HeadCover from "./components/headCover/HeadCover";
 import Bag from "./components/bag/Bag";
 import 'swiper/css';
 import Slider from "./components/slider/Slider";
+import OffBox from "./components/offBox/OffBox";
 
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
@@ -36,7 +37,7 @@ function App() {
       left: string;
       right: string;
       bottom: string;
-      zIndex :Number;
+      zIndex :string;
       width?: string;
       transform: string;
       borderRadius?: string;
@@ -44,7 +45,7 @@ function App() {
     };
     overlay?: {
       backgroundColor: string;
-      zIndex: Number;
+      zIndex: string;
     };
   }
   const customStyles: ICustomeStyles = {
@@ -54,14 +55,14 @@ function App() {
       right: "auto",
       bottom: "auto",
       width: "90%",
-      zIndex: 9999,
+      zIndex: "9999",
       transform: "translate(-6% , 0)",
       borderRadius: "15px",
 
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      zIndex: 9998
+      zIndex: "9998"
     },
   };
   const openWomenModal = () => {
@@ -312,6 +313,10 @@ function App() {
             <p>کیف</p>
           </div>
         </div>
+        <div className=" w-full pl-[30px] pr-[30px] xl:pl-[30px] xl:pr-[30px]  pt-[10px] pb-[10px]  ">
+        <OffBox/>
+        </div>
+      
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">
           <div className="w-full  flex flex-col justify-between items-center cursor-pointer">
             <div className="w-[30px] h-[30px]">

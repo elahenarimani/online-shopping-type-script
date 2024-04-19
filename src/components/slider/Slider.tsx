@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
@@ -22,11 +22,7 @@ function Slider(){
         scrollbar={{ draggable: true }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper: any) => console.log(swiper)}
-        // modules={[EffectFade]} effect="fade"
       >
-        {/* {[1, 2, 3].map((i, el) => {
-        return <SwiperSlide>Slide {el}</SwiperSlide>;
-      })} */}
         <SwiperSlide className='w-full h-[100vh]'>
             <img alt="child" src='https://s8.uupload.ir/files/screenshot_(2)_u41a.png' className='w-full h-full' />
         </SwiperSlide>
@@ -36,12 +32,12 @@ function Slider(){
         <SwiperSlide className='w-full h-[100vh]'>
           <img alt="skinCare" src='https://s8.uupload.ir/files/screenshot_(6)_ocyu.png' className='w-full h-full' />
         </SwiperSlide>
-        <SwiperSlide className='w-full h-[100vh]'>
+        {/* <SwiperSlide className='w-full h-[100vh]'>
           <img alt="women" src='https://s8.uupload.ir/files/screenshot_(9)_u47c.png' className='w-full h-full' />
         </SwiperSlide>
         <SwiperSlide className='w-full h-[100vh]'>
           <img alt="women2" src='https://s8.uupload.ir/files/screenshot_(7)_r0p7.png' className='w-full h-full' />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     )
 }
