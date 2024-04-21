@@ -21,7 +21,7 @@ import HeadCover from "./components/headCover/HeadCover";
 import Bag from "./components/bag/Bag";
 import 'swiper/css';
 import Slider from "./components/slider/Slider";
-import OffBox from "./components/offBox/OffBox";
+import OffBox from "./components/offBox1/OffBox";
 
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);

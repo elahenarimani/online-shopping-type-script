@@ -1,0 +1,39 @@
+.swiper-container .swiper-button-prev{
+    color: #A72F3B;
+   width: 5px ; 
+     /* max-width: 5px important!; */
+    min-height: 2px ;
+    max-height: 2px;  
+    min-width: 2px;
+    max-width: 2px;
+    /* max-height: 5px important!;   */
+  /* font-size: 5px important!;
+ 
+    
+    /* background-color: black; */
+   
+   
+
+   
+   
+  }
+   .swiper-container .swiper-button-next{
+    color: #A72F3B;
+    min-height: 2px ;
+    max-height: 2px;  
+    min-width: 2px;
+    max-width: 2px;
+    /* width: 15px important!; 
+  
+    height: 15px important!; */
+    /* background-color: black; */
+    /* max-width: 5px ;
+    min-width: 5px ;
+    height: 5px; */
+
+  }
+  
+  .swiper-button-prev:hover,
+   .swiper-button-next:hover {
+    color: #A72F3B; 
+  } 

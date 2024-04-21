@@ -12,7 +12,9 @@ function OffBox() {
                     <SlArrowLeft className='w-[13px] h-[13px] ' color='white'/>
                 </div>
             </div>
+            <div className='w-full h-full'>
             <Slider />
+            </div>
         </div>
     )
 }

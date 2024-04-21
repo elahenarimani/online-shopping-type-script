@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-// import { EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+// import { EffectFade } from 'swip er/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
@@ -11,31 +11,31 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css';
 import SwiperCore from 'swiper';
-import { Navigation } from 'swiper/modules';
+
 import 'swiper/swiper-bundle.css';
-SwiperCore.use([Navigation]);
+import './OffBoxSllider.css'
+SwiperCore.use([Navigation ,Pagination, Scrollbar, A11y]);
 
 function OffBoxSlider() {
     return (
-        <div className='pr-[16px] relative '>
+        <div className='swiper-container pr-[16px] relative '>
             <Swiper
-                // modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade]}
-                
+                modules={[Navigation]}
+
                 spaceBetween={250}
                 slidesPerView={4}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper: any) => console.log(swiper)}
-                //   effect="fade"
+                effect="fade"
                 navigation={{
 
-                    nextEl: '.swiper-button-next-2',
-                    prevEl: '.swiper-button-prev-2',
-                }
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }}
 
-                }
-            //   pagination={{ clickable: true }}
-            //   scrollbar={{ draggable: true }}
-            >
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+                                                 >
 
 
 
@@ -85,13 +85,13 @@ function OffBoxSlider() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='w-[300px] h-[400px] bg-white pl-[5px] pr-[5px] pt-[5px] pb-[5px]'>
+                    <div className='w-[300px]  bg-white pl-[5px] pr-[5px] pt-[5px] pb-[5px]'>
                         <img className='w-full h-full' src="https://s8.uupload.ir/files/ezgif-7-bbf34f2cb7_n798.png" alt="photo" />
 
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='w-[300px] h-[400px] bg-white pl-[5px] pr-[5px] pt-[5px] pb-[5px]'>
+                    <div className='w-[300px]  bg-white pl-[5px] pr-[5px] pt-[5px] pb-[5px]'>
                         <img className='w-full h-full' src="https://s8.uupload.ir/files/ezgif-2-9bb63f00b2_c740.png" alt="photo" />
 
                     </div>
@@ -99,8 +99,8 @@ function OffBoxSlider() {
 
 
             </Swiper>
-            <div className=" swiper-button-prev-2 absolute  z-100" style={{ fontSize: '20px', top: '50%', left: '50px' }}></div>
-            <div className=" swiper-button-next-2 absolute  z-100" style={{ fontSize: '20px', top: '50%', left: '50px' }}></div>
+            <div className="block swiper-button-prev absolute  z-10000000 " ></div>
+            <div className="block swiper-button-next absolute z-10000000" ></div>
         </div>
     )
 }
