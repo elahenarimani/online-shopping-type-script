@@ -22,7 +22,7 @@ import Bag from "./components/bag/Bag";
 import 'swiper/css';
 import Slider from "./components/slider/Slider";
 import OffBox from "./components/offBox1/OffBox";
-
+import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner'
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -290,6 +290,7 @@ function App() {
       </div>
      
       <main className="w-full h-full ">
+     
       <div className="w-full h-full">
         <Slider/>
       </div>
@@ -316,7 +317,7 @@ function App() {
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[30px] xl:pr-[30px]  pt-[10px] pb-[10px]  ">
         <OffBox/>
         </div>
-      
+        <BoutiqueBanner/>
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">
           <div className="w-full  flex flex-col justify-between items-center cursor-pointer">
             <div className="w-[30px] h-[30px]">
