@@ -1,4 +1,4 @@
-.swiper-container .swiper-button-prev{
+.swiper-container .swiper-button-prev:after{
     color: #A72F3B;
    width: 5px ; 
      /* max-width: 5px important!; */
@@ -17,7 +17,7 @@
    
    
   }
-   .swiper-container .swiper-button-next{
+   .swiper-container .swiper-button-next::after{
     color: #A72F3B;
     min-height: 2px ;
     max-height: 2px;  
