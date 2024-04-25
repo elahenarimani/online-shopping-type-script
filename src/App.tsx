@@ -22,7 +22,8 @@ import Bag from "./components/bag/Bag";
 import 'swiper/css';
 import Slider from "./components/slider/Slider";
 import OffBox from "./components/offBox1/OffBox";
-import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner'
+import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner';
+import ClassifyMobModal from './components/classifyMobModal/ClassifyMobModal'
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -30,7 +31,7 @@ function App() {
   const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
-
+  
   interface ICustomeStyles {
     content: {
       top: string;
@@ -101,6 +102,53 @@ function App() {
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
+  const [classifyModal , setclassifyModal] = useState<boolean>(false);
+ function openClassifyModal(){
+  setclassifyModal(true);
+ }
+ function closeClassifyModal(){
+  setclassifyModal(false);
+ }
+ interface ICustomClassifyModalStyles {
+  content: {
+    top: string;
+    left: string;
+    right: string;
+    bottom: string;
+    zIndex :string;
+    width?: string;
+    height:string;
+    marginRight : string;
+    transform: string;
+    borderRadius?: string;
+
+  };
+  overlay?: {
+    // backgroundColor: string;
+    zIndex: string;
+  };
+}
+const customClassifyModalStyles: ICustomClassifyModalStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    width: "90%",
+    height: "90%",
+    zIndex: "9999",
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+
+  },
+  overlay: {
+    // backgroundColor: "rgba(0, 0, 0, 0)",
+    zIndex: "9998"
+  },
+};
+  // function onRequestClose(): void {
+  //   throw new Error("Function not implemented.");
+  // }
 
   return (
     <div className="App">
@@ -125,13 +173,26 @@ function App() {
               <p className="w-full h-fulll">کاستومی لوگو</p>
             </div>
             <div className="text-[24px]">
+              <button  onClick={() => openClassifyModal()}>
               <PiListBold color="#A72F3B" />
+              </button>
+              <Modal
+                isOpen={classifyModal}
+                contentLabel="Classify Modal"
+                style={customClassifyModalStyles}
+                onRequestClose={closeClassifyModal}
+              >
+                <div onMouseLeave={closeClassifyModal}>
+                  <button onClick={() => closeClassifyModal()}></button>
+                  <ClassifyMobModal isOpen={classifyModal} onRequestClose={() => closeClassifyModal()}/>
+                </div>
+              </Modal>
             </div>
           </div>
           <div className="serach-wrapper w-full h-[40px] pl-[16px] pr-[16px]">
             <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
               <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-                <CiSearch color="#A72F3B" />
+                 <CiSearch color="#A72F3B" />
               </div>
               <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px]">
                 <input
@@ -179,20 +240,16 @@ function App() {
               <button onClick={() => openWomenModal()}>
                 <p className="cursor-pointer">زنانه</p>
               </button>
-
               <Modal
                 isOpen={womenIsOpen}
                 onRequestClose={closeWomenModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-
-
               >
                 <div onMouseLeave={closeWomenModal}>
                   <button onClick={() => closeWomenModal()}></button>
                   <Women />
                 </div>
-
               </Modal>
 
             </div>
