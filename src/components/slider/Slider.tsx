@@ -39,7 +39,7 @@ function Slider(){
           <img alt="women" src='https://s8.uupload.ir/files/2c627a1efeabeeb2d68a4740aad14b9ccd33235f_1713701900_jj7l.png' className='w-full h-full' />
         </SwiperSlide>
         <SwiperSlide className='w-full h-[100vh]'>
-          <img alt="women2" src='https://s8.uupload.ir/files/screenshot_(7)_r0p7.png' className='w-full h-full' />
+          <img alt="women2" src='https://s8.uupload.ir/files/2_ibsi.png' className='w-full h-full' />
         </SwiperSlide> 
       </Swiper>
     )
