@@ -23,7 +23,7 @@ function OffBoxSlider() {
                 modules={[Navigation]}
 
                 spaceBetween={10}
-                slidesPerView={7}
+                slidesPerView={'auto'}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper: any) => console.log(swiper)}
                 effect="fade"

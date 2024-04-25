@@ -1,21 +1,16 @@
+.swiper-container{
+  --swiper-space-between-mobile: 10px !important; 
+}
+.swiper-slide {
+  margin-right: var(--swiper-space-between);
+}
 .swiper-container .swiper-button-prev:after{
     color: #A72F3B;
    width: 5px ; 
-     /* max-width: 5px important!; */
     min-height: 2px ;
     max-height: 2px;  
     min-width: 2px;
     max-width: 2px;
-    /* max-height: 5px important!;   */
-  /* font-size: 5px important!;
- 
-    
-    /* background-color: black; */
-   
-   
-
-   
-   
   }
    .swiper-container .swiper-button-next::after{
     color: #A72F3B;
@@ -23,17 +18,24 @@
     max-height: 2px;  
     min-width: 2px;
     max-width: 2px;
-    /* width: 15px important!; 
-  
-    height: 15px important!; */
-    /* background-color: black; */
-    /* max-width: 5px ;
-    min-width: 5px ;
-    height: 5px; */
-
   }
   
   .swiper-button-prev:hover,
    .swiper-button-next:hover {
     color: #A72F3B; 
   } 
+  @media (max-width: 767px) {
+    .swiper-container {
+        --swiper-slides-per-view: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .swiper-container {
+        --swiper-slides-per-view: 7; /* Define the number of slides per view for desktop */
+    }
+}
+
+.swiper-slide {
+    width: calc((100% - (var(--swiper-space-between) * (var(--swiper-slides-per-view) - 1))) / var(--swiper-slides-per-view)); /* Adjust slide width */
+}
