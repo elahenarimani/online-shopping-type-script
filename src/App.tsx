@@ -170,9 +170,9 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
               </div>
             </div>
             <div className="w-[96px] h-[24px]">
-              <p className="w-full h-fulll">کاستومی لوگو</p>
+              <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
             </div>
-            <div className="text-[24px]">
+            <div className="text-[24px] pt-[10px] ">
               <button  onClick={() => openClassifyModal()}>
               <PiListBold color="#A72F3B" />
               </button>
@@ -182,8 +182,8 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
                 style={customClassifyModalStyles}
                 onRequestClose={closeClassifyModal}
               >
-                <div onMouseLeave={closeClassifyModal}>
-                  <button onClick={() => closeClassifyModal()}></button>
+                <div onMouseLeave={closeClassifyModal}   >
+                  <button onClick={() => closeClassifyModal()} ></button>
                   <ClassifyMobModal isOpen={classifyModal} onRequestClose={() => closeClassifyModal()}/>
                 </div>
               </Modal>
@@ -220,8 +220,10 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
                 ></input>
               </div>
             </div>
-            <div className="w-4/12 cursor-pointer">
-              <p>کاستومی لوگو</p>
+            <div className="w-[120px] h-[30px] cursor-pointer">
+            {/* <div className="w-[96px] h-[24px]"> */}
+              <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
+            {/* </div> */}
             </div>
             <div className="w-4/12 flex justify-end items-center gap-[10px]">
               <div className="text-[24px] cursor-pointer">
