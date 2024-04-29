@@ -23,7 +23,9 @@ import 'swiper/css';
 import Slider from "./components/slider/Slider";
 import OffBox from "./components/offBox1/OffBox";
 import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner';
-import ClassifyMobModal from './components/classifyMobModal/ClassifyMobModal'
+// import ClassifyMobModal from './components/classifyMobModal/ClassifyMobModal';
+import IntroduceProduct from './components/introduce-product/IntroduceProduct';
+import MobileHeader from './components/mobile-header/MobileHeader'
 function App() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -102,81 +104,89 @@ function App() {
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
-  const [classifyModal , setclassifyModal] = useState<boolean>(false);
- function openClassifyModal(){
-  setclassifyModal(true);
- }
- function closeClassifyModal(){
-  setclassifyModal(false);
- }
- interface ICustomClassifyModalStyles {
-  content: {
-    top: string;
-    left: string;
-    right: string;
-    bottom: string;
-    zIndex :string;
-    width?: string;
-    height:string;
-    marginRight : string;
-    transform: string;
-    borderRadius?: string;
+//   const [classifyModal , setclassifyModal] = useState<boolean>(false);
+//  function openClassifyModal(){
+//   setclassifyModal(true);
+//  }
+//  function closeClassifyModal(){
+//   setclassifyModal(false);
+//  }
+//  interface ICustomClassifyModalStyles {
+//   content: {
+//     top: string;
+//     left: string;
+//     right: string;
+//     bottom: string;
+//     zIndex :string;
+//     width?: string;
+//     height:string;
+//     marginRight : string;
+//     transform: string;
+//     borderRadius?: string;
 
-  };
-  overlay?: {
-    // backgroundColor: string;
-    zIndex: string;
-  };
-}
-const customClassifyModalStyles: ICustomClassifyModalStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    width: "90%",
-    height: "90%",
-    zIndex: "9999",
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+//   };
+//   overlay?: {
+//     // backgroundColor: string;
+//     zIndex: string;
+//   };
+// }
+// const customClassifyModalStyles: ICustomClassifyModalStyles = {
+//   content: {
+//     top: '50%',
+//     left: '50%',
+//     right: 'auto',
+//     bottom: 'auto',
+//     width: "90%",
+//     height: "90%",
+//     zIndex: "9999",
+//     marginRight: '-50%',
+//     transform: 'translate(-50%, -50%)',
 
-  },
-  overlay: {
-    // backgroundColor: "rgba(0, 0, 0, 0)",
-    zIndex: "9998"
-  },
-};
+//   },
+//   overlay: {
+//     // backgroundColor: "rgba(0, 0, 0, 0)",
+//     zIndex: "9998"
+//   },
+// };
   // function onRequestClose(): void {
   //   throw new Error("Function not implemented.");
   // }
 
   return (
     <div className="App">
-      <div className="w-full h-full">
-        <div className="mobile-header w-full flex flex-col justify-between items-center lg:hidden">
-          <div className="sigin-wrapper w-full h-[40px] flex flex-row justify-end items-center border-b-[1px] border-solid boder-[#F4F1EE] gap-[8px]">
-            <p className="text-[13px] font-bold">فروشگاه من</p>
-            <div className="text-[24px]  pl-[24px]">
+      <div className="w-full h-full ">
+      <div className="invisible w-full h-[80px] lg:hidden"></div>
+      <div className="mobile-header w-full h-[80px] fixed top-0 z-[1000000000000000000000]  lg:hidden">
+      <MobileHeader/>
+        </div>
+        {/* <div className="mobile-header w-full flex flex-col justify-between items-center  lg:hidden"> */}
+          {/* <div className="sigin-wrapper w-full h-[40px] flex flex-row justify-end items-center border-b-[1px] border-solid boder-[#F4F1EE] gap-[8px] bg-white"> */}
+            {/* <p className="text-[13px] font-bold">فروشگاه من</p> */}
+            {/* <div className="text-[24px]  pl-[24px]">
               <MdOutlineManageAccounts color="#A72F3B" />
-            </div>
-          </div>
-          <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] flex flex-row justify-between items-center">
-            <div className="w-[24px] h-[24px] flex justify-start gap-[5px]">
-              <div className="text-[24px]">
+            </div> */}
+          {/* </div> */}
+          {/* <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] flex flex-row justify-between items-center bg-white"> */}
+            {/* <div className="w-[24px] h-[24px] flex justify-start gap-[5px]"> */}
+              {/* <div className="text-[24px]">
                 <HiOutlineShoppingBag color="#A72F3B" />
-              </div>
-              <div className="text-[24px]">
+                
+              </div> */}
+              {/* <div className="text-[24px]">
+                 <CiSearch color="#A72F3B" />
+              </div> */}
+              {/* <div className="text-[24px]">
                 <IoMdHeartEmpty color="#A72F3B" />
-              </div>
-            </div>
-            <div className="w-[96px] h-[24px]">
+              </div> */}
+            {/* </div> */}
+            {/* <div className="w-[96px] h-[24px]">
               <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
-            </div>
-            <div className="text-[24px] pt-[10px] ">
-              <button  onClick={() => openClassifyModal()}>
+            </div> */}
+            {/* <div className="text-[24px] pt-[10px] "> */}
+              {/* <button  onClick={() => openClassifyModal()}>
               <PiListBold color="#A72F3B" />
-              </button>
-              <Modal
+              </button> */}
+              {/* <Modal
                 isOpen={classifyModal}
                 contentLabel="Classify Modal"
                 style={customClassifyModalStyles}
@@ -186,10 +196,10 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
                   <button onClick={() => closeClassifyModal()} ></button>
                   <ClassifyMobModal isOpen={classifyModal} onRequestClose={() => closeClassifyModal()}/>
                 </div>
-              </Modal>
-            </div>
-          </div>
-          <div className="serach-wrapper w-full h-[40px] pl-[16px] pr-[16px]">
+              </Modal> */}
+            {/* </div> */}
+          {/* </div> */}
+          {/* <div className="serach-wrapper w-full h-[40px] pl-[16px] pr-[16px] bg-white">
             <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
               <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
                  <CiSearch color="#A72F3B" />
@@ -201,8 +211,8 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
                 ></input>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <div className="desktop-header hidden lg:block">
           <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer">
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
@@ -221,9 +231,7 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
               </div>
             </div>
             <div className="w-[120px] h-[30px] cursor-pointer">
-            {/* <div className="w-[96px] h-[24px]"> */}
               <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
-            {/* </div> */}
             </div>
             <div className="w-4/12 flex justify-end items-center gap-[10px]">
               <div className="text-[24px] cursor-pointer">
@@ -494,6 +502,7 @@ const customClassifyModalStyles: ICustomClassifyModalStyles = {
           </div>
         </div>
       </footer>
+      <IntroduceProduct/>
     </div>
   );
 }
