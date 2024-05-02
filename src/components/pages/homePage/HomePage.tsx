@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import ReactModal from 'react-modal';
-import "./App.css";
+import React, {  useState ,useEffect, createContext} from "react";
+// import ReactModal from 'react-modal';
+import "./homePage.css";
 import { MdOutlineManageAccounts } from "react-icons/md";
-import { PiListBold } from "react-icons/pi";
+// import { PiListBold } from "react-icons/pi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -13,27 +13,48 @@ import { FaInstagram } from "react-icons/fa";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { LuTwitter } from "react-icons/lu";
 import Modal from "react-modal";
-import Women from "./components/women/Women";
-import Men from "./components/men/Men";
-import Child from "./components/child/Child";
-import BeautyHealthy from "./components/beauty-healthy/BeautyHealthy";
-import HeadCover from "./components/headCover/HeadCover";
-import Bag from "./components/bag/Bag";
+
+import Women from '../../women/Women'
+import Men from '../../men/Men';
+import Child from '../../child/Child';
+import BeautyHealthy from '../../beauty-healthy/BeautyHealthy';
+import HeadCover from '../../headCover/HeadCover';
+import Bag from '../../bag/Bag';
 import 'swiper/css';
-import Slider from "./components/slider/Slider";
-import OffBox from "./components/offBox1/OffBox";
-import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner';
-// import ClassifyMobModal from './components/classifyMobModal/ClassifyMobModal';
-import IntroduceProduct from './components/productDetailePage/ProductDetailePage';
-import MobileHeader from './components/mobile-header/MobileHeader'
-function App() {
+import Slider from '../../slider/Slider';
+import OffBox from '../../offBox1/OffBox';
+import BoutiqueBanner from '../../boutiqueBanner/BoutiqueBanner';
+import ProductDetailePage from '../../productDetailePage/ProductDetailePage'
+
+import MobileHeader from '../../mobile-header/MobileHeader';
+import axios from "axios"
+function HomePage() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
   const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
   const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
-  
+  interface IProduct{
+    id: number,
+    head_category: string,
+    category: string,
+    name: string,
+    price: number, 
+    in_stock: number,
+    image: string[]
+}
+interface IProductList{
+    productList : IProduct[]
+}
+  const [productList , setProductList] = useState<IProduct[]>([]);
+  useEffect(()=>{
+    axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
+    .then(result => setProductList(result.data)
+  // .catch(err=> console.log(err))
+  )
+  },[])
+  //  export const ProductListContext = createContext<null | {productList:any , setProductList:Function}>(null)
   interface ICustomeStyles {
     content: {
       top: string;
@@ -65,7 +86,7 @@ function App() {
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
-      zIndex: "9998"
+      zIndex: "9999"
     },
   };
   const openWomenModal = () => {
@@ -104,115 +125,19 @@ function App() {
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
-//   const [classifyModal , setclassifyModal] = useState<boolean>(false);
-//  function openClassifyModal(){
-//   setclassifyModal(true);
-//  }
-//  function closeClassifyModal(){
-//   setclassifyModal(false);
-//  }
-//  interface ICustomClassifyModalStyles {
-//   content: {
-//     top: string;
-//     left: string;
-//     right: string;
-//     bottom: string;
-//     zIndex :string;
-//     width?: string;
-//     height:string;
-//     marginRight : string;
-//     transform: string;
-//     borderRadius?: string;
-
-//   };
-//   overlay?: {
-//     // backgroundColor: string;
-//     zIndex: string;
-//   };
-// }
-// const customClassifyModalStyles: ICustomClassifyModalStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     width: "90%",
-//     height: "90%",
-//     zIndex: "9999",
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-
-//   },
-//   overlay: {
-//     // backgroundColor: "rgba(0, 0, 0, 0)",
-//     zIndex: "9998"
-//   },
-// };
-  // function onRequestClose(): void {
-  //   throw new Error("Function not implemented.");
-  // }
 
   return (
-    <div className="App">
+    // <>
+    //  <ProductListContext.Provider value={
+    //   {productList , setProductList}
+    //   }>
+         <div className="App">
       <div className="w-full h-full ">
       <div className="invisible w-full h-[80px] lg:hidden"></div>
-      <div className="mobile-header w-full h-[80px] fixed top-0 z-[1000000000000000000000]  lg:hidden">
+      <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
       <MobileHeader/>
         </div>
-        {/* <div className="mobile-header w-full flex flex-col justify-between items-center  lg:hidden"> */}
-          {/* <div className="sigin-wrapper w-full h-[40px] flex flex-row justify-end items-center border-b-[1px] border-solid boder-[#F4F1EE] gap-[8px] bg-white"> */}
-            {/* <p className="text-[13px] font-bold">فروشگاه من</p> */}
-            {/* <div className="text-[24px]  pl-[24px]">
-              <MdOutlineManageAccounts color="#A72F3B" />
-            </div> */}
-          {/* </div> */}
-          {/* <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] flex flex-row justify-between items-center bg-white"> */}
-            {/* <div className="w-[24px] h-[24px] flex justify-start gap-[5px]"> */}
-              {/* <div className="text-[24px]">
-                <HiOutlineShoppingBag color="#A72F3B" />
-                
-              </div> */}
-              {/* <div className="text-[24px]">
-                 <CiSearch color="#A72F3B" />
-              </div> */}
-              {/* <div className="text-[24px]">
-                <IoMdHeartEmpty color="#A72F3B" />
-              </div> */}
-            {/* </div> */}
-            {/* <div className="w-[96px] h-[24px]">
-              <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
-            </div> */}
-            {/* <div className="text-[24px] pt-[10px] "> */}
-              {/* <button  onClick={() => openClassifyModal()}>
-              <PiListBold color="#A72F3B" />
-              </button> */}
-              {/* <Modal
-                isOpen={classifyModal}
-                contentLabel="Classify Modal"
-                style={customClassifyModalStyles}
-                onRequestClose={closeClassifyModal}
-              >
-                <div onMouseLeave={closeClassifyModal}   >
-                  <button onClick={() => closeClassifyModal()} ></button>
-                  <ClassifyMobModal isOpen={classifyModal} onRequestClose={() => closeClassifyModal()}/>
-                </div>
-              </Modal> */}
-            {/* </div> */}
-          {/* </div> */}
-          {/* <div className="serach-wrapper w-full h-[40px] pl-[16px] pr-[16px] bg-white">
-            <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
-              <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-                 <CiSearch color="#A72F3B" />
-              </div>
-              <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px]">
-                <input
-                  className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56]"
-                  placeholder="جستجو"
-                ></input>
-              </div>
-            </div>
-          </div> */}
-        {/* </div> */}
+
         <div className="desktop-header hidden lg:block">
           <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer">
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
@@ -502,12 +427,14 @@ function App() {
           </div>
         </div>
       </footer>
-      <ProductDetailPage productList={productList}/>
+      <ProductDetailePage productList={productList}  setProductList={setProductList} />
     </div>
+    // </ProductListContext.Provider>
+    // </>
   );
 }
 
-export default App;
+export default HomePage;
 function setIsModalOpen(arg0: boolean) {
   throw new Error("Function not implemented.");
 }

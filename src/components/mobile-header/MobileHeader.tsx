@@ -25,11 +25,15 @@ function MobileHeader() {
             marginRight: string;
             transform: string;
             borderRadius?: string;
+            // overflow: string;
+            // scrolling:string
+         
 
         };
         overlay?: {
-            // backgroundColor: string;
+            backgroundColor: string;
             zIndex: string;
+           
         };
     }
     const customClassifyModalStyles: ICustomClassifyModalStyles = {
@@ -43,11 +47,14 @@ function MobileHeader() {
             zIndex: "9999",
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+           
+            // overflow: 'visible'
 
         },
         overlay: {
-            // backgroundColor: "rgba(0, 0, 0, 0)",
-            zIndex: "9998"
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            zIndex: "9998",
+          
         },
     };
     return (
@@ -94,19 +101,7 @@ function MobileHeader() {
                         </div>
                     </Modal>
                 </div>
-                {/* <div className="serach-wrapper w-full h-[40px] pl-[16px] pr-[16px] bg-white">
-            <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
-              <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-                 <CiSearch color="#A72F3B" />
-              </div>
-              <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px]">
-                <input
-                  className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56]"
-                  placeholder="جستجو"
-                ></input>
-              </div>
-            </div>
-          </div> */}
+           
             </div>
         </div>
     )

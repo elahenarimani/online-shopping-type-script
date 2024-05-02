@@ -70,23 +70,6 @@ body,html{
     transition: outline-offset 200ms ease;
     color: white;
     }
-}
-/* .ReactModal__Overlay--after-open{
-  background-color: rgba(0, 0, 0,1);
-  z-index: 50;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
-/* .modal-wrapper {
-  background-color:transparent;
-  opacity: 1;
-} */
-/* .modal-content.not-hovered {
-   background-color:transparent;
-  opacity: 1;
-} */
 *{
   font-family: dana;
 }
