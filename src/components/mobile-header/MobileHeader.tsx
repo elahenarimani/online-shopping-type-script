@@ -27,13 +27,10 @@ function MobileHeader() {
             borderRadius?: string;
             // overflow: string;
             // scrolling:string
-         
-
         };
         overlay?: {
             backgroundColor: string;
-            zIndex: string;
-           
+            zIndex: string; 
         };
     }
     const customClassifyModalStyles: ICustomClassifyModalStyles = {
@@ -47,19 +44,15 @@ function MobileHeader() {
             zIndex: "9999",
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-           
             // overflow: 'visible'
-
         },
         overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.7)",
             zIndex: "9998",
-          
         },
     };
     return (
         <div className=" w-full h-full  ">
-            
             <div className=" w-full flex flex-col justify-between items-center ">
                 <div className="sigin-wrapper w-full h-[40px] flex flex-row justify-end items-center border-b-[1px] border-solid boder-[#F4F1EE] gap-[8px] bg-white">
                     <p className="text-[13px] font-bold">فروشگاه من</p>
@@ -67,11 +60,10 @@ function MobileHeader() {
                         <MdOutlineManageAccounts color="#A72F3B" />
                     </div>
                 </div>
-                <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] flex flex-row justify-between items-center bg-white">
+                <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] pb-[1px] flex flex-row justify-between items-center border-b-[1px] border-solid boder-[#F4F1EE] bg-white">
                     <div className="w-[24px] h-[24px] flex justify-start gap-[5px]">
                         <div className="text-[24px]">
                             <HiOutlineShoppingBag color="#A72F3B" />
-
                         </div>
                         <div className="text-[24px]">
                             <CiSearch color="#A72F3B" />
@@ -87,7 +79,6 @@ function MobileHeader() {
                         <button onClick={() => openClassifyModal()}>
                             <PiListBold color="#A72F3B" />
                         </button>
-
                     </div>
                     <Modal
                         isOpen={classifyModal}
@@ -101,7 +92,6 @@ function MobileHeader() {
                         </div>
                     </Modal>
                 </div>
-           
             </div>
         </div>
     )

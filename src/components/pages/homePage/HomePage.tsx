@@ -1,4 +1,4 @@
-import React, {  useState ,useEffect, createContext} from "react";
+import React, { useState, useEffect, createContext } from "react";
 // import ReactModal from 'react-modal';
 import "./homePage.css";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -13,7 +13,6 @@ import { FaInstagram } from "react-icons/fa";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { LuTwitter } from "react-icons/lu";
 import Modal from "react-modal";
-
 import Women from '../../women/Women'
 import Men from '../../men/Men';
 import Child from '../../child/Child';
@@ -24,8 +23,7 @@ import 'swiper/css';
 import Slider from '../../slider/Slider';
 import OffBox from '../../offBox1/OffBox';
 import BoutiqueBanner from '../../boutiqueBanner/BoutiqueBanner';
-import ProductDetailePage from '../../productDetailePage/ProductDetailePage'
-
+import ProductDetailePage from '../productDetailePage/ProductDetailePage'
 import MobileHeader from '../../mobile-header/MobileHeader';
 import axios from "axios"
 function HomePage() {
@@ -35,37 +33,37 @@ function HomePage() {
   const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
-  interface IProduct{
+  interface IProduct {
     id: number,
     head_category: string,
     category: string,
     name: string,
-    price: number, 
+    price: number,
     in_stock: number,
     image: string[]
-}
-interface IProductList{
-    productList : IProduct[]
-}
-  const [productList , setProductList] = useState<IProduct[]>([]);
-  useEffect(()=>{
+  }
+  interface IProductList {
+    productList?: IProduct[],
+    setProductList?: Function
+  }
+  const [productList, setProductList] = useState<IProduct[]>([]);
+  useEffect(() => {
     axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
-    .then(result => setProductList(result.data)
-  // .catch(err=> console.log(err))
-  )
-  },[])
-  //  export const ProductListContext = createContext<null | {productList:any , setProductList:Function}>(null)
+      .then(result => setProductList(result.data)
+        // .catch(err=> console.log(err))
+      )
+  }, [])
+  //  export const ProductListContext = createContext<null | {productList:IProductList , setProductList:Function}>(null)
   interface ICustomeStyles {
     content: {
       top: string;
       left: string;
       right: string;
       bottom: string;
-      zIndex :string;
+      zIndex: string;
       width?: string;
       transform: string;
       borderRadius?: string;
-
     };
     overlay?: {
       backgroundColor: string;
@@ -82,7 +80,6 @@ interface IProductList{
       zIndex: "9999",
       transform: "translate(-6% , 0)",
       borderRadius: "15px",
-
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
@@ -125,19 +122,17 @@ interface IProductList{
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
-
   return (
     // <>
     //  <ProductListContext.Provider value={
     //   {productList , setProductList}
     //   }>
-         <div className="App">
+    <div className="App">
       <div className="w-full h-full ">
-      <div className="invisible w-full h-[80px] lg:hidden"></div>
-      <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
-      <MobileHeader/>
+        <div className="invisible w-full h-[80px] lg:hidden"></div>
+        <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
+          <MobileHeader />
         </div>
-
         <div className="desktop-header hidden lg:block">
           <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer">
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
@@ -186,7 +181,6 @@ interface IProductList{
                   <Women />
                 </div>
               </Modal>
-
             </div>
             <div>
               <button onClick={() => openMenModal()}>
@@ -197,15 +191,12 @@ interface IProductList{
                 onRequestClose={closeMenModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-
               >
                 <div onMouseLeave={closeMenModal}>
                   <button onClick={() => closeMenModal()}></button>
                   <Men />
                 </div>
-
               </Modal>
-
             </div>
             <div>
               <button onClick={() => openChildModal()}>
@@ -216,16 +207,13 @@ interface IProductList{
                 onRequestClose={closeChildModal}
                 contentLabel="Example Modal"
                 style={customStyles}
-
               >
                 <div onMouseLeave={closeChildModal}>
                   <button onClick={() => closeChildModal()}></button>
                   <Child />
                 </div>
-
               </Modal>
             </div>
-
             <div>
               <button onClick={() => openBeautyHealthyModal()}>
                 <p className="cursor-pointer"> زیبایی و سلامت</p>
@@ -240,7 +228,6 @@ interface IProductList{
                   <button onClick={() => closeBeautyHealthyModal()}></button>
                   <BeautyHealthy />
                 </div>
-
               </Modal>
             </div>
             <div>
@@ -257,7 +244,6 @@ interface IProductList{
                   <button onClick={() => closeHeadCoverModal()}></button>
                   <HeadCover />
                 </div>
-
               </Modal>
             </div>
             <div>
@@ -274,21 +260,17 @@ interface IProductList{
                   <button onClick={() => closeBagModal()}></button>
                   <Bag />
                 </div>
-
               </Modal>
             </div>
           </div>
         </div>
       </div>
-     
       <main className="w-full h-full ">
-     
-      <div className="w-full h-full">
-        <Slider/>
-      </div>
-        
+        <div className="w-full h-full">
+          <Slider />
+        </div>
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[50px] xl:pr-[50px]  pt-[10px] pb-[10px]  ">
-        <OffBox/>
+          <OffBox />
         </div>
         <div className="container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  xl:pt-[15px] xl:pb-[15px] gap-[10px] ">
           <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
@@ -310,7 +292,7 @@ interface IProductList{
             <p>کیف</p>
           </div>
         </div>
-        <BoutiqueBanner/>
+        <BoutiqueBanner />
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">
           <div className="w-full  flex flex-col justify-between items-center cursor-pointer">
             <div className="w-[30px] h-[30px]">
@@ -406,7 +388,6 @@ interface IProductList{
               <p className="text-[#7B7B7B]">تماس با دیجی استایل</p>
               <p className="text-[#7B7B7B]">همکاری با دیجی استایل</p>
             </div>
-
             <div className="flex flex-col justify-between items-start gap-[20px]">
               <p>تلفن پشتیبانی:</p>
               <div className="w-full h-full flex justify-around items-center gap-[80px]">
@@ -420,20 +401,18 @@ interface IProductList{
                   <LuTwitter color="#7B7B7B" className="w-full h-full" />
                 </div>
               </div>
-
               <p>ثبت نام در خبرنامه دیجی استایل</p>
               <p>اینجا اینپوت</p>
             </div>
           </div>
         </div>
       </footer>
-      <ProductDetailePage productList={productList}  setProductList={setProductList} />
+      {/* <ProductDetailePage  /> */}
     </div>
-    // </ProductListContext.Provider>
-    // </>
-  );
+    /* </ProductListContext.Provider>
+    </> */
+  )
 }
-
 export default HomePage;
 function setIsModalOpen(arg0: boolean) {
   throw new Error("Function not implemented.");
