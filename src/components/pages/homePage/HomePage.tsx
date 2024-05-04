@@ -1,24 +1,16 @@
 import React, { useState, useEffect, createContext } from "react";
 // import ReactModal from 'react-modal';
 import "./homePage.css";
-import { MdOutlineManageAccounts } from "react-icons/md";
+
 // import { PiListBold } from "react-icons/pi";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { CiSearch } from "react-icons/ci";
-import { IoMdHeartEmpty } from "react-icons/io";
+
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { TbRewindBackward15 } from "react-icons/tb";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { FaInstagram } from "react-icons/fa";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { LuTwitter } from "react-icons/lu";
-import Modal from "react-modal";
-import Women from '../../women/Women'
-import Men from '../../men/Men';
-import Child from '../../child/Child';
-import BeautyHealthy from '../../beauty-healthy/BeautyHealthy';
-import HeadCover from '../../headCover/HeadCover';
-import Bag from '../../bag/Bag';
+
 import 'swiper/css';
 import Slider from '../../slider/Slider';
 import OffBox from '../../offBox1/OffBox';
@@ -26,102 +18,32 @@ import BoutiqueBanner from '../../boutiqueBanner/BoutiqueBanner';
 import ProductDetailePage from '../productDetailePage/ProductDetailePage'
 import MobileHeader from '../../mobile-header/MobileHeader';
 import axios from "axios"
+import DesktopHeader from "./components/desktopHeader/DesktopHeader";
 function HomePage() {
-  const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
-  const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
-  const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
-  const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
-  const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
-  const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
-  interface IProduct {
-    id: number,
-    head_category: string,
-    category: string,
-    name: string,
-    price: number,
-    in_stock: number,
-    image: string[]
-  }
-  interface IProductList {
-    productList?: IProduct[],
-    setProductList?: Function
-  }
-  const [productList, setProductList] = useState<IProduct[]>([]);
-  useEffect(() => {
-    axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
-      .then(result => setProductList(result.data)
-        // .catch(err=> console.log(err))
-      )
-  }, [])
+ 
+  // interface IProduct {
+  //   id: number,
+  //   head_category: string,
+  //   category: string,
+  //   name: string,
+  //   price: number,
+  //   in_stock: number,
+  //   image: string[]
+  // }
+  // interface IProductList {
+  //   productList?: IProduct[],
+  //   setProductList?: Function
+  // }
+  // const [productList, setProductList] = useState<IProduct[]>([]);
+  // useEffect(() => {
+  //   axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
+  //     .then(result => setProductList(result.data)
+  //       // .catch(err=> console.log(err))
+  //     )
+  // }, [])
   //  export const ProductListContext = createContext<null | {productList:IProductList , setProductList:Function}>(null)
-  interface ICustomeStyles {
-    content: {
-      top: string;
-      left: string;
-      right: string;
-      bottom: string;
-      zIndex: string;
-      width?: string;
-      transform: string;
-      borderRadius?: string;
-    };
-    overlay?: {
-      backgroundColor: string;
-      zIndex: string;
-    };
-  }
-  const customStyles: ICustomeStyles = {
-    content: {
-      top: "23%",
-      left: "auto",
-      right: "auto",
-      bottom: "auto",
-      width: "90%",
-      zIndex: "9999",
-      transform: "translate(-6% , 0)",
-      borderRadius: "15px",
-    },
-    overlay: {
-      backgroundColor: "rgba(0, 0, 0, 0)",
-      zIndex: "9999"
-    },
-  };
-  const openWomenModal = () => {
-    setWomenIsOpen(true);
-  };
-  const closeWomenModal = () => {
-    setWomenIsOpen(false);
-  };
-  const openMenModal = () => {
-    setMenIsOpen(true);
-  };
-  const closeMenModal = () => {
-    setMenIsOpen(false);
-  };
-  const openChildModal = () => {
-    setChildIsOpen(true);
-  };
-  const closeChildModal = () => {
-    setChildIsOpen(false);
-  };
-  const openBeautyHealthyModal = () => {
-    setBeautyHealthyIsOpen(true);
-  };
-  const closeBeautyHealthyModal = () => {
-    setBeautyHealthyIsOpen(false);
-  };
-  const openHeadCoverModal = () => {
-    setHeadCoverIsOpen(true);
-  };
-  const closeHeadCoverModal = () => {
-    setHeadCoverIsOpen(false);
-  };
-  const openBagModal = () => {
-    setBagIsOpen(true);
-  };
-  const closeBagModal = () => {
-    setBagIsOpen(false);
-  };
+ 
+
   return (
     // <>
     //  <ProductListContext.Provider value={
@@ -133,11 +55,14 @@ function HomePage() {
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
           <MobileHeader />
         </div>
-        <div className="desktop-header hidden lg:block">
+        {/* <div className="invisible w-full h-[154px] hidden"></div> */}
+        <div className="desktop-header hidden  lg:block w-full">
+          <DesktopHeader/>
+        </div>
+        {/* <div className="desktop-header hidden lg:block">
           <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer">
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
           </p>
-          {/* <button onMouseEnter={(e: any) => openModal()}>Open Modal</button> */}
           <div className="w-full h-[70px] p-[10px] flex justify-between items-center">
             <div className="search w-4/12 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
               <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
@@ -263,7 +188,7 @@ function HomePage() {
               </Modal>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <main className="w-full h-full ">
         <div className="w-full h-full">
