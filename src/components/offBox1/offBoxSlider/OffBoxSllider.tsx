@@ -12,6 +12,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css';
 import SwiperCore from 'swiper';
 
+
 import 'swiper/swiper-bundle.css';
 import './OffBoxSllider.css'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);

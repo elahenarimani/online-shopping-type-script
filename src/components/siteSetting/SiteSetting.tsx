@@ -16,7 +16,7 @@ interface IProductList {
     productList?: IProduct[],
     setProductList?: Function
 }
-export const ProductListContext = createContext<null | { productList: IProduct[], setProductList: Function }>(null)
+export const ProductListContext = createContext<null | { productList: IProduct[], setProductList: Function  }>(null)
 function SiteSetting({ children }: Iprops) {
     useEffect(() => {
         axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
