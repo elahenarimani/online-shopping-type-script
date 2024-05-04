@@ -8,9 +8,11 @@ import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import './productDetailePage.css'
 import { Navigation, Pagination } from 'swiper/modules';
 import { isTemplateExpression } from "typescript";
+import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
 interface IProduct {
     id: string,
     head_category: string,
@@ -72,11 +74,35 @@ function ProductDetailePage() {
                 </div>
             </div>
             <div className="hidden lg:block">
-                <p>زنانه/بالاپوش/تیشرت</p>
-                <div className="flex justify-between items-center">
-                     
-                </div>
+                <DesktopHeader />
+                <div className="product-detaile-wrapper ">
+                    <p>زنانه/بالاپوش/تیشرت</p>
+                    <div className="w-full h-screen flex justify-between items-center ">
+                        <div className="w-2/4 h-screen">
+                            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                                <SwiperSlide>
+                                    <div className="swiper-slide2">
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0]} />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="swiper-slide2">
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1]} />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="swiper-slide2 ">
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2]} />
+                                    </div>
+                                </SwiperSlide>
 
+                            </Swiper>
+                        </div>
+                        <div className=" h-screen">
+                            <p>hi</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

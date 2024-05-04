@@ -20,3 +20,28 @@
     height: 20px;
    
   }
+  .product-detaile-wrapper{
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  .swiper-button-prev:after {
+   color: black;
+   background-color: rgb(167, 166, 166);
+   width: 20px !important;
+   height: 20px !important;
+ 
+   font-size: 20px;
+}
+
+
+.swiper-button-next:after {
+   
+    color: black;
+    background-color: rgb(167, 166, 166);
+    width: 20px !important;
+    height: 20px !important;
+  
+    font-size: 20px;
+}
