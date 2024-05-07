@@ -87,7 +87,7 @@ function  DesktopHeader(){
       };
     return(
         <div className=" w-full h-full ">
-          <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer">
+          <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
           </p>
           <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white">
