@@ -47,7 +47,21 @@ function ProductDetailePage() {
             buyCartX.setBuyCart([...buyCartX.buyCart]);
         }
     }
-    console.log(buyCartX.buyCart[6]?.count)
+    function removeFromBuyCart(productId: number | undefined | string) {
+        const buyCartIndexFinder = buyCartX?.buyCart.findIndex(product => product.productId === productId)
+        if (buyCartIndexFinder >= 0) {
+            if (buyCartX.buyCart[buyCartIndexFinder].count > 1) {
+                const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+                currentItem.count -= 1;
+                buyCartX.setBuyCart([...buyCartX.buyCart])
+            } else {
+                const filteredBuyCart = buyCartX.buyCart.filter(item => item.productId !== productId)
+                buyCartX.setBuyCart([...filteredBuyCart])
+
+            }
+        }
+    }
+    // console.log(buyCartX.buyCart[6]?.count)
     return (
         <div>
             <div className="w-full h-full md:hidden">
@@ -144,14 +158,15 @@ function ProductDetailePage() {
                                     <div className=" text-[12px]">گارانتی اسالت سلامت فیزیکی کالا</div>
                                 </div>
                             </div>
-                            <div className="flex flex-row justify-between items-center gap-[10px] ">
-                                <p>تعداد:</p>
-                                <Button className="w-[20px] h-[20px]" onClickHandler={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></Button>
-                                {/* <button className="w-[20px] h-[20px]" onClick={() => addBuyCart(productId)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button> */}
-                                <p>{params.id && (buyCartX?.buyCart.find(item => item.productId == +(params?.id ?? ""))?.count ?? 0)}</p>
-                                {/* <p>{buyCartX?.buyCart[6].count ?? 0}</p> */}
-                                 <Button className="w-[20px] h-[20px]" onClickHandler={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></Button>
-                                <button className="w-[20px] h-[20px] opacity-50" disabled><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p></button>
+                            <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
+                                <p className="w-[50px] important!">تعداد:</p>
+                                <button className="w-[20px] h-[20px]" onClick={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                                <p className="w-[20px] flex justify-center items-center">{params.id && (buyCartX?.buyCart.find(item => item.productId == +(params?.id ?? ""))?.count ?? 0)}</p>
+                                <button className={`w-[20px] h-[20px] rounded-[50%] ${(buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count ?? 0) > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
+                                    disabled={buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count == 0}
+                                    onClick={() => removeFromBuyCart(params.id)}>
+                                    <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
+                                </button>
                             </div>
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
