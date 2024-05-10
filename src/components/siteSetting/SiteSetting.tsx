@@ -16,6 +16,17 @@ interface IProductList {
     productList?: IProduct[],
     setProductList?: Function
 }
+interface IBuyCartItem{
+    productId: number,
+    count:number
+}
+interface IBuyCart{
+    buyCart:IBuyCartItem[],
+    setBuyCart:Function
+}
+const initialBuyCart: IBuyCartItem[] = [{ productId: 0, count: 0 }];
+export let BuyCartContext =createContext<IBuyCart>({ buyCart: initialBuyCart, setBuyCart: Function });
+// export let BuyCartContext =createContext<(null|{ buyCart: IBuyCartItem[], setBuyCart: Function })>(null);
 export const ProductListContext = createContext<null | { productList: IProduct[], setProductList: Function  }>(null)
 function SiteSetting({ children }: Iprops) {
     useEffect(() => {
@@ -25,11 +36,14 @@ function SiteSetting({ children }: Iprops) {
             )
     }, [])
     const [productList, setProductList] = useState<IProduct[]>([]);
+    let [buyCart , setBuyCart] = useState<IBuyCartItem[]>([])
     return (
-        <ProductListContext.Provider value={{ productList, setProductList }}>
+        <ProductListContext.Provider value={{ productList, setProductList}}>
+            <BuyCartContext.Provider value={{buyCart , setBuyCart}}>
             {
                 children
             }
+            </BuyCartContext.Provider>
         </ProductListContext.Provider>
     )
 }

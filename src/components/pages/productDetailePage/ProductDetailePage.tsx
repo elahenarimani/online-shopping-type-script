@@ -2,6 +2,7 @@ import { GrFavorite } from "react-icons/gr";
 import { GoShareAndroid } from "react-icons/go";
 import { useContext, useState } from "react";
 import { ProductListContext } from '../../siteSetting/SiteSetting'
+import { BuyCartContext } from '../../siteSetting/SiteSetting'
 import { Outlet, useParams } from "react-router-dom";
 import MobileHeader from "../../mobile-header/MobileHeader";
 import React, { useRef } from 'react';
@@ -17,9 +18,10 @@ import { BsShieldCheck } from "react-icons/bs";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { FaPlus } from "react-icons/fa6";
 
-
-
+import { FiMinus } from "react-icons/fi";
+import Button from "../../button/Button";
 interface IProduct {
     id: string,
     head_category: string,
@@ -30,8 +32,22 @@ interface IProduct {
     image: string[]
 }
 function ProductDetailePage() {
-    const productListX = useContext(ProductListContext)
-    const params = useParams<{ id: string }>()
+    const productListX = useContext(ProductListContext);
+    let buyCartX = useContext(BuyCartContext)
+    const params = useParams()
+    function addBuyCart(productId: number | undefined | string) {
+        const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
+        console.log("Buy cart index finder:", buyCartIndexFinder);
+        if (buyCartIndexFinder === -1) {
+            buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
+        }
+        else {
+            const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+            currentItem.count += 1;
+            buyCartX.setBuyCart([...buyCartX.buyCart]);
+        }
+    }
+    console.log(buyCartX.buyCart[6]?.count)
     return (
         <div>
             <div className="w-full h-full md:hidden">
@@ -89,44 +105,53 @@ function ProductDetailePage() {
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 <SwiperSlide>
                                     <div className="swiper-slide2">
-                                        <img className="w-full h-full"   src={productListX?.productList.find(item => item?.id === params.id)?.image[0]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0]} />
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <div className="swiper-slide2">
-                                        <img className="w-full h-full"  src={productListX?.productList.find(item => item?.id === params.id)?.image[1]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1]} />
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <div className="swiper-slide2 ">
-                                        <img className="w-full h-full"  src={productListX?.productList.find(item => item?.id === params.id)?.image[2]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2]} />
                                     </div>
                                 </SwiperSlide>
                             </Swiper>
                         </div>
                         <div className="w-1/3  h-full flex flex-col justify-between items-start  ">
                             {/* <div className="flex flex-col judsify-between items-center"> */}
-                                <div className="w-full text-[24px] cursor-pointer flex justify-end">
-                                    <GoShareAndroid color="#A72F3B" />
-                                </div>
-                                <div className="text-[20px]">{productListX?.productList.find(item => item?.id === params.id)?.name}</div>
+                            <div className="w-full text-[24px] cursor-pointer flex justify-end">
+                                <GoShareAndroid color="#A72F3B" />
+                            </div>
+                            <div className="text-[20px]">{productListX?.productList.find(item => item?.id === params.id)?.name}</div>
                             {/* </div> */}
                             <div className="w-full flex flex-row justify-between items-center">
                                 <div><p className="text-[14px] text-[#9B9B9B]">فروشنده: کاستومی</p></div>
                                 <div className="flex  flex-row justify-between items-center text-[28px] ">
-                                <p>190</p>
-                                <p>تومان</p>
-                            </div>
+                                    <p>190</p>
+                                    <p>تومان</p>
+                                </div>
                             </div>
                             <div>
-                            <div className="flex flex-row justify-start itwms-center gap-[10px] text-[#9B9B9B]">
-                                <div className="cursor-pointer"><TbBus /></div>
-                                <div className=" text-[12px]">آماده ارسال</div>
+                                <div className="flex flex-row justify-start itwms-center gap-[10px] text-[#9B9B9B]">
+                                    <div className="cursor-pointer"><TbBus /></div>
+                                    <div className=" text-[12px]">آماده ارسال</div>
+                                </div>
+                                <div className="flex flex-row justify-start items-center gap-[10px] text-[#9B9B9B]">
+                                    <div className=" cursor-pointer"><BsShieldCheck /></div>
+                                    <div className=" text-[12px]">گارانتی اسالت سلامت فیزیکی کالا</div>
+                                </div>
                             </div>
-                            <div className="flex flex-row justify-start items-center gap-[10px] text-[#9B9B9B]">
-                                <div className=" cursor-pointer"><BsShieldCheck /></div>
-                                <div className=" text-[12px]">گارانتی اسالت سلامت فیزیکی کالا</div>
-                            </div>
+                            <div className="flex flex-row justify-between items-center gap-[10px] ">
+                                <p>تعداد:</p>
+                                <Button className="w-[20px] h-[20px]" onClickHandler={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></Button>
+                                {/* <button className="w-[20px] h-[20px]" onClick={() => addBuyCart(productId)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button> */}
+                                <p>{params.id && (buyCartX?.buyCart.find(item => item.productId == +(params?.id ?? ""))?.count ?? 0)}</p>
+                                {/* <p>{buyCartX?.buyCart[6].count ?? 0}</p> */}
+                                 <Button className="w-[20px] h-[20px]" onClickHandler={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></Button>
+                                <button className="w-[20px] h-[20px] opacity-50" disabled><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p></button>
                             </div>
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
