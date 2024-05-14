@@ -33,7 +33,7 @@ interface IProduct {
 }
 function ProductDetailePage() {
     const productListX = useContext(ProductListContext);
-    let buyCartX = useContext(BuyCartContext)
+    let buyCartX = useContext(BuyCartContext);
     const params = useParams()
     function addBuyCart(productId: number | undefined | string) {
         const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
