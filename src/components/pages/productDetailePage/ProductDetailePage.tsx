@@ -65,9 +65,9 @@ function ProductDetailePage() {
     return (
         <div>
             <div className="w-full h-full md:hidden">
-                <div className="invisible w-full h-[80px] lg:hidden">
+                <div className="invisible w-full h-[80px] md:hidden">
                 </div>
-                <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
+                <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
                     <MobileHeader />
                 </div>
                 <div className="swiper-container">
