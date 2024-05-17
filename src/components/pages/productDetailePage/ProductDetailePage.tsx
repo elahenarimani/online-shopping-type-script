@@ -44,22 +44,40 @@ function ProductDetailePage() {
     let [counter, setCounter] = useState<number>(0)
     function increasCounter() {
         setCounter(counter += 1)
+        return counter
     }
     function decreaseCounter() {
         setCounter(counter -= 1)
+        return counter
     }
-    function addBuyCart(productId: number | undefined | string) {
+    function addBuyCart(productId: number | undefined | string){
         const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
-        console.log("Buy cart index finder:", buyCartIndexFinder);
-        if (buyCartIndexFinder === -1) {
-            buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
-        }
-        else {
-            const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-            currentItem.count += 1;
-            buyCartX.setBuyCart([...buyCartX.buyCart]);
-        }
+        
+            if (buyCartIndexFinder === -1) {
+                // console.log({counter , buyCartIndexFinder})
+                // buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: counter }]);
+                buyCartX.setBuyCart([{ productId: productId , count: 1 }]);
+            }
+            else {
+                // console.log("else")
+                const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+                currentItem.count = counter
+                buyCartX.setBuyCart([...buyCartX.buyCart]);
+            }
+            console.log(buyCartX.buyCart)
     }
+    // function addBuyCart(productId: number | undefined | string) {
+    //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
+    //     console.log("Buy cart index finder:", buyCartIndexFinder);
+    //     if (buyCartIndexFinder === -1) {
+    //         buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
+    //     }
+    //     else {
+    //         const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+    //         currentItem.count += 1;
+    //         buyCartX.setBuyCart([...buyCartX.buyCart]);
+    //     }
+    // }
     // function removeFromBuyCart(productId: number | undefined | string) {
     //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(product => product.productId === productId)
     //     if (buyCartIndexFinder >= 0) {
@@ -195,7 +213,7 @@ function ProductDetailePage() {
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
                                 <div className="w-11/12">
-                                    <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={ }><p>افزودن به سبد خرید</p></Button>
+                                    <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={() => addBuyCart(params.id) }><p>افزودن به سبد خرید</p></Button>
                                 </div>
                                 <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
                                     <IoMdHeartEmpty color="#A72F3B" />
