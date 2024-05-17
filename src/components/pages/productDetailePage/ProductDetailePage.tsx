@@ -31,37 +31,48 @@ interface IProduct {
     in_stock: number,
     image: string[]
 }
+
+
+function increasCounter(){
+
+}
 function ProductDetailePage() {
     const productListX = useContext(ProductListContext);
     let buyCartX = useContext(BuyCartContext);
     const params = useParams()
-    function addBuyCart(productId: number | undefined | string) {
-        const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
-        console.log("Buy cart index finder:", buyCartIndexFinder);
-        if (buyCartIndexFinder === -1) {
-            buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
-        }
-        else {
-            const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-            currentItem.count += 1;
-            buyCartX.setBuyCart([...buyCartX.buyCart]);
-        }
+  
+    let [counter , setCounter] = useState<number>(0)
+    function increasCounter(productId:number | undefined | string){
+        setCounter(counter+=1)
     }
-    function removeFromBuyCart(productId: number | undefined | string) {
-        const buyCartIndexFinder = buyCartX?.buyCart.findIndex(product => product.productId === productId)
-        if (buyCartIndexFinder >= 0) {
-            if (buyCartX.buyCart[buyCartIndexFinder].count > 1) {
-                const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-                currentItem.count -= 1;
-                buyCartX.setBuyCart([...buyCartX.buyCart])
-            } else {
-                const filteredBuyCart = buyCartX.buyCart.filter(item => item.productId !== productId)
-                buyCartX.setBuyCart([...filteredBuyCart])
+    // function addBuyCart(productId: number | undefined | string) {
+    //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
+    //     console.log("Buy cart index finder:", buyCartIndexFinder);
+    //     if (buyCartIndexFinder === -1) {
+    //         buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
+    //     }
+    //     else {
+    //         const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+    //         currentItem.count += 1;
+    //         buyCartX.setBuyCart([...buyCartX.buyCart]);
+    //     }
+    // }
+    // function removeFromBuyCart(productId: number | undefined | string) {
+    //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(product => product.productId === productId)
+    //     if (buyCartIndexFinder >= 0) {
+    //         if (buyCartX.buyCart[buyCartIndexFinder].count > 1) {
+    //             const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+    //             currentItem.count -= 1;
+    //             buyCartX.setBuyCart([...buyCartX.buyCart])
+    //         } else {
+    //             const filteredBuyCart = buyCartX.buyCart.filter(item => item.productId !== productId)
+    //             buyCartX.setBuyCart([...filteredBuyCart])
 
-            }
-        }
-    }
-    // console.log(buyCartX.buyCart[6]?.count)
+    //         }
+    //     }
+    // }
+    
+  
     return (
         <div>
             <div className="w-full h-full md:hidden">
@@ -74,17 +85,17 @@ function ProductDetailePage() {
                     <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
                         <SwiperSlide >
                             <div className="swiper-slide">
-                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0]} />
+                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0] } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`} />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide >
                             <div className="swiper-slide">
-                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1]} />
+                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1] } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`}/>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className="swiper-slide">
-                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2]} />
+                                <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2]  } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`}/>
                             </div>
                         </SwiperSlide>
                     </Swiper>
@@ -119,17 +130,17 @@ function ProductDetailePage() {
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 <SwiperSlide>
                                     <div className="swiper-slide2">
-                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[0] } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`}/>
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <div className="swiper-slide2">
-                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[1] } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`}/>
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide>
                                     <div className="swiper-slide2 ">
-                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2]} />
+                                        <img className="w-full h-full" src={productListX?.productList.find(item => item?.id === params.id)?.image[2] } alt={`${productListX?.productList.find(item => item?.id === params.id)?.name ?? "photo" }`}/>
                                     </div>
                                 </SwiperSlide>
                             </Swiper>
@@ -160,17 +171,30 @@ function ProductDetailePage() {
                             </div>
                             <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
                                 <p className="w-[50px] important!">تعداد:</p>
-                                <button className="w-[20px] h-[20px]" onClick={() => addBuyCart(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                                <button className="w-[20px] h-[20px]" onClick={() => increasCounter(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                                <p className="w-[20px] flex justify-center items-center">{counter}</p>
+                                {/* <button className={`w-[20px] h-[20px] rounded-[50%] ${(buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count ?? 0) > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
+                                    disabled={buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count == 0}
+                                    onClick={() => removeFromBuyCart(params.id)}>
+                                    <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
+                                </button> */}
+                            </div>
+                            {/* <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
+                                <p className="w-[50px] important!">تعداد:</p>
+                                <button className="w-[20px] h-[20px]" onClick={() => increasCounter(params.id)}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
                                 <p className="w-[20px] flex justify-center items-center">{params.id && (buyCartX?.buyCart.find(item => item.productId == +(params?.id ?? ""))?.count ?? 0)}</p>
                                 <button className={`w-[20px] h-[20px] rounded-[50%] ${(buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count ?? 0) > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
                                     disabled={buyCartX?.buyCart.find(product => product?.productId == +(params?.id ?? ""))?.count == 0}
                                     onClick={() => removeFromBuyCart(params.id)}>
                                     <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
                                 </button>
-                            </div>
+                            </div> */}
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
-                                <div className="w-11/12 h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] "><p>افزودن به سبد خرید</p></div>
+                                <div className="w-11/12">                               
+                                     <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={() => buyCartX.setBuyCart}><p>افزودن به سبد خرید</p></Button>
+</div>
+
                                 <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
                                     <IoMdHeartEmpty color="#A72F3B" />
                                 </div>
