@@ -50,21 +50,21 @@ function ProductDetailePage() {
         setCounter(counter -= 1)
         return counter
     }
-    function addBuyCart(productId: number | undefined | string){
+    function addBuyCart(productId: number | undefined | string) {
         const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
-        
-            if (buyCartIndexFinder === -1) {
-                // console.log({counter , buyCartIndexFinder})
-                // buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: counter }]);
-                buyCartX.setBuyCart([{ productId: productId , count: 1 }]);
-            }
-            else {
-                // console.log("else")
-                const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-                currentItem.count = counter
-                buyCartX.setBuyCart([...buyCartX.buyCart]);
-            }
-            console.log(buyCartX.buyCart)
+
+        if (buyCartIndexFinder === -1) {
+            // console.log({counter , buyCartIndexFinder})
+            // buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: counter }]);
+            buyCartX.setBuyCart([{ productId: productId, count: 1 }]);
+        }
+        else {
+            console.log("else")
+            const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+            currentItem.count = counter
+            buyCartX.setBuyCart([...buyCartX.buyCart]);
+        }
+        // console.log(buyCartX.buyCart)
     }
     // function addBuyCart(productId: number | undefined | string) {
     //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
@@ -122,10 +122,20 @@ function ProductDetailePage() {
                     </Swiper>
                 </div>
                 <div className="swiper-pagination"></div>
-                <p className="  pl-[16px] pr-[16px] text-right text-[19px] font-medium mt-[25px] mb-[25px]">{productListX?.productList.find(item => item?.id === params.id)?.name}</p>
+                <div className="text-[14px] pt-[5px] pl-[16px] pr-[16px]">
+                    <p>مردانه / بالاپوش /تیشرت</p>
+                </div>
+                <p className="  pl-[16px] pr-[16px] text-right text-[19px] font-medium mt-[15px] mb-[15px]">{productListX?.productList.find(item => item?.id === params.id)?.name}</p>
                 <div className="w-full h-full flex flex-row justify-between items-center mt-[15px] mb-[15px] pl-[16px] pr-[16px]">
-                    <div className="text-[14px]">
-                        <p>مردانه / بالاپوش /تیشرت</p>
+                    <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
+                        <p className="w-[50px] important!">تعداد:</p>
+                        <button className="w-[20px] h-[20px]" onClick={() => increasCounter()}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                        <p className="w-[20px] flex justify-center items-center">{counter}</p>
+                        <button className={`w-[20px] h-[20px] rounded-[50%] ${counter > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
+                            disabled={counter === 0}
+                            onClick={() => decreaseCounter()}>
+                            <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
+                        </button>
                     </div>
                     <div className=" h-[40px] flex justify-end items-center  gap-[20px]">
                         <div className="text-[24px] ">
@@ -138,9 +148,9 @@ function ProductDetailePage() {
                 </div>
                 <div className="invisible w-full h-[53px]">
                 </div>
-                <div className="w-full h-[53px]  fixed bottom-0 z-10 bg-[#A72F3B] text-white pt-[12px] pb-[12px] text-center">
+                <Button className="w-full h-[53px]  fixed bottom-0 z-10 bg-[#A72F3B] text-white pt-[12px] pb-[12px] text-center" onClickHandler={() => addBuyCart(params.id)}>
                     <p>افزودن به سبد خرید</p>
-                </div>
+                </Button>
             </div>
             <div className="w-full h-full hidden md:block">
                 <DesktopHeader />
@@ -213,7 +223,7 @@ function ProductDetailePage() {
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
                                 <div className="w-11/12">
-                                    <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={() => addBuyCart(params.id) }><p>افزودن به سبد خرید</p></Button>
+                                    <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={() => addBuyCart(params.id)}><p>افزودن به سبد خرید</p></Button>
                                 </div>
                                 <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
                                     <IoMdHeartEmpty color="#A72F3B" />
