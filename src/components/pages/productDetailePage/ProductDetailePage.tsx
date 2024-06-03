@@ -19,9 +19,14 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
-
 import { FiMinus } from "react-icons/fi";
 import Button from "../../button/Button";
+import {addBuyCart} from  "../../redux/reducers/buyCart/buyCartReducer"
+import {increasCounter , decreaseCounter} from "../../redux/reducers/buyCart/buyCartReducer"
+import {useDispatch, useSelector} from "react-redux";
+
+
+
 interface IProduct {
     id: string,
     head_category: string,
@@ -31,41 +36,53 @@ interface IProduct {
     in_stock: number,
     image: string[]
 }
-
-
-function increasCounter() {
-
+interface IState{
+    id : string|number,
+    count : number
 }
 function ProductDetailePage() {
+const fullReduxState = useSelector(state => state)
+    // const count = useSelector((state: any) => state.buyCart.count);
+    // const buyCart = useSelector((state: any) => state.buyCart);
+    const buyCarty:IState[] = useSelector((state: any) => state.buyCarty);
+    const x = useSelector((state: any) => console.log(state.buyCarty));
+    
     const productListX = useContext(ProductListContext);
     let buyCartX = useContext(BuyCartContext);
     const params = useParams()
+    const dispatch:Function = useDispatch()
+     let [counter, setCounter] = useState<number>(0)
+    // function increasCounter() {
+    //     setCounter(counter += 1)
+    //     return counter
+    // }
+  
+    console.log(buyCarty)
+    function findParms(){
+        const finderParams = params.id
+        return finderParams
+    }
+    // function decreaseCounter() {
+    //     setCounter(counter -= 1)
+    //     return counter
+    // }
+    // function addBuyCart(productId: number | undefined | string) {
+    //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
 
-    let [counter, setCounter] = useState<number>(0)
-    function increasCounter() {
-        setCounter(counter += 1)
-        return counter
-    }
-    function decreaseCounter() {
-        setCounter(counter -= 1)
-        return counter
-    }
-    function addBuyCart(productId: number | undefined | string) {
-        const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
+    //     if (buyCartIndexFinder === -1) {
+    //         buyCartX.setBuyCart([{ productId: productId, count: 1 }]);
+    //     }
+    //     else {
+    //         console.log("else")
+    //         const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
+    //         currentItem.count = counter
+    //         buyCartX.setBuyCart([...buyCartX.buyCart]);
+    //     }
+    //     // console.log(buyCartX.buyCart)
+    // }
 
-        if (buyCartIndexFinder === -1) {
-            // console.log({counter , buyCartIndexFinder})
-            // buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: counter }]);
-            buyCartX.setBuyCart([{ productId: productId, count: 1 }]);
-        }
-        else {
-            console.log("else")
-            const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-            currentItem.count = counter
-            buyCartX.setBuyCart([...buyCartX.buyCart]);
-        }
-        // console.log(buyCartX.buyCart)
-    }
+
+
     // function addBuyCart(productId: number | undefined | string) {
     //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
     //     console.log("Buy cart index finder:", buyCartIndexFinder);
@@ -96,6 +113,8 @@ function ProductDetailePage() {
 
     return (
         <div>
+            {/* {console.log(fullReduxState)} */}
+            {console.log(params.id)}
             <div className="w-full h-full md:hidden">
                 <div className="invisible w-full h-[80px] md:hidden">
                 </div>
@@ -129,11 +148,12 @@ function ProductDetailePage() {
                 <div className="w-full h-full flex flex-row justify-between items-center mt-[15px] mb-[15px] pl-[16px] pr-[16px]">
                     <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
                         <p className="w-[50px] important!">تعداد:</p>
-                        <button className="w-[20px] h-[20px]" onClick={() => increasCounter()}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
-                        <p className="w-[20px] flex justify-center items-center">{counter}</p>
-                        <button className={`w-[20px] h-[20px] rounded-[50%] ${counter > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
-                            disabled={counter === 0}
-                            onClick={() => decreaseCounter()}>
+                        <button className="w-[20px] h-[20px]" onClick={() => dispatch(increasCounter({id : params.id}))}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                        <p className="w-[20px] flex justify-center items-center">{(buyCarty?.find(item => item?.id == params?.id)?.count)>0 ? buyCarty?.find(item => item?.id == params?.id)?.count :0}</p>
+                       
+                        <button className={`w-[20px] h-[20px] rounded-[50%] ${buyCarty?.find(item => item?.id == params?.id)?.count > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
+                            disabled={buyCarty.count === 0}
+                            onClick={() =>  dispatch(decreaseCounter({id : params.id}))}>
                             <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
                         </button>
                     </div>
@@ -148,7 +168,7 @@ function ProductDetailePage() {
                 </div>
                 <div className="invisible w-full h-[53px]">
                 </div>
-                <Button className="w-full h-[53px]  fixed bottom-0 z-10 bg-[#A72F3B] text-white pt-[12px] pb-[12px] text-center" onClickHandler={() => addBuyCart(params.id)}>
+                <Button className="w-full h-[53px]  fixed bottom-0 z-10 bg-[#A72F3B] text-white pt-[12px] pb-[12px] text-center" onClickHandler={() => dispatch(addBuyCart(console.log("hi")))}>
                     <p>افزودن به سبد خرید</p>
                 </Button>
             </div>
@@ -202,11 +222,12 @@ function ProductDetailePage() {
                             </div>
                             <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
                                 <p className="w-[50px] important!">تعداد:</p>
-                                <button className="w-[20px] h-[20px]" onClick={() => increasCounter()}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
-                                <p className="w-[20px] flex justify-center items-center">{counter}</p>
-                                <button className={`w-[20px] h-[20px] rounded-[50%] ${counter > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
-                                    disabled={counter === 0}
-                                    onClick={() => decreaseCounter()}>
+                                {/* <button className="w-[20px] h-[20px]" onClick={() => increasCounter()}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button> */}
+                                <button className="w-[20px] h-[20px]" onClick={() => dispatch(increasCounter({id : params.id}))}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
+                                <p className="w-[20px] flex justify-center items-center ">{(buyCarty?.find(item => item?.id == params?.id)?.count)>0 ? buyCarty?.find(item => item?.id == params?.id)?.count :0}</p>
+                                <button className={`w-[20px] h-[20px] rounded-[50%] ${buyCarty?.find(item => item?.id == params?.id)?.count > 0 ? 'bg-[#A72F3B] rounded-[50%]' : 'opacity-50 rounded-[50%]'}`}
+                                    disabled={buyCarty?.find(item => item?.id == params?.id)?.count === 0}
+                                    onClick={() =>  dispatch(decreaseCounter({id : params.id}))}>
                                     <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>
                                 </button>
                             </div>
@@ -223,7 +244,7 @@ function ProductDetailePage() {
                             <div className="h-[48px]"></div>
                             <div className="w-full flex flex-row justify-between items-center gap-[20px]">
                                 <div className="w-11/12">
-                                    <Button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClickHandler={() => addBuyCart(params.id)}><p>افزودن به سبد خرید</p></Button>
+                                    <button className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] " onClick={() => dispatch(addBuyCart({ id : params.id }))}><p>افزودن به سبد خرید</p></button>
                                 </div>
                                 <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
                                     <IoMdHeartEmpty color="#A72F3B" />
