@@ -2,7 +2,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
   import HomePage from "../pages/homePage/HomePage";
-import ProductListPage from "../pages/shoppingCartPage/ShoppingCart";
+
 import ProductDetailePage from "../pages/productDetailePage/ProductDetailePage";
 // import BuyCart from "../pages/shoppingCartPage/ShoppingCart";
 import ShoppingCart from "../pages/shoppingCartPage/ShoppingCart";
@@ -21,15 +21,23 @@ const router = createBrowserRouter([
     },
     {
       path:'/product',
-      element: <ProductListPage/>
+    
+      children:[
+        {
+          path:'/product/:id',
+          element:<ProductDetailePage/>
+        }
+      ]
     },
+   
     {
-      path:'/product/:id',
-      element:<ProductDetailePage/>
-    },
-    {
-      path:'/product/cart',
-      element:<ShoppingCart/>
+      path:'/checkout/cart/',
+      element:<ShoppingCart/>,
+      // children : [
+      //   {
+      //     path :''
+      //   }
+      // ]
     },
     // {
     //   path:'/product/:id',
