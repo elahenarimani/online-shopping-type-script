@@ -1,5 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+// import { createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";
 // import { useEffect, useState } from "react";
 
@@ -19,19 +18,23 @@ import { createSlice } from "@reduxjs/toolkit";
 // useEffect(() => {
 //     axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
 //         .then(result => setProductList(result.data)
-       
+//             // .catch(err=> console.log(err))
 //         )
 // }, [])
 // const [productList, setProductList] = useState<IProduct[]>([]);
-
-const productListReducer = createSlice({
+// const productListReducer = createSlice({
    
-    name : "productListReducer",
-    initialState : [],
-    reducers: {
-     
-    }
-})
+//     name : "productListReducer",
+//     initialState : [],
+//     reducers: {
+//         // add: (state,action)=>{
+//         //     state.push({id : Date.now() , ...action.payload})
+//         // },
+//         // remove: (state,action)=>{
+//         //     state.pop()
+//         // }
+//     }
+// })
 
-
-export default productListReducer.reducer
+// // export const {add,remove} = productListReducer.actions
+// export default productListReducer.reducer

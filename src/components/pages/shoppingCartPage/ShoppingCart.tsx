@@ -11,99 +11,90 @@ import { FiMinus } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import DesktopShoppingCart from "./components/desktopShoppingCart/DesktopShoppingCart";
 import DesktopTotalPrice from "./components/desktopTotalPrice/DesktopTotalPrice";
+import { useSelector } from "react-redux";
 
 function ProductListPage() {
     const productListX = useContext(ProductListContext)
     let buyCartX = useContext(BuyCartContext);
-    interface Idata{
-        id: number;
-        headCategory: string;
-        category: string;
-        name: string;
-        price: number;
-        inStock:number;
+    interface IState {
+        id: string | number;
+        count: number;
+      }
+    const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
+    interface IProduct {
+        id: string,
+        head_category: string,
+        category: string,
+        name: string,
+        price: number,
+        in_stock: number,
         image: string[]
-       
     }
-    let [data, setData] = useState<Idata[]>([]);
-     data = [
-        {
-            id: 1,
-            headCategory: "زنانه",
-            category: "بالاپوش",
-            name: "شومیز آستین بلند زنانه تویین",
-            price: 500000,
-            inStock: 15,
-            image: [
-                "https://cdn.dsmcdn.com/mnresize/600/-/ty1271/product/media/images/prod/PIM/20240422/12/4a58f620-587d-4863-9e3f-ec0facdc2044/1_org_zoom.jpg",
-                "https://cdn.dsmcdn.com/mnresize/200/-/ty1271/product/media/images/prod/PIM/20240422/12/380a2c88-1567-4acf-a30b-052a7e69b2f1/1_org_zoom.jpg",
-                "https://cdn.dsmcdn.com/mnresize/200/-/ty1269/product/media/images/prod/PIM/20240422/12/c8ade9d6-fe93-49f5-a818-253e270e0321/1_org_zoom.jpg"
-            ]
-        },
-        {
-            id: 2,
-            headCategory: "زنانه",
-            category: "بالاپوش",
-            name: "بلوز آستین حلقه ای زنانه اسمارا ",
-            price: 399000,
-            inStock: 15,
-            image: [
-                "https://cdn.dsmcdn.com/mnresize/600/-/ty1271/product/media/images/prod/PIM/20240422/12/02ed2c1a-2a3a-401d-9898-b24497dc3d6a/1_org_zoom.jpg",
-                "https://cdn.dsmcdn.com/mnresize/200/-/ty1271/product/media/images/prod/PIM/20240422/12/d68a0bfb-6806-47d9-8ec6-9d190372ae3b/1_org_zoom.jpg"
-            ]
-        },
-        {
-            id: 3,
-            headCategory: "کلاه/روسری/شال",
-            category: "کلاه",
-            name: "کلاه جین مردانه ",
-            price: 250000,
-            inStock: 20,
-            image: [
-                "https://cdn.dsmcdn.com/mnresize/600/-/ty349/product/media/images/20220307/8/63889858/405691405/1/1_org_zoom.jpg",
-                "https://cdn.dsmcdn.com/mnresize/200/-/ty348/product/media/images/20220307/8/63889858/405691405/2/2_org_zoom.jpg",
-                "https://cdn.dsmcdn.com/mnresize/200/-/ty348/product/media/images/20220307/8/63889858/405691405/3/3_org_zoom.jpg"
-            ]
-        },
-        //   {
-        //     "id": "4",
-        //     "head_category": "مردانه",
-        //     "category": "شلوار",
-        //     "name": "شلوار مردانه سردانالو ",
-        //     "price": 2500000,
-        //     "in_stock": 2,
-        //     "image": [
-        //       "https://cdn.dsmcdn.com/mnresize/600/-/ty1017/product/media/images/prod/SPM/PIM/20231018/20/42f7e6c5-4d8c-3c53-a77b-3acc29307b29/1_org_zoom.jpg",
-        //       "https://cdn.dsmcdn.com/mnresize/200/-/ty1018/product/media/images/prod/SPM/PIM/20231018/20/00443f86-9856-384c-81ee-d16525c8eb99/1_org_zoom.jpg"
-        //     ]
-        //   },
-        //   {
-        //     "id": "5",
-        //     "head_category": "آفتابی عینک",
-        //     "category": "زنانه",
-        //     "name": "عینک قهوه ای طرح پلیان",
-        //     "price": 5000000,
-        //     "in_stock": 10,
-        //     "image": [
-        //       "https://cdn.dsmcdn.com/mnresize/600/-/ty68/product/media/images/20210327/18/75712859/81415201/1/1_org_zoom.jpg",
-        //       "https://cdn.dsmcdn.com/mnresize/200/-/ty44/product/media/images/20210327/18/75712859/81415201/4/4_org_zoom.jpg",
-        //       "https://cdn.dsmcdn.com/mnresize/200/-/ty75/product/media/images/20210327/18/75712859/81415201/3/3_org_zoom.jpg"
-        //     ]
-        //   },
-        //   {
-        //     "id": "6",
-        //     "head_category": " آفتابی عینک",
-        //     "category": "مردانه",
-        //     "name": "عینک مردانه با لنز سیاه",
-        //     "price": 3500000,
-        //     "in_stock": 6,
-        //     "image": [
-        //       "https://cdn.dsmcdn.com/mnresize/600/-/ty503/product/media/images/20220810/11/157420358/540549306/1/1_org_zoom.jpg",
-        //       "https://cdn.dsmcdn.com/mnresize/200/-/ty502/product/media/images/20220810/11/157420358/540549306/4/4_org_zoom.jpg",
-        //       "https://cdn.dsmcdn.com/mnresize/200/-/ty502/product/media/images/20220810/11/157420358/540549306/3/3_org_zoom.jpg"
-        //     ]
-        //   }
-    ]
+    interface IProductList {
+        productList?: IProduct[],
+        setProductList?: Function
+    }
+    // interface Idata{
+    //     id: number;
+    //     headCategory: string;
+    //     category: string;
+    //     name: string;
+    //     price: number;
+    //     inStock:number;
+    //     image: string[]
+       
+    // }
+    
+   
+    // let [data, setData] = useState<Idata[]>([]);
+    //  data = [
+    //     {
+    //         id: 1,
+    //         headCategory: "زنانه",
+    //         category: "بالاپوش",
+    //         name: "شومیز آستین بلند زنانه تویین",
+    //         price: 500000,
+    //         inStock: 15,
+    //         image: [
+    //             "https://cdn.dsmcdn.com/mnresize/600/-/ty1271/product/media/images/prod/PIM/20240422/12/4a58f620-587d-4863-9e3f-ec0facdc2044/1_org_zoom.jpg",
+    //             "https://cdn.dsmcdn.com/mnresize/200/-/ty1271/product/media/images/prod/PIM/20240422/12/380a2c88-1567-4acf-a30b-052a7e69b2f1/1_org_zoom.jpg",
+    //             "https://cdn.dsmcdn.com/mnresize/200/-/ty1269/product/media/images/prod/PIM/20240422/12/c8ade9d6-fe93-49f5-a818-253e270e0321/1_org_zoom.jpg"
+    //         ]
+    //     },
+    //     {
+    //         id: 2,
+    //         headCategory: "زنانه",
+    //         category: "بالاپوش",
+    //         name: "بلوز آستین حلقه ای زنانه اسمارا ",
+    //         price: 399000,
+    //         inStock: 15,
+    //         image: [
+    //             "https://cdn.dsmcdn.com/mnresize/600/-/ty1271/product/media/images/prod/PIM/20240422/12/02ed2c1a-2a3a-401d-9898-b24497dc3d6a/1_org_zoom.jpg",
+    //             "https://cdn.dsmcdn.com/mnresize/200/-/ty1271/product/media/images/prod/PIM/20240422/12/d68a0bfb-6806-47d9-8ec6-9d190372ae3b/1_org_zoom.jpg"
+    //         ]
+    //     },
+    //     {
+    //         id: 3,
+    //         headCategory: "کلاه/روسری/شال",
+    //         category: "کلاه",
+    //         name: "کلاه جین مردانه ",
+    //         price: 250000,
+    //         inStock: 20,
+    //         image: [
+    //             "https://cdn.dsmcdn.com/mnresize/600/-/ty349/product/media/images/20220307/8/63889858/405691405/1/1_org_zoom.jpg",
+    //             "https://cdn.dsmcdn.com/mnresize/200/-/ty348/product/media/images/20220307/8/63889858/405691405/2/2_org_zoom.jpg",
+    //             "https://cdn.dsmcdn.com/mnresize/200/-/ty348/product/media/images/20220307/8/63889858/405691405/3/3_org_zoom.jpg"
+    //         ]
+    //     }
+      
+    // ]
+  
+        const buyCartId =  buyCarty.map(cartItem => cartItem.id  )
+        console.log(buyCartId)
+        const filteredProductList : IProduct[] | undefined= productListX?.productList.filter(product => buyCartId.includes(product.id))
+        console.log(filteredProductList)
+
+ 
    
     return (
         <div>
@@ -121,6 +112,8 @@ function ProductListPage() {
                     <MobileHeader />
                 </div>
             </div> */}
+            {/* {findIdForRender()} */}
+            {console.log(buyCarty)}
             <div className="mobile-wrapper w-full h-full md:hidden">
                 <div className="invisible w-full h-[80px] md:hidden">
                 </div>
@@ -181,18 +174,18 @@ function ProductListPage() {
                     <p className="mb-[10px]">سبد خرید شما</p>
                     <div className="w-full h-full flex flex-row justify-between items-start gap-[25px]">
                     <div className="w-3/4">
-                        {data.map(item => {
+                        {filteredProductList.map(item => {
                             return (
                                 <DesktopShoppingCart  key={item.id}
                                     id={item.id}
-                                    headCategory={item.headCategory}
+                                    headCategory={item.head_category}
                                     category={item.category}
                                     name={item.name}
                                     price={item.price}
                                     image={item.image}
-                                    data={data}
-                                    inStock= {item.inStock}
-                                    setData ={setData}
+                                    
+                                    inStock= {item.in_stock}
+                                   
                                 //             "id": "5",
                                 // "head_category": "آفتابی عینک",
                                 // "category": "زنانه",

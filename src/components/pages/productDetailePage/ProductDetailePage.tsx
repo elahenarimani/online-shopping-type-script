@@ -21,6 +21,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import Button from "../../button/Button";
+// import { addBuyCart } from "../../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import {
   increasCounter,
@@ -46,7 +47,7 @@ function ProductDetailePage() {
   // const count = useSelector((state: any) => state.buyCart.count);
   // const buyCart = useSelector((state: any) => state.buyCart);
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
-  const x = useSelector((state: any) => console.log(state.buyCarty));
+  // const x = useSelector((state: any) => console.log(state.buyCarty));
   const productListX = useContext(ProductListContext);
   let buyCartX = useContext(BuyCartContext);
   const params = useParams();
@@ -108,8 +109,9 @@ function ProductDetailePage() {
   // }
   return (
     <div>
-      {console.log(fullReduxState)}
+      {/* {console.log(fullReduxState)} */}
       {/* {console.log(params.id)} */}
+      {console.log(buyCarty)}
       <div className="w-full h-full md:hidden">
         <div className="invisible w-full h-[80px] md:hidden"></div>
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
@@ -174,12 +176,25 @@ function ProductDetailePage() {
         <div className="text-[14px] pt-[5px] pl-[16px] pr-[16px]">
           <p>مردانه / بالاپوش /تیشرت</p>
         </div>
-        <p className="  pl-[16px] pr-[16px] text-right text-[19px] font-medium mt-[15px] mb-[15px]">
-          {
-            productListX?.productList.find((item) => item?.id === params.id)
-              ?.name
-          }
-        </p>
+       <div className="flex w-full flex-row justify-between items-center pl-[16px] pr-[16px] mt-[15px] mb-[15px]">
+       <div>
+          <p className="   text-right text-[19px] font-medium ">
+            {
+              productListX?.productList.find((item) => item?.id === params.id)
+                ?.name
+            }
+          </p>
+        </div>
+        <div className="flex  flex-row justify-between items-center text-[19px] ">
+          <p>
+            {
+              productListX?.productList.find((item) => item?.id === params.id)
+                ?.price
+            }
+          </p>
+          <p>تومان</p>
+        </div>
+       </div>
         <div className="w-full h-full flex flex-row justify-between items-center mt-[15px] mb-[15px] pl-[16px] pr-[16px]">
           <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
             <p className="w-[50px] important!">تعداد:</p>
@@ -223,7 +238,7 @@ function ProductDetailePage() {
             className="w-full h-[53px]  fixed bottom-0 z-10 bg-[#A72F3B] text-white pt-[12px] pb-[12px] text-center"
             onClickHandler={() => dispatch(addBuyCart(console.log("hi")))}
           >
-            <p>افزودن به سبد خرید</p>
+            <p>رفتن به سبد خرید</p>
           </Button>
         </Link>
       </div>
@@ -309,7 +324,13 @@ function ProductDetailePage() {
                   <p className="text-[14px] text-[#9B9B9B]">فروشنده: کاستومی</p>
                 </div>
                 <div className="flex  flex-row justify-between items-center text-[28px] ">
-                  <p>190</p>
+                  <p>
+                    {
+                      productListX?.productList.find(
+                        (item) => item?.id === params.id
+                      )?.price
+                    }
+                  </p>
                   <p>تومان</p>
                 </div>
               </div>
@@ -375,7 +396,7 @@ function ProductDetailePage() {
                       className=" w-full h-[48px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] "
                       onClick={() => dispatch(addBuyCart({ id: params.id }))}
                     >
-                      <p>افزودن به سبد خرید</p>
+                      <p>رفتن به سبد خرید</p>
                     </button>
                   </Link>
                 </div>

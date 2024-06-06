@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { router } from './components/router/router';
 import SiteSetting from './components/siteSetting/SiteSetting'
+// import SiteSetting from "./siteSetting/siteSettig"
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

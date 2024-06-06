@@ -6,16 +6,22 @@ import { FiMinus, FiX } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
 import DesktopTotalPrice from "../desktopTotalPrice/DesktopTotalPrice"
 import Button from "../../../../button/Button";
-interface Idata{
-    id: number,
-    headCategory: string,
-    category: string,
-    name: string,
-    price: number,
-    inStock:number
-    image: string[]
+import { useSelector } from "react-redux";
+// interface Idata{
+//     id: number,
+//     headCategory: string,
+//     category: string,
+//     name: string,
+//     price: number,
+//     inStock:number
+//     image: string[]
    
-}
+// }
+interface IState {
+    id: string | number;
+    count: number;
+  }
+
 interface IDesktop {
     id: number,
     headCategory: string,
@@ -24,11 +30,13 @@ interface IDesktop {
     price: number,
     image: string[],
     inStock:number,
-    data:Idata[],
-    setData:Function
+   
 }
-function DesktopCart({id,headCategory,category,name,price, image, data,inStock,setData}:IDesktop) {
+function DesktopCart({id,headCategory,category,name,price, image, inStock}:IDesktop) {
+    const buyCarty : IState[] = useSelector((state :any) => state.buyCart)
     const productListX = useContext(ProductListContext)
+  
+    
     let buyCartX = useContext(BuyCartContext)
     
     function removeFromBuyCart(productId: number | undefined | string){
@@ -51,7 +59,7 @@ function DesktopCart({id,headCategory,category,name,price, image, data,inStock,s
 //     }
     return (
         <div className="w-full h-full ">
-            
+            {console.log(productListX)}
                 <div className=" h-[200px] border-solid border-2 border-[#E6E6E6] rounded-[5px] flex  justify-between items-center p-[20px] gap-[10px] mb-[10px] ">
                 <div className=" min-w-[70px] h-[105px] rounded-[5px] ">
                     <img className="w-full h-full " src={image[0]}  alt={name}/>
@@ -63,7 +71,7 @@ function DesktopCart({id,headCategory,category,name,price, image, data,inStock,s
                 <div className="min-w-1/6 flex flex-row justify-start items-center gap-[8px] ">
                     <p className="min-w-[50px] important!">تعداد:</p>
                     <button className="min-w-[20px] h-[20px]" ><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button>
-                    <p className="min-w-[20px] flex justify-center items-center">1</p>
+                    <p className="min-w-[20px] flex justify-center items-center">{}</p>
                     <button className="min-w-[20px] h-[20px] rounded-[50%] "
                     >
                         <p className="min-w-[20px] h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FiMinus size={15} /></p>

@@ -30,14 +30,13 @@ interface IBuyCart {
 }
 const initialBuyCart: IBuyCartItem[] = [{ productId: 0, count: 0 }];
 export let BuyCartContext = createContext<IBuyCart>({ buyCart: initialBuyCart, setBuyCart: Function });
-// export let BuyCartContext =createContext<(null|{ buyCart: IBuyCartItem[], setBuyCart: Function })>(null);
 export const ProductListContext = createContext<null | { productList: IProduct[], setProductList: Function }>(null)
 function SiteSetting({ children }: Iprops) {
     const [productList, setProductList] = useState<IProduct[]>([]);
     useEffect(() => {
         axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
             .then(result => setProductList(result.data)
-                // .catch(err=> console.log(err))
+              
             )
     }, [])
     let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([])
