@@ -47,10 +47,13 @@ const buyCartReducer = createSlice({
        
       }
     },
+    increasCounterInCheckout : function (state , action){
+      
+    }
   },
 });
 
-export const { addBuyCart, increasCounter, decreaseCounter } =
+export const { addBuyCart, increasCounter, decreaseCounter ,increasCounterInCheckout } =
   buyCartReducer.actions;
 
 export default buyCartReducer.reducer;

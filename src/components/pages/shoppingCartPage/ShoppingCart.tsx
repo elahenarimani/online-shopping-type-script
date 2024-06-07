@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductListContext } from '../../siteSetting/SiteSetting'
 import { Link } from "react-router-dom";
 import MobileHeader from "../../mobile-header/MobileHeader";
@@ -22,7 +22,7 @@ function ProductListPage() {
       }
     const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
     interface IProduct {
-        id: string,
+        id: string |number,
         head_category: string,
         category: string,
         name: string,
@@ -88,12 +88,24 @@ function ProductListPage() {
     //     }
       
     // ]
-  
+        // useEffect(() => {
+        //     const buyCartId =  buyCarty.map(cartItem => cartItem.id  )
+        //     console.log(buyCartId)
+        //     const filteredProductList : IProduct[] | undefined = productListX?.productList?.filter(product => buyCartId.includes(product.id))
+        //     console.log(filteredProductList)  
+        // } , [buyCarty, productListX])
         const buyCartId =  buyCarty.map(cartItem => cartItem.id  )
         console.log(buyCartId)
-        const filteredProductList : IProduct[] | undefined= productListX?.productList.filter(product => buyCartId.includes(product.id))
+        const filteredProductList : IProduct[] | undefined = productListX?.productList.filter(product => buyCartId.includes(product.id))
         console.log(filteredProductList)
-
+        // function findCountBuyCarty(id:number|string){
+        //     console.log(id)
+        //    const findCurrentItem = buyCarty?.find(item => item.id == id)
+        //    console.log(findCurrentItem)
+        //   if(findCurrentItem){
+        //     return findCurrentItem?.count
+        //   }
+        // }
  
    
     return (
@@ -175,6 +187,8 @@ function ProductListPage() {
                     <div className="w-full h-full flex flex-row justify-between items-start gap-[25px]">
                     <div className="w-3/4">
                         {filteredProductList.map(item => {
+                            const cartItem = buyCarty.find(cart => cart.id ==  item.id)
+                            const count = cartItem ? cartItem.count : 0
                             return (
                                 <DesktopShoppingCart  key={item.id}
                                     id={item.id}
@@ -183,9 +197,8 @@ function ProductListPage() {
                                     name={item.name}
                                     price={item.price}
                                     image={item.image}
-                                    
                                     inStock= {item.in_stock}
-                                   
+                                    count = {count}                                 
                                 //             "id": "5",
                                 // "head_category": "آفتابی عینک",
                                 // "category": "زنانه",
