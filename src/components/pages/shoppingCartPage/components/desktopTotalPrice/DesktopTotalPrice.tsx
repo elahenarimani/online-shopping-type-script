@@ -1,4 +1,14 @@
-function DesktopTotalPrice(){
+interface IProduct {
+    id: string |number,
+    head_category: string,
+    category: string,
+    name: string,
+    price: number,
+    in_stock: number,
+    image: string[]
+}
+
+function DesktopTotalPrice(filteredProductList : IProduct[] | undefined){
     return(
         <div className="h-[250px] border-solid border-2 border-[#E6E6E6] rounded-[5px] p-[25px] gap-[10px] flex flex-col justify-between items-center gap-[5px] ">
                         <div className="w-full flex  justify-between items-center gap-[10px]">

@@ -47,13 +47,13 @@ const buyCartReducer = createSlice({
        
       }
     },
-    increasCounterInCheckout : function (state , action){
-      
-    }
+    // increasCounterInCheckout : function (state , action){
+    //   state.map(item => item.id = action?.payload?.id   ? {...item , count : item.count + 1} : item)
+    // }
   },
 });
 
-export const { addBuyCart, increasCounter, decreaseCounter ,increasCounterInCheckout } =
+export const { addBuyCart, increasCounter, decreaseCounter } =
   buyCartReducer.actions;
 
 export default buyCartReducer.reducer;

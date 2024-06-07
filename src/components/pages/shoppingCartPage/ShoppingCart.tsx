@@ -12,6 +12,7 @@ import { FiX } from "react-icons/fi";
 import DesktopShoppingCart from "./components/desktopShoppingCart/DesktopShoppingCart";
 import DesktopTotalPrice from "./components/desktopTotalPrice/DesktopTotalPrice";
 import { useSelector } from "react-redux";
+import { increasCounterInCheckout } from "../../redux/reducers/buyCart/buyCartReducer";
 
 function ProductListPage() {
     const productListX = useContext(ProductListContext)
@@ -186,9 +187,10 @@ function ProductListPage() {
                     <p className="mb-[10px]">سبد خرید شما</p>
                     <div className="w-full h-full flex flex-row justify-between items-start gap-[25px]">
                     <div className="w-3/4">
-                        {filteredProductList.map(item => {
+                        {filteredProductList?.map(item => {
                             const cartItem = buyCarty.find(cart => cart.id ==  item.id)
                             const count = cartItem ? cartItem.count : 0
+                            
                             return (
                                 <DesktopShoppingCart  key={item.id}
                                     id={item.id}
@@ -198,7 +200,7 @@ function ProductListPage() {
                                     price={item.price}
                                     image={item.image}
                                     inStock= {item.in_stock}
-                                    count = {count}                                 
+                                    count = {count}
                                 //             "id": "5",
                                 // "head_category": "آفتابی عینک",
                                 // "category": "زنانه",
@@ -218,7 +220,10 @@ function ProductListPage() {
                         )}
                     </div>
                     <div className="w-1/4  ">
-                    <DesktopTotalPrice />
+                   
+                    <DesktopTotalPrice 
+                     filteredProductList = {filteredProductList}
+                    />
                     </div>
                     {/* <div className="w-1/4 h-[250px] border-solid border-2 border-[#E6E6E6] rounded-[5px] p-[25px] gap-[10px] flex flex-col justify-between items-center gap-[5px] ">
                         <div className="w-full flex  justify-between items-center gap-[10px]">
