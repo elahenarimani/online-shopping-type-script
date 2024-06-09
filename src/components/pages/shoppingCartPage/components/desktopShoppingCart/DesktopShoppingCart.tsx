@@ -53,6 +53,7 @@ function DesktopShoppingCart({
 
   let buyCartX = useContext(BuyCartContext);
   const dispatch: Function = useDispatch();
+  
   // function handleIncrement (){
   //     (dispatch(increasCounterInCheckout(id)))
   // }
@@ -113,7 +114,7 @@ function DesktopShoppingCart({
         <div className="min-w-1/6 flex justify-between items-center gap-[10px]">
           <p>قیمت:</p>
           <div className="w-full flex justify-between items-center gap-[3px] text-[#A72F3B] font-bold">
-            <p>{count * price}</p>
+            <p>{  count * price}</p>
             <p>تومان</p>
           </div>
         </div>

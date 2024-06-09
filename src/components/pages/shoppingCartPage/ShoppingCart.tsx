@@ -12,7 +12,7 @@ import { FiX } from "react-icons/fi";
 import DesktopShoppingCart from "./components/desktopShoppingCart/DesktopShoppingCart";
 import DesktopTotalPrice from "./components/desktopTotalPrice/DesktopTotalPrice";
 import { useSelector } from "react-redux";
-import { increasCounterInCheckout } from "../../redux/reducers/buyCart/buyCartReducer";
+// import { increasCounterInCheckout } from "../../redux/reducers/buyCart/buyCartReducer";
 
 function ProductListPage() {
     const productListX = useContext(ProductListContext)
