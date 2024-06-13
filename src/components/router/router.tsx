@@ -6,7 +6,10 @@ import {
 import ProductDetailePage from "../pages/productDetailePage/ProductDetailePage";
 // import BuyCart from "../pages/shoppingCartPage/ShoppingCart";
 import ShoppingCart from "../pages/shoppingCartPage/ShoppingCart";
+import ShippingPage from "../pages/shippingPage/ShippingPage"
+// import ShippingPage from "../pages/shippingPage/ShippingPage"
 // import { useContext } from "react";
+
 // const productListX = useContext(ProductListContext)
 const router = createBrowserRouter([
     {
@@ -38,6 +41,14 @@ const router = createBrowserRouter([
       //     path :''
       //   }
       // ]
+    },
+    // {
+    //   path :'/shipping',
+    //   element:<ShippingPage/>,
+    // }
+    {
+      path:'/shipping',
+      element:<ShippingPage/>,
     },
     // {
     //   path:'/product/:id',

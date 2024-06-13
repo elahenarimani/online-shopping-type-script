@@ -47,13 +47,20 @@ const buyCartReducer = createSlice({
        
       }
     },
+    removeFromLBuyCart : function (state , action){
+      const removeIndexFinder = state.findIndex(
+        (item) => item.id === action?.payload?.id
+      )
+      state = state.splice(removeIndexFinder,1)
+
+    }
     // increasCounterInCheckout : function (state , action){
     //   state.map(item => item.id = action?.payload?.id   ? {...item , count : item.count + 1} : item)
     // }
   },
 });
 
-export const { addBuyCart, increasCounter, decreaseCounter } =
+export const { addBuyCart, increasCounter, decreaseCounter ,removeFromLBuyCart} =
   buyCartReducer.actions;
 
 export default buyCartReducer.reducer;

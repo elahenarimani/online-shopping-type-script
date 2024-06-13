@@ -85,7 +85,7 @@ function DesktopShoppingCart({
   //     }
   return (
     <div className="w-full h-full ">
-      {console.log(buyCarty)}
+      {/* {console.log(buyCarty)} */}
       <div className=" h-[200px] border-solid border-2 border-[#E6E6E6] rounded-[5px] flex  justify-between items-center p-[20px] gap-[10px] mb-[10px] ">
         <div className=" min-w-[70px] h-[105px] rounded-[5px] ">
           <img className="w-full h-full " src={image[0]} alt={name} />

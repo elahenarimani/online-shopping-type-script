@@ -13,7 +13,6 @@ interface IProduct {
 interface IDesktopTotalPrice {
   filteredProductList: IProduct[] | undefined;
 }
-
 function DesktopTotalPrice({ filteredProductList }: IDesktopTotalPrice) {
   interface IState {
     id: string | number;
