@@ -53,7 +53,8 @@ const buyCartReducer = createSlice({
       )
       state = state.splice(removeIndexFinder,1)
 
-    }
+    },
+    
     // increasCounterInCheckout : function (state , action){
     //   state.map(item => item.id = action?.payload?.id   ? {...item , count : item.count + 1} : item)
     // }

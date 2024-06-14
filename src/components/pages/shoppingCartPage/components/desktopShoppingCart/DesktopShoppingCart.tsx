@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import {
   increasCounter,
   decreaseCounter,
+  removeFromLBuyCart
 } from "../../../../redux/reducers/buyCart/buyCartReducer";
 import { useDispatch } from "react-redux";
 // interface Idata{
@@ -97,7 +98,7 @@ function DesktopShoppingCart({
         <div className="min-w-1/6 flex flex-row justify-start items-center gap-[8px] ">
           <p className="min-w-[50px] important!">تعداد:</p>
           {/* <button className="min-w-[20px] h-[20px]" ><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white " onClick={() => handleIncrement()}><FaPlus size={15} /></p></button> */}
-          <button className="min-w-[20px] h-[20px]">
+          <button className="min-w-[20px] h-[20px]" onClick={() => dispatch(increasCounter({id}))}>
             <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white ">
               <FaPlus size={15} />
             </p>
@@ -105,7 +106,7 @@ function DesktopShoppingCart({
           <p className="min-w-[20px] flex justify-center items-center">
             {count}
           </p>
-          <button className="min-w-[20px] h-[20px] rounded-[50%] ">
+          <button className="min-w-[20px] h-[20px] rounded-[50%] "  onClick={() => dispatch(decreaseCounter({ id }))}>
             <p className="min-w-[20px] h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white ">
               <FiMinus size={15} />
             </p>
@@ -118,7 +119,7 @@ function DesktopShoppingCart({
             <p>تومان</p>
           </div>
         </div>
-        <button className="w-1/6 w-[20px] h-[20] flex justify-center items-center cursor-pointer" onClick={() => dispatch(increasCounter({id}))}>
+        <button className="w-1/6 w-[20px] h-[20] flex justify-center items-center cursor-pointer"   onClick={() => dispatch(removeFromLBuyCart({ id }))} >
           <FaRegTrashCan color="#B3B3B3" className="w-full h-full" />
         </button>
       </div>
