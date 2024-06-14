@@ -1,0 +1,79 @@
+import { useSelector } from "react-redux";
+import { ProductListContext } from "../../../../siteSetting/SiteSetting";
+import { useContext, useState, useEffect } from "react";
+interface IProduct {
+  id: string | number;
+  head_category: string;
+  category: string;
+  name: string;
+  price: number;
+  in_stock: number;
+  image: string[];
+}
+interface IMobileTotalPrice {
+  filteredProductList: IProduct[] | undefined;
+}
+function MobileTotalPrice({ filteredProductList }: IMobileTotalPrice) {
+  interface IState {
+    id: string | number;
+    count: number;
+  }
+  const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
+  const productId = filteredProductList?.map((product) => product.id);
+  const productListX = useContext(ProductListContext);
+  const [totalPrice, setTotalPrice] = useState(0);
+  function calcuteTotalPrice() {
+    let totalPrice: number = 0;
+    buyCarty.map((product) => {
+      const matchedProduct = productListX?.productList.find(
+        (item) => item.id == product.id
+      );
+      console.log(product);
+      console.log(matchedProduct);
+      if (matchedProduct) {
+        const productTotalPrice = matchedProduct.price * product.count;
+        console.log(matchedProduct.price);
+        console.log(product.count);
+        console.log(totalPrice);
+        totalPrice += productTotalPrice;
+      }
+      console.log(totalPrice);
+    });
+    return totalPrice;
+  }
+  useEffect(
+    () => setTotalPrice(calcuteTotalPrice()),
+    [buyCarty, productListX?.productList]
+  );
+  return (
+    <div className="w-full  border-solid  border-[#E6E6E6] border-b flex flex-col justify-between items-start gap-[10px]">
+      <div className="w-full h-[45px] border-solid  border-[#E6E6E6] border-b flex justify-between items-center gap-[10px]">
+        <p>جمع کل سفارش:</p>
+        <div className="flex justify-between items-center gap-[3px] font-bold ">
+          <p>{totalPrice}</p>
+          <p>تومان</p>
+        </div>
+      </div>
+      <div className="w-full h-[45px] border-solid  border-[#E6E6E6] border-b flex justify-between items-center gap-[10px]">
+        <p>قیمت نهایی:</p>
+        <div className="flex justify-between items-center gap-[3px] font-bold ">
+          <p>{totalPrice}</p>
+          <p>تومان</p>
+        </div>
+      </div>
+      <div className="w-full h-[52px] invisible"></div>
+      <div className="w-full h-[52px] flex justify-center items-center bg-[#A72F3B]  text-white fixed bottom-0">
+        <p>ثبت و مرحله بعد</p>
+      </div>
+     
+      {/* <div>
+        <p>قیمت نهایی:</p>
+        <div className="flex justify-between items-center gap-[3px] font-bold ">
+          <p></p>
+          <p>تومان</p>
+        </div>
+      </div> */}
+    </div>
+  );
+}
+export default MobileTotalPrice;

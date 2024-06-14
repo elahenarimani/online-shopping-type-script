@@ -5,8 +5,9 @@ import {
 
 import ProductDetailePage from "../pages/productDetailePage/ProductDetailePage";
 // import BuyCart from "../pages/shoppingCartPage/ShoppingCart";
-import ShoppingCart from "../pages/shoppingCartPage/ShoppingCart";
+// import ShoppingCart from "../pages/shoppingCartPage/CheckoutPage";
 import ShippingPage from "../pages/shippingPage/ShippingPage"
+import CheckoutPage from "../pages/checkoutPage/CheckoutPage"
 // import ShippingPage from "../pages/shippingPage/ShippingPage"
 // import { useContext } from "react";
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
    
     {
       path:'/checkout/cart/',
-      element:<ShoppingCart/>,
+      element:<CheckoutPage/>,
       // children : [
       //   {
       //     path :''
