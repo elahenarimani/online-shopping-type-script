@@ -111,22 +111,7 @@ function ProductListPage() {
    
     return (
         <div>
-            {/* <ul>
-                {productListX?.productList.map(item => (
-                    <li key={item.id}>
-                        <Link to={'/product/${item.id}'}>{item.name}</Link>
-                    </li>
-                ))}
-            </ul> */}
-            {/* <div className="w-full h-full md:hidden">
-                <div className="invisible w-full h-[80px] lg:hidden">
-                </div>
-                <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
-                    <MobileHeader />
-                </div>
-            </div> */}
-            {/* {findIdForRender()} */}
-            {console.log(buyCarty)}
+            {/* {console.log(buyCarty)} */}
             <div className="mobile-wrapper w-full h-full md:hidden">
                 <div className="invisible w-full h-[80px] md:hidden">
                 </div>

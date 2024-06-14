@@ -118,7 +118,7 @@ function DesktopShoppingCart({
             <p>تومان</p>
           </div>
         </div>
-        <button className="w-1/6 w-[20px] h-[20] flex justify-center items-center cursor-pointer">
+        <button className="w-1/6 w-[20px] h-[20] flex justify-center items-center cursor-pointer" onClick={() => dispatch(increasCounter({id}))}>
           <FaRegTrashCan color="#B3B3B3" className="w-full h-full" />
         </button>
       </div>
