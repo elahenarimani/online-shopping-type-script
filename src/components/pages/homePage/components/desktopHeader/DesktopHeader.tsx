@@ -10,6 +10,7 @@ import BeautyHealthy from '../../../../beauty-healthy/BeautyHealthy';
 import HeadCover from '../../../../headCover/HeadCover';
 import Bag from '../../../../bag/Bag';
 import { useState } from "react";
+import SearchBar from "../searchBar/SearchBar";
 function  DesktopHeader(){
     const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
     const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -91,17 +92,18 @@ function  DesktopHeader(){
             با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
           </p>
           <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white">
-            <div className="search w-4/12 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center ">
-              <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
+            {/* <div className="search w-4/12 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center "> */}
+              {/* <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
                 <CiSearch color="#A72F3B" />
-              </div>
-              <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px]">
-                <input
+              </div> */}
+              {/* <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px]"> */}
+                <SearchBar z-10000000000000000000000000000000000000000000000000000000000000000000000000000000/>
+                {/* <input
                   className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56]"
                   placeholder="جستجو"
-                ></input>
-              </div>
-            </div>
+                ></input> */}
+              {/* </div> */}
+            {/* </div> */}
             <div className="w-[120px] h-[30px] cursor-pointer">
               <img className="w-full h-fulll" src="https://s8.uupload.ir/files/capture_85gu.png" alt="logo"></img>
             </div>

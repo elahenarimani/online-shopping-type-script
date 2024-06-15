@@ -19,6 +19,7 @@ import ProductDetailePage from '../productDetailePage/ProductDetailePage'
 import MobileHeader from '../../mobile-header/MobileHeader';
 import axios from "axios"
 import DesktopHeader from "./components/desktopHeader/DesktopHeader";
+import SearchBar from "./components/searchBar/SearchBar";
 function HomePage() {
  
   // interface IProduct {
@@ -218,6 +219,7 @@ function HomePage() {
           </div>
         </div>
         <BoutiqueBanner />
+       
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">
           <div className="w-full  flex flex-col justify-between items-center cursor-pointer">
             <div className="w-[30px] h-[30px]">

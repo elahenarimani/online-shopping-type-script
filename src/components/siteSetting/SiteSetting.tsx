@@ -36,7 +36,6 @@ function SiteSetting({ children }: Iprops) {
     useEffect(() => {
         axios.get('https://662b7b1dde35f91de15869ec.mockapi.io/products')
             .then(result => setProductList(result.data)
-              
             )
     }, [])
     let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([])
