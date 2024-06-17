@@ -118,7 +118,7 @@ function DesktopHeader() {
           <img
             className="w-full h-fulll"
             src="https://s8.uupload.ir/files/capture_85gu.png"
-            alt="logo"
+           alt="logo"
           ></img>
         </div>
         <div className="w-4/12 flex justify-end items-center gap-[10px]">
