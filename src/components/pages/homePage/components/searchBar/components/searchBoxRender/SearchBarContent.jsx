@@ -25,8 +25,8 @@ interface ISearchBarContent {
   image: string[];
   showSearchBar:Boolean;
   setshowSearchBar:Function;
-  filteredData :Isearch[], 
-  setFilteredData:Function
+  filteredProduct :Isearch[], 
+  setFilteredProduct:Function
   // inStock: number;
   // count: number;
 }
@@ -46,6 +46,8 @@ function SearchBarContent({
     setshowSearchBar,
     // inStock,
     // count,
+    filteredProduct ,
+    setFilteredProduct
     
   }: ISearchBarContent) {
     const dispatch: Function = useDispatch();
