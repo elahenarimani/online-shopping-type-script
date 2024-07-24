@@ -1,5 +1,6 @@
 import './offbox.css'
 import './offBoxSlider/OffBoxSllider'
+import OffBoxSlider from './offBoxSlider/OffBoxSllider';
 import Slider from "./offBoxSlider/OffBoxSllider";
 import { SlArrowLeft } from "react-icons/sl";
 function OffBox() {
@@ -13,7 +14,8 @@ function OffBox() {
                 </div>
             </div>
             <div className='w-full h-full'>
-            <Slider />
+            {/* <Slider /> */}
+            <OffBoxSlider/>
             </div>
         </div>
     )

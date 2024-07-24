@@ -1,29 +1,55 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y ,EffectFade } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-function Slider(){
+import './bannerSlide.css';
+
+import { ReactNode } from 'react';
+
+function BannerSlider(){
+  
+//   const slides = [
+//     { src: 'https://s8.uupload.ir/files/screenshot_(2)_u41a.png', alt: "child" },
+//     { src: 'https://s8.uupload.ir/files/8643a805cd39455a4e8e45857f36b644c72c0121_1713701662_gg4d.png', alt: "child" },
+//     { src: 'https://s8.uupload.ir/files/screenshot_(4)_zzvb.png', alt: "shose"},
+//     { src: 'https://s8.uupload.ir/files/screenshot_(6)_ocyu.png', alt: "skinCare" },
+//     { src: 'https://s8.uupload.ir/files/2c627a1efeabeeb2d68a4740aad14b9ccd33235f_1713701900_jj7l.png', alt: "women" },
+//     { src: 'https://s8.uupload.ir/files/2_ibsi.png', alt: "women2" }
+// ];
     return(
-        <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade]}
+      
+               <Swiper 
+       className='swiper-container-banner w-full h-[100vh]'
+        modules={[Navigation, Pagination, Scrollbar, A11y , EffectFade]}
         spaceBetween={2}
         slidesPerView={1}
         effect="fade"
         navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        pagination={{ clickable: true 
+        }}
+        // scrollbar={{ draggable: true }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper: any) => console.log(swiper)}
+        
+       
+       
+       
       >
+        {/* {slides.map((slide , index) => (
+           <SwiperSlide className='w-full h-[100vh]' key={index}>
+                <img   alt="slide.alt" src={slide.src} className='w-full h-full' />
+       </SwiperSlide>
+        ))} */}
         <SwiperSlide className='w-full h-[100vh]'>
+       
             <img alt="child" src='https://s8.uupload.ir/files/screenshot_(2)_u41a.png' className='w-full h-full' />
         </SwiperSlide>
         <SwiperSlide className='w-full h-[100vh]'>
@@ -44,4 +70,4 @@ function Slider(){
       </Swiper>
     )
 }
-export default Slider
+export default BannerSlider;

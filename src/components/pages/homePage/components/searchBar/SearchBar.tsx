@@ -59,11 +59,11 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
   // console.log(filteredProductList);
   function handleFilter(e: any) {
     setWordInp(e.target.value);
-    const currentFilter: IProduct[] | undefined =
+    const currentFilter: IProduct[] | undefined =[]
       productListX?.productList.filter((item) => {
         return item?.name?.includes(wordInp);
       });
-    if (wordInp == "") {
+    if (wordInp === "") {
       setFilteredProduct([]);
     } else {
       setFilteredProduct(currentFilter);
@@ -75,12 +75,12 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
     setshowSearchBar(false);
   }
   return (
-    <div className="w-full h-[200px] bg-gray-700 p-[10px]  rounded-[8px] z-10000000000000000000000000000000000000000000000000000000000000000000000000000000000">
-      <div className="search w-full h-[30px] border-[#D6D6D6] border-solid border-b-[1px] flex justify-start items-center ">
-        <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px] cursor-pointer ">
+    <div className="searchRapper w-full h-[200px] bg-white p-[10px] border-[1px] border-[#767B7F] outline-[10px] outline-offset-2 outline-white border-solid border-white rounded-[8px] mt-[-2px] mr-0 ml-0 pl-0 z-10000000000000000000000000000000000000000000000000000000000000000000000000000000000">
+      <div className="search w-full h-[30px] border-[#D6D6D6] border-solid border-b-[1px] flex justify-between items-center  ">
+        <div className="w-[30px] h-[30px] pr-[6px] pl-[6px]  cursor-pointer pb-[6px]">
           <CiSearch color="#A72F3B" className="w-full h-full" />
         </div>
-        <div className="searchInput  w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] mt-[5px]">
+        <div className="searchInput  w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] mt-[-10px]">
           <input
             className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[5px]"
             placeholder="جستجو"
@@ -89,7 +89,7 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
           ></input>
         </div>
         <div
-          className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px] cursor-pointer "
+          className="w-[30px] h-[30px] pr-[6px] pl-[6px]  cursor-pointer pb-[5px] "
           onClick={handleOpen}
         >
           <IoMdClose color="#A72F3B" className="w-full h-full" />

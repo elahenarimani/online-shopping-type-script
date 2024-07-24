@@ -12,7 +12,7 @@ import { LiaTelegramPlane } from "react-icons/lia";
 import { LuTwitter } from "react-icons/lu";
 
 import 'swiper/css';
-import Slider from '../../slider/Slider';
+import BannerSlider from './components/bannerSlider/BannerSlider';
 import OffBox from '../../offBox1/OffBox';
 import BoutiqueBanner from '../../boutiqueBanner/BoutiqueBanner';
 import ProductDetailePage from '../productDetailePage/ProductDetailePage'
@@ -193,7 +193,7 @@ function HomePage() {
       </div>
       <main className="w-full h-full ">
         <div className="w-full h-full">
-          <Slider />
+          <BannerSlider />
         </div>
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[50px] xl:pr-[50px]  pt-[10px] pb-[10px]  ">
           <OffBox />

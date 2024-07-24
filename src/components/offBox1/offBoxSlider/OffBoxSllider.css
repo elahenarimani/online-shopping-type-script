@@ -32,10 +32,28 @@
 
 @media (min-width: 768px) {
     .swiper-container {
-        --swiper-slides-per-view: 7; /* Define the number of slides per view for desktop */
+        --swiper-slides-per-view: 7; 
     }
 }
 
 .swiper-slide {
     width: calc((100% - (var(--swiper-space-between) * (var(--swiper-slides-per-view) - 1))) / var(--swiper-slides-per-view)); /* Adjust slide width */
 }
+
+
+
+/* .swiper-container{
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+}
+.swiper-container .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */

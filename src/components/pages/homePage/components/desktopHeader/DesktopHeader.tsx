@@ -97,8 +97,8 @@ function DesktopHeader() {
         با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
       </p>
       <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white ">
-        <div className="search w-4/12 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
-        <div className="w-full absolute top-0 right-0 z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
+        <div className="search w-2/5 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
+        <div className=" w-full absolute top-0 right-0  z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
             {showSearchBar && <SearchBar showSearchBar={showSearchBar}  setshowSearchBar={setshowSearchBar}/>}
             </div>
           <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
