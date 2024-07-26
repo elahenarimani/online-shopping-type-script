@@ -9,6 +9,7 @@ import ProductDetailePage from "../pages/productDetailePage/ProductDetailePage";
 import ShippingPage from "../pages/shippingPage/ShippingPage"
 import CheckoutPage from "../pages/checkoutPage/CheckoutPage"
 import PostData from "../postData/PostData"
+import ProductListPage from "../pages/productListPage/ProductListPage";
 // import ShippingPage from "../pages/shippingPage/ShippingPage"
 // import { useContext } from "react";
 
@@ -64,5 +65,12 @@ const router = createBrowserRouter([
       path:'/Posting',
       element:<PostData/>,
     },
+    {
+      path : '/productList',
+      children:[{
+        path: '/productList/:categoryName',
+        element:<ProductListPage/>
+      }]
+    }
   ]);
   export {router}

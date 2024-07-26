@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { ProductListContext } from "../siteSetting/SiteSetting";
+
 function  PostData(){
+const productListX = useContext(ProductListContext);
 function newPost(){
     const newProduct = 
 {
