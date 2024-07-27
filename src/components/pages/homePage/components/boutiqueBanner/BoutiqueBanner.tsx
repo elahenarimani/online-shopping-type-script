@@ -180,7 +180,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/مردانه`}>
           <div className="w-full bg-[#1B3044] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -199,7 +199,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/زنانه`}>
           <div className="w-full bg-[#232428] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -218,7 +218,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/زنانه`}>
           <div className="w-full bg-[#787470] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -237,7 +237,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/بچگانه`}>
           <div className="w-full bg-[#FF99B4] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -256,7 +256,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link  to={`/productList/بچگانه`}>
           <div className="w-full bg-[#E272AA] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -275,7 +275,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/مردانه`}>
           <div className="w-full bg-[#B69E94] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -294,7 +294,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/مردانه`}>
           <div className="w-full bg-[#5A5A93] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -313,7 +313,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/عینک`}>
           <div className="w-full bg-[#A8A158] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -332,7 +332,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/عینک`}>
           <div className="w-full bg-[#70715C] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -351,7 +351,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/کیف`}>
           <div className="w-full bg-[#FE5300] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -370,7 +370,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/کیف`}>
           <div className="w-full bg-[#6E5E43] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -389,7 +389,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/کفش و چکمه`}>
           <div className="w-full bg-[#70666E] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -408,7 +408,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link to={`/productList/کفش و چکمه`}>
           <div className="w-full bg-[#603A2B] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -427,7 +427,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link  to={`/productList/زنانه`}>
           <div className="w-full bg-[#CE9C9F] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -446,7 +446,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link  to={`/productList/زنانه`}>
           <div className="w-full bg-[#0B1C34] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -465,7 +465,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link  to={`/productList/بچگانه`}>
           <div className="w-full bg-[#EB0006] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -484,7 +484,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={"/productList"}>
+        <Link  to={`/productList/بچگانه`}>
           <div className="w-full bg-[#FFB233] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img

@@ -14,7 +14,7 @@ import { LuTwitter } from "react-icons/lu";
 import 'swiper/css';
 import BannerSlider from './components/bannerSlider/BannerSlider';
 import OffBox from '../../offBox1/OffBox';
-import BoutiqueBanner from '../../boutiqueBanner/BoutiqueBanner';
+import BoutiqueBanner from './components/boutiqueBanner/BoutiqueBanner';
 import ProductDetailePage from '../productDetailePage/ProductDetailePage'
 import MobileHeader from '../../mobile-header/MobileHeader';
 import axios from "axios"
