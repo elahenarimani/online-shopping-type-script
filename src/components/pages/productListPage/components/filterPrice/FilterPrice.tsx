@@ -1,54 +1,32 @@
-
-import Slider , { Range } from 'rc-slider';
-import "rc-slider/assets/index.css";
-import { useState } from "react";
-
-function FilterPrice(){
-    const Slider = require('rc-slider');
-    const createSliderWithTooltip = Slider.createSliderWithTooltip;
-    const Range = createSliderWithTooltip(Slider.Range);
-    const [value, setValue] = useState<number|number[]>([0 , 15000000]);
-      const OnChangeEventTriggerd = (newValue: [number, number]) => {
-        console.log("new Value", newValue);
-        setValue(newValue);
-      };
-      
-    return(
-        <div>
-          <Slider range
-          step={500000}
-          min={0}
-          max={10000000}
-           trackStyle={{ backgroundColor: "black", height: 10 }}
-           railStyle={{ backgroundColor: "lightgray", height: 10 }}
-           handleStyle={[
-            {
-                borderColor: "#393939",
-                height: 20,
-                width: 20,
-                marginLeft: 0,
-                marginTop: -5,
-                backgroundColor: "#393939"
-              },
-              {
-                borderColor: "#393939",
-                height: 20,
-                width: 20,
-                marginLeft: 0,
-                marginTop: -5,
-                backgroundColor: "#393939"
-              }
-           ]}
-          value={value} 
-          onChange={OnChangeEventTriggerd}
-           />
-           <div className="flex justify-between items-center mt-[15px]">
-           
-            <p>{value[0]}</p>
-            <p>{value[1]}</p>
-            
-           </div>
-        </div>
-    )
+import MultiRangeSlider from "multi-range-slider-react";
+import { useContext, useState } from "react";
+import './filterPrice.css';
+import { ProductListContext } from "../../../../siteSetting/SiteSetting";
+function FilterPrice() {
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(15000000);
+  const handleInput = (e:any) => {
+    set_maxValue(e.maxValue);
+    set_minValue(e.minValue); 
+  };
+  const productListX = useContext(ProductListContext);
+  return (
+    <div className="App">
+		<MultiRangeSlider
+			min={0}
+			max={15000000}
+			step={500000}
+			minValue={minValue}
+			maxValue={maxValue}
+			onInput={(e) => {
+				handleInput(e);
+			}}
+		/>
+    <div>
+      <p>{minValue}</p>
+      <p>{maxValue}</p>
+    </div>
+	</div>
+  );
 }
-export default FilterPrice
+export default FilterPrice;
