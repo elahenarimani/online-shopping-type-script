@@ -5,6 +5,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import FilterPrice from "./components/filterPrice/FilterPrice";
+
 interface IState {
   id: string | number;
   count: number;
