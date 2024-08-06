@@ -5,7 +5,9 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import FilterPrice from "./components/filterPrice/FilterPrice";
-
+import MultiRangeSlider from "multi-range-slider-react";
+import {  useEffect, useState } from "react";
+import './productListPage.css'
 interface IState {
   id: string | number;
   count: number;
@@ -13,13 +15,36 @@ interface IState {
 function ProductListPage() {
   const { categoryName } = useParams<Params>();
   const productListX = useContext(ProductListContext);
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(15000000);
+  const [filteredPriceProducts, setFilteredPriceProducts] = useState<IProduct[]|undefined>([]);
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
   const params = useParams();
   const filteredProducts = productListX?.productList.filter(
     (product) => product.head_category === categoryName
   );
   const dispatch: Function = useDispatch();
-
+  const handleInput = (e:any) => {
+    set_maxValue(e.maxValue);
+    set_minValue(e.minValue); 
+  };
+  interface IProduct {
+    id: string,
+    head_category: string,
+    category: string,
+    name: string,
+    price: number,
+    in_stock: number,
+    image: string[]
+  }
+  interface IProductList {
+    productList?: IProduct[],
+    setProductList?: Function
+  }
+  useEffect(() => {
+    const filtered : IProduct[] | undefined = productListX?.productList?.filter(product => product.price >= minValue && product.price <= maxValue);
+    setFilteredPriceProducts(filtered);
+  }, [minValue, maxValue, productListX]);
   return (
     <div className="max-w-full h-full m-auto ml-[40px] mr-[40px] flex justify-between items-center gap-[5px]">
       {/* {filteredProducts?.map((item) => (
@@ -30,10 +55,25 @@ function ProductListPage() {
             </div>
             ))} */}
       <div className="w-2/5  mr-[20px] ml-[20px]">
-      <FilterPrice/>
+      {/* <FilterPrice/> */}
+      <MultiRangeSlider
+			min={0}
+			max={15000000}
+			step={500000}
+			minValue={minValue}
+			maxValue={maxValue}
+			onInput={(e) => {
+			handleInput(e);
+			}}
+		/>
+    <div>
+      <p>{minValue}</p>
+      <p>{maxValue}</p>
+    </div>
       </div>
      <div className=" grid  grid-cols-4 gap-[15px]">
-     {filteredProducts?.map((item) => (
+     {filteredProducts?.filter(product => product.price >= minValue && product.price <= maxValue)
+     ?.map((item) => (
         <Link to={`/checkout/cart/`}>
                   
         <div key={item.id} className=" w-full">
@@ -41,21 +81,7 @@ function ProductListPage() {
             <img src={item.image[0]} alt="photo" className="w-full h-full" />
             <p className="mr-[10px] mb-[10px] mt-[25px]">{item.name}</p>
             <p className="mr-[10px]  mb-[25px] mt-[10px]">{item.price} تومان</p>
-            {/* <div className="w-full flex flex-row justify-between items-center gap-[5px]">
-              <div className="w-full">
-                <Link to={`/checkout/cart/`}>
-                  <button
-                    className=" w-full h-[38px]  text-white bg-[#A72F3B] text-center pt-[11px] pb-[11px] rounded-[5px] "
-                    onClick={() => dispatch(addBuyCart({ id: params.id }))}
-                  >
-                    <p>رفتن به سبد خرید</p>
-                  </button>
-                </Link>
-              </div>
-              <div className="w-[38px] h-[38px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
-                <IoMdHeartEmpty color="#A72F3B" />
-              </div>
-            </div> */}
+        
           </div>
           
         

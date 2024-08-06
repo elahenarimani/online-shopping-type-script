@@ -37,7 +37,7 @@ function FilterPrice() {
 			minValue={minValue}
 			maxValue={maxValue}
 			onInput={(e) => {
-				handleInput(e);
+			handleInput(e);
 			}}
 		/>
     <div>
