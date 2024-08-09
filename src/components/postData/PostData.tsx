@@ -6,15 +6,15 @@ const productListX = useContext(ProductListContext);
 function newPost(){
     const newProduct = 
 {
-        "head-category": "زنانه",
-        "category": "کیف مجلسی",
-        "name": "کیف رودوشی زنانه",
-        "price": 2500000,
-        "in-stock": 2,
+        "head-category": "بچگانه",
+        "category":"نوزادی",
+        "name": "بادی نوزادی",
+        "price": 5000000,
+        "in-stock": 5,
         "image": [
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1435/product/media/images/prod/QC/20240722/10/5666c793-e632-3ae1-8469-baced791aace/1_org_zoom.jpg",
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1436/product/media/images/prod/QC/20240722/10/ebac3944-4f8a-3222-8f24-ff28da01bd96/1_org_zoom.jpg",
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1434/product/media/images/prod/QC/20240722/10/b20e23f6-520f-33bb-94ec-89dff5b3d2d9/1_org_zoom.jpg"
+          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/8b93811a-6e83-3c73-967f-4bf2c09311f3/1_org_zoom.jpg",
+          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/fd997f61-3d30-3398-b4e1-b8595f5aea95/1_org_zoom.jpg",
+          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/a9a9ea06-c9ae-398c-9e36-0bdd3e556d31/1_org_zoom.jpg"
         ]}
     
 fetch("https://662b7b1dde35f91de15869ec.mockapi.io/products" , {

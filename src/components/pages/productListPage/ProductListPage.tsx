@@ -4,10 +4,12 @@ import { ProductListContext } from "../../siteSetting/SiteSetting";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
-import FilterPrice from "./components/filterPrice/FilterPrice";
+// import FilterPrice from "./components/filterPrice/FilterPrice";
 import MultiRangeSlider from "multi-range-slider-react";
 import { useEffect, useState } from "react";
 import "./productListPage.css";
+import MobileHeader from "../../mobile-header/MobileHeader";
+import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
 interface IState {
   id: string | number;
   count: number;
@@ -52,8 +54,12 @@ function ProductListPage() {
   return (
     <div>
       <div className="mobile-product-list lg:hidden max-w-full h-full pr-[20px] pl-[20px] flex flex-col justify-start items-center">
-        <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]">
-          <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] pt-[5px] pr-[20px] pl-[20px]  bg-white ">
+      <div className="invisible w-full h-[80px] md:hidden"></div>
+        <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
+          <MobileHeader />
+        </div>
+        {/* <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]"> */}
+        <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-white ">
           {/* <FilterPrice/> */}
           <MultiRangeSlider
             min={0}
@@ -70,7 +76,7 @@ function ProductListPage() {
             <p>{minValue}</p>
           </div>
         </div>
-          </div>
+          {/* </div> */}
         <div className="max-w-full h-full grid  grid-cols-1 gap-[15px] pt-[20px]">
           {filteredProducts
             ?.filter(
@@ -96,7 +102,10 @@ function ProductListPage() {
             ))}
         </div>
       </div>
-      <div className="desktop-product-list hidden lg:flex max-w-full h-full m-auto ml-[40px] mr-[40px]  justify-start items-start gap-[5px]">
+      <div className="desktop-product-list w-full h-full hidden lg:block">
+        <DesktopHeader />
+        <div className=" flex max-w-full h-full m-auto ml-[40px] mr-[40px]  justify-start items-start gap-[5px]">
+      
         <div className="max-w-[200px] min-w-[200px] mr-[20px] ml-[20px] pt-[80px]">
           {/* <FilterPrice/> */}
           <MultiRangeSlider
@@ -138,6 +147,7 @@ function ProductListPage() {
               </Link>
             ))}
         </div>
+      </div>
       </div>
     </div>
   );

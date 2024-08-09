@@ -119,7 +119,7 @@ function ProductDetailePage() {
         </div>
         <div className="swiper-container">
           <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-            <SwiperSlide>
+            {/* <SwiperSlide>
               <div className="swiper-slide">
                 <img
                   className="w-full h-full"
@@ -135,7 +135,7 @@ function ProductDetailePage() {
                   }`}
                 />
               </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
             <SwiperSlide>
               <div className="swiper-slide">
                 <img
@@ -248,7 +248,7 @@ function ProductDetailePage() {
           <p>زنانه/بالاپوش/تیشرت</p>
           <div className="w-full h-full flex flex-row justify-start items-start gap-[80px] ">
             <div className="w-1/3 h-full ">
-              <Swiper
+              {/* <Swiper
                 navigation={true}
                 modules={[Navigation]}
                 className="mySwiper"
@@ -304,7 +304,7 @@ function ProductDetailePage() {
                     />
                   </div>
                 </SwiperSlide>
-              </Swiper>
+              </Swiper> */}
             </div>
             <div className="w-1/3  h-full flex flex-col justify-between items-start  ">
               {/* <div className="flex flex-col judsify-between items-center"> */}
