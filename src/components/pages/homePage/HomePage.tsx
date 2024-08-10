@@ -21,25 +21,25 @@ import axios from "axios";
 import DesktopHeader from "./components/desktopHeader/DesktopHeader";
 import SearchBar from "./components/searchBar/SearchBar";
 
-
 import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {  useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useSwiper } from "swiper/react";
 
 import { Controller } from "swiper/modules";
-import { Navigation, Pagination, Scrollbar, A11y  } from "swiper/modules";
-import SwiperCore, { Swiper as SwiperType } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import SwiperCore, { Swiper as SwiperType } from "swiper";
 import { register } from "swiper/element/bundle";
+import BannerSlider from "./components/bannerSlider/BannerSlider";
 SwiperCore.use([Navigation, Pagination]);
 register();
 function HomePage() {
   // const [firstSwiper, setFirstSwiper] = useState<SwiperType | null>(null);
   // const [secondSwiper, setSecondSwiper] = useState<SwiperType | null>(null);
- 
+
   return (
     <div className="App">
       <div className="w-full h-full ">
@@ -184,8 +184,8 @@ function HomePage() {
       </div>
       <main className="w-full h-full ">
         <div className="w-full h-full">
-          {/* <BannerSlider /> */}
-          <div className="bg-[#eee] text-[#000]  m-0 p-0">
+          <BannerSlider />
+         
             {/* <div className="swiper1">
               <div className="swiper-container1 ">
                 <div className="swiper-slide w-full h-[100vh]">
@@ -235,96 +235,12 @@ function HomePage() {
               <div className="swiper-pagination swiper-pagination1">klk</div>
             
             </div> */}
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
-              spaceBetween={50}
-              slidesPerView={1}
-              loop={true}
-              effect="fade"
-              navigation={true}
-              pagination={{ clickable: true }}
-              // scrollbar={{ draggable: true }}
-             
-              onSlideChange={() => console.log("slide change")}
-              className="swiper-container-1 w-full h-full "
-            >
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="photos"
-                  src="https://s8.uupload.ir/files/screenshot_(2)_u41a.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="photos"
-                  src="https://s8.uupload.ir/files/8643a805cd39455a4e8e45857f36b644c72c0121_1713701662_gg4d.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="shose"
-                  src="https://s8.uupload.ir/files/screenshot_(4)_zzvb.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="skinCare"
-                  src="https://s8.uupload.ir/files/screenshot_(6)_ocyu.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="women"
-                  src="https://s8.uupload.ir/files/2c627a1efeabeeb2d68a4740aad14b9ccd33235f_1713701900_jj7l.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="women2"
-                  src="https://s8.uupload.ir/files/2_ibsi.png"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-            </Swiper>
-          </div>
-          <p>hi</p>
-          <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
-              spaceBetween={50}
-              slidesPerView={1}
-              loop={true}
-              effect="fade"
-              navigation={true}
-              pagination={{ clickable: true }}
-              // scrollbar={{ draggable: true }}
-              
-             
-              onSlideChange={() => console.log("slide change")}
-              className="swiper-container-2 w-full h-full "
-            >
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="photos"
-                  src="https://dkstatics-public.digikala.com/digikala-adservice-banners/257417b1066b66c30e2ad78f53b4ae18b8b4e349_1723019600.jpg?x-oss-process=image/quality,q_95"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="w-full h-[100vh]">
-                <img
-                  alt="photos"
-                  src="https://dkstatics-public.digikala.com/digikala-adservice-banners/41cb4df3a7b31c927284764518dd55eaebd41069_1723017884.jpg?x-oss-process=image/quality,q_95"
-                  className="w-full h-full"
-                />
-              </SwiperSlide>
-              </Swiper>
+           
+        
+          
         </div>
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[50px] xl:pr-[50px]  pt-[10px] pb-[10px]  ">
-          {/* <OffBox /> */}
+          <OffBox />
         </div>
         <div className="container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  xl:pt-[15px] xl:pb-[15px] gap-[10px] ">
           <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
