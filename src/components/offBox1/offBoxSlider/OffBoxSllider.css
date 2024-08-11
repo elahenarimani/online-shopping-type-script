@@ -88,8 +88,8 @@
 
 .swiper-button-next:after  {
   /* background-color: transparent; */
-  width: 35px !important;
-  height: 35px !important;
+  width: 70px !important;
+  height: 70px !important;
   width: 100% !important;
   height: 100% !important;
   font-size: 35px;
@@ -107,7 +107,7 @@
   width: 100% !important;
   height: 100% !important;
   
-  font-size: 20px;
+  font-size: 35px;
   color: black;
   
 }

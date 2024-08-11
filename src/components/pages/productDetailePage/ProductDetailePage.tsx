@@ -29,6 +29,21 @@ import {
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import "swiper/css/bundle";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+import { useSwiper } from "swiper/react";
+
+import { Controller } from "swiper/modules";
+import { Scrollbar, A11y } from "swiper/modules";
+import SwiperCore, { Swiper as SwiperType } from "swiper";
+import { register } from "swiper/element/bundle";
+
+SwiperCore.use([Navigation, Pagination]);
 interface IProduct {
   id: string;
   head_category: string;
@@ -117,56 +132,70 @@ function ProductDetailePage() {
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
           <MobileHeader />
         </div>
-        <div className="swiper-container">
-          <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-            {/* <SwiperSlide>
-              <div className="swiper-slide">
+        <div >
+          <Swiper
+          //  pagination={true} modules={[Pagination]} className="mySwiper"
+          modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
+          spaceBetween={5}
+          slidesPerView={1}
+          loop={true}
+          effect="fade"
+          navigation={true}
+          // pagination={{ clickable: true }}
+          onSlideChange={() => console.log("slide change")}
+          className="swiper-container-4 w-full h-full "
+           >
+            <SwiperSlide>
+              <div className="w-full swiper-slide">
                 <img
-                  className="w-full h-full"
+                  alt={`${
+                    productListX?.productList.find(
+                      (item) => item?.id === params.id
+                    )?.name ?? "photo"
+                  }`}
                   src={
                     productListX?.productList.find(
                       (item) => item?.id === params.id
                     )?.image[0]
                   }
-                  alt={`${
-                    productListX?.productList.find(
-                      (item) => item?.id === params.id
-                    )?.name ?? "photo"
-                  }`}
-                />
-              </div>
-            </SwiperSlide> */}
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <img
                   className="w-full h-full"
-                  src={
-                    productListX?.productList.find(
-                      (item) => item?.id === params.id
-                    )?.image[1]
-                  }
-                  alt={`${
-                    productListX?.productList.find(
-                      (item) => item?.id === params.id
-                    )?.name ?? "photo"
-                  }`}
+                  //  alt="photos"
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="swiper-slide">
                 <img
-                  className="w-full h-full"
-                  src={
-                    productListX?.productList.find(
-                      (item) => item?.id === params.id
-                    )?.image[2]
-                  }
                   alt={`${
                     productListX?.productList.find(
                       (item) => item?.id === params.id
                     )?.name ?? "photo"
                   }`}
+                  src={
+                    productListX?.productList.find(
+                      (item) => item?.id === params.id
+                    )?.image[1]
+                  }
+                  className="w-full h-full"
+                  // alt="photos"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="swiper-slide">
+                <img
+                  alt={`${
+                    productListX?.productList.find(
+                      (item) => item?.id == params.id
+                    )?.name ?? "photo"
+                  }`}
+                  src={
+                    productListX?.productList.find(
+                      (item) => item?.id === params.id
+                    )?.image[2]
+                  }
+                  className="w-full h-full"
+                  //  alt="photos"
                 />
               </div>
             </SwiperSlide>
@@ -176,25 +205,25 @@ function ProductDetailePage() {
         <div className="text-[14px] pt-[5px] pl-[16px] pr-[16px]">
           <p>مردانه / بالاپوش /تیشرت</p>
         </div>
-       <div className="flex w-full flex-row justify-between items-center pl-[16px] pr-[16px] mt-[15px] mb-[15px]">
-       <div>
-          <p className="   text-right text-[19px] font-medium ">
-            {
-              productListX?.productList.find((item) => item?.id === params.id)
-                ?.name
-            }
-          </p>
+        <div className="flex w-full flex-row justify-between items-center pl-[16px] pr-[16px] mt-[15px] mb-[15px]">
+          <div>
+            <p className="   text-right text-[19px] font-medium ">
+              {
+                productListX?.productList.find((item) => item?.id === params.id)
+                  ?.name
+              }
+            </p>
+          </div>
+          <div className="flex  flex-row justify-between items-center text-[19px] ">
+            <p>
+              {
+                productListX?.productList.find((item) => item?.id === params.id)
+                  ?.price
+              }
+            </p>
+            <p>تومان</p>
+          </div>
         </div>
-        <div className="flex  flex-row justify-between items-center text-[19px] ">
-          <p>
-            {
-              productListX?.productList.find((item) => item?.id === params.id)
-                ?.price
-            }
-          </p>
-          <p>تومان</p>
-        </div>
-       </div>
         <div className="w-full h-full flex flex-row justify-between items-center mt-[15px] mb-[15px] pl-[16px] pr-[16px]">
           <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
             <p className="w-[50px] important!">تعداد:</p>
@@ -248,12 +277,21 @@ function ProductDetailePage() {
           <p>زنانه/بالاپوش/تیشرت</p>
           <div className="w-full h-full flex flex-row justify-start items-start gap-[80px] ">
             <div className="w-1/3 h-full ">
-              {/* <Swiper
+              <Swiper
+                // navigation={true}
+                // modules={[Navigation]}
+                // className="mySwiper"
+                modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
+                spaceBetween={5}
+                slidesPerView={1}
+                loop={false}
+                effect="fade"
                 navigation={true}
-                modules={[Navigation]}
-                className="mySwiper"
+                // pagination={{ clickable: true }}
+                onSlideChange={() => console.log("slide change")}
+                className="swiper-container-3 w-full h-full "
               >
-                <SwiperSlide>
+                <SwiperSlide className="w-full h-full">
                   <div className="swiper-slide2">
                     <img
                       className="w-full h-full"
@@ -270,7 +308,7 @@ function ProductDetailePage() {
                     />
                   </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="w-full h-full">
                   <div className="swiper-slide2">
                     <img
                       className="w-full h-full"
@@ -287,7 +325,7 @@ function ProductDetailePage() {
                     />
                   </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className="w-full h-full">
                   <div className="swiper-slide2 ">
                     <img
                       className="w-full h-full"
@@ -304,7 +342,7 @@ function ProductDetailePage() {
                     />
                   </div>
                 </SwiperSlide>
-              </Swiper> */}
+              </Swiper>
             </div>
             <div className="w-1/3  h-full flex flex-col justify-between items-start  ">
               {/* <div className="flex flex-col judsify-between items-center"> */}
