@@ -1,9 +1,7 @@
 import React, { useState, useEffect, createContext, useRef } from "react";
 // import ReactModal from 'react-modal';
 import "./homePage.css";
-
 // import { PiListBold } from "react-icons/pi";
-
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { TbRewindBackward15 } from "react-icons/tb";
 import { IoBagCheckOutline } from "react-icons/io5";
@@ -20,7 +18,6 @@ import MobileHeader from "../../mobile-header/MobileHeader";
 import axios from "axios";
 import DesktopHeader from "./components/desktopHeader/DesktopHeader";
 import SearchBar from "./components/searchBar/SearchBar";
-
 import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -28,7 +25,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
-
 import { Controller } from "swiper/modules";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import SwiperCore, { Swiper as SwiperType } from "swiper";
@@ -39,7 +35,6 @@ register();
 function HomePage() {
   // const [firstSwiper, setFirstSwiper] = useState<SwiperType | null>(null);
   // const [secondSwiper, setSecondSwiper] = useState<SwiperType | null>(null);
-
   return (
     <div className="App">
       <div className="w-full h-full ">
@@ -185,7 +180,6 @@ function HomePage() {
       <main className="w-full h-full ">
         <div className="w-full h-full">
           <BannerSlider />
-         
             {/* <div className="swiper1">
               <div className="swiper-container1 ">
                 <div className="swiper-slide w-full h-[100vh]">

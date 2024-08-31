@@ -14,7 +14,6 @@ function OffBox() {
                 </div>
             </div>
             <div className='w-full  pr-[10px] pl-[10px]'>
-           
             <OffBoxSlider/>
             </div>
         </div>

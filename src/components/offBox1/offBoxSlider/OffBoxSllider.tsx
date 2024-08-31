@@ -269,15 +269,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex-row flex justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px] white-space ">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p >2500000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>5000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -291,15 +291,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>3000000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>6000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -313,15 +313,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>5000000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>10000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -335,15 +335,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>3500000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>7000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -357,15 +357,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>2500000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>3000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -379,15 +379,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>2000000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>4000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -401,15 +401,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>2500000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>5000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -423,15 +423,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>1500000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>3000000</p>
           </div>
         </div>
       </SwiperSlide>
@@ -445,15 +445,15 @@ function OffBoxSlider() {
             />
           </div>
           <div>
-            <div className="w-full flex flex-row justify-between items-center gap-[70px]">
-              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]">
-                <p>5%</p>
+            <div className="w-full flex flex-row justify-between items-center gap-[20px] text-[14px]">
+              <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                <p>50%</p>
               </div>
-              <p>100تومان</p>
+              <p>2000000تومان</p>
             </div>
           </div>
           <div className="w-full flex flex-row justify-end pl-[10px] text-[12px] line-through text-[#CFD0D2]">
-            <p>10000</p>
+            <p>4000000</p>
           </div>
         </div>
       </SwiperSlide>

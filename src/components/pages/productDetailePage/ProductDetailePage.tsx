@@ -284,8 +284,8 @@ function ProductDetailePage() {
                 modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
                 spaceBetween={5}
                 slidesPerView={1}
-                loop={false}
-                effect="fade"
+                loop={true}
+                // effect="fade"
                 navigation={true}
                 // pagination={{ clickable: true }}
                 onSlideChange={() => console.log("slide change")}
