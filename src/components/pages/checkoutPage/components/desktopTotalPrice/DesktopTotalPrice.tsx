@@ -3,11 +3,11 @@ import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 import { useContext, useState, useEffect } from "react";
 interface IProduct {
   id: string | number;
-  head_category: string;
+  headcategory: string;
   category: string;
   name: string;
   price: number;
-  in_stock: number;
+  instock: number;
   image: string[];
 }
 interface IDesktopTotalPrice {

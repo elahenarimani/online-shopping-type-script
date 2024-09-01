@@ -28,11 +28,11 @@ function CheckoutPage() {
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
   interface IProduct {
     id: string | number;
-    head_category: string;
+    headcategory: string;
     category: string;
     name: string;
     price: number;
-    in_stock: number;
+    instock: number;
     image: string[];
   }
   interface IProductList {
@@ -123,12 +123,12 @@ function CheckoutPage() {
                 <MobileCheckout
                   key={item.id}
                   id={item.id}
-                  headCategory={item.head_category}
+                  headCategory={item.headcategory}
                   category={item.category}
                   name={item.name}
                   price={item.price}
                   image={item.image}
-                  inStock={item.in_stock}
+                  inStock={item.instock}
                   count={count}
                 />
               );
@@ -202,12 +202,12 @@ function CheckoutPage() {
                   <DesktopCheckout
                     key={item.id}
                     id={item.id}
-                    headCategory={item.head_category}
+                    headCategory={item.headcategory}
                     category={item.category}
                     name={item.name}
                     price={item.price}
                     image={item.image}
-                    inStock={item.in_stock}
+                    inStock={item.instock}
                     count={count}
                     //             "id": "5",
                     // "head_category": "آفتابی عینک",

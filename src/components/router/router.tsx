@@ -68,7 +68,7 @@ const router = createBrowserRouter([
     {
       path : '/productList',
       children:[{
-        path: '/productList/:categoryName',
+        path: '/productList/:headcategory',
         element:<ProductListPage/>
       }]
     }

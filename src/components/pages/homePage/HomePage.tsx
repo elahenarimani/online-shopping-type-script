@@ -30,6 +30,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import SwiperCore, { Swiper as SwiperType } from "swiper";
 import { register } from "swiper/element/bundle";
 import BannerSlider from "./components/bannerSlider/BannerSlider";
+import { Link } from "react-router-dom";
+import ProductCategory from "./components/productcategory/ProductCategory";
 SwiperCore.use([Navigation, Pagination]);
 register();
 function HomePage() {
@@ -236,26 +238,7 @@ function HomePage() {
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[50px] xl:pr-[50px]  pt-[10px] pb-[10px]  ">
           <OffBox />
         </div>
-        <div className="container-cart w-full h-[230px] md:h-[144px] xl:h-[90px] pl-[16px] pr-[16px] xl:pl-[30px] xl:pr-[30px] grid grid-cols-2  xl:grid-cols-6 md:grid-cols-3 place-items-center justify-around  xl:pt-[15px] xl:pb-[15px] gap-[10px] ">
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p>زنانه</p>
-          </div>
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p> مردانه</p>
-          </div>
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p>بچگانه</p>
-          </div>
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p>کیف</p>
-          </div>
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p>کفش</p>
-          </div>
-          <div className="w-[155px] xl:w-[200px] h-[56px] bg-[#A72F3B] rounded-[8px] pt-[10px] pb-[10px] text-[#ffffff] cursor-pointer">
-            <p>عینک</p>
-          </div>
-        </div>
+       <ProductCategory/>
         <BoutiqueBanner />
 
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">

@@ -6,15 +6,15 @@ const productListX = useContext(ProductListContext);
 function newPost(){
     const newProduct = 
 {
-        "head-category": "بچگانه",
-        "category":"نوزادی",
-        "name": "بادی نوزادی",
-        "price": 5000000,
-        "in-stock": 5,
+        "headcategory": "کفش",
+        "category":"نیم بوت",
+        "name": "نیم بوت مشکی تخت",
+        "price": 3000000,
+        "instock": 3,
         "image": [
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/8b93811a-6e83-3c73-967f-4bf2c09311f3/1_org_zoom.jpg",
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/fd997f61-3d30-3398-b4e1-b8595f5aea95/1_org_zoom.jpg",
-          "https://cdn.dsmcdn.com/mnresize/600/-/ty1464/product/media/images/prod/QC/20240806/15/a9a9ea06-c9ae-398c-9e36-0bdd3e556d31/1_org_zoom.jpg"
+           "https://cdn.dsmcdn.com/mnresize/600/-/ty593/product/media/images/20221107/12/209232166/593075860/2/2_org_zoom.jpg",
+           "https://cdn.dsmcdn.com/mnresize/600/-/ty581/product/media/images/20221026/13/202724655/593075857/4/4_org_zoom.jpg",
+           "https://cdn.dsmcdn.com/mnresize/600/-/ty581/product/media/images/20221026/13/202724655/593075857/3/3_org_zoom.jpg"
         ]}
     
 fetch("https://662b7b1dde35f91de15869ec.mockapi.io/products" , {

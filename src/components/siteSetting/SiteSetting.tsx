@@ -9,11 +9,11 @@ interface Iprops {
 }
 interface IProduct {
   id: string;
-  head_category: string;
+  headcategory: string;
   category: string;
   name: string;
   price: number;
-  in_stock: number;
+  instock: number;
   image: string[];
 }
 interface IProductList {
@@ -41,7 +41,7 @@ function SiteSetting({ children }: Iprops) {
   const [productList, setProductList] = useState<IProduct[]>([]);
   useEffect(() => {
     axios
-      .get("https://662b7b1dde35f91de15869ec.mockapi.io/products")
+      .get("https://66d432795b34bcb9ab3dece3.mockapi.io/products")
       .then((result) => setProductList(result.data));
   }, []);
   let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([]);
