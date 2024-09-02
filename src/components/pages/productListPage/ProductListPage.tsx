@@ -289,7 +289,7 @@ function ProductListPage() {
                   product.price >= minValue && product.price <= maxValue
               )
               .map((item) => {
-                if (item.headcategory == params.headcategory) {
+                if (item.headcategory === params.headcategory) {
                   return (
                     <div key={item.id} className="w-full">
                       <div className="w-full h-full border-solid border-[#E6E6E6] border-[2px] rounded-[5px] flex flex-col justify-start pt-0 mt-0">

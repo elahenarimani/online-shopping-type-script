@@ -7,6 +7,8 @@ import { Outlet, useParams } from "react-router-dom";
 import MobileHeader from "../../mobile-header/MobileHeader";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -21,8 +23,10 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import Button from "../../button/Button";
+import {FavoritProductContext} from "../../siteSetting/SiteSetting"
 // import { addBuyCart } from "../../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
+// import {addToFavorite} from "../../redux/reducers/favoriteProduct/FavoriteProduct"
 import {
   increasCounter,
   decreaseCounter,
@@ -42,6 +46,8 @@ import { Controller } from "swiper/modules";
 import { Scrollbar, A11y } from "swiper/modules";
 import SwiperCore, { Swiper as SwiperType } from "swiper";
 import { register } from "swiper/element/bundle";
+import { addToFavorite } from "../../redux/reducers/favoriteProduct/FavoriteProduct";
+import { removeFromFavorite} from "../../redux/reducers/favoriteProduct/FavoriteProduct"
 
 SwiperCore.use([Navigation, Pagination]);
 interface IProduct {
@@ -57,11 +63,17 @@ interface IState {
   id: string | number;
   count: number;
 }
+interface IFavProduct {
+  id: string;
+  flag : boolean
+}
 function ProductDetailePage() {
+  const favoritProductX = useContext(FavoritProductContext) 
   const fullReduxState = useSelector((state) => state);
   // const count = useSelector((state: any) => state.buyCart.count);
   // const buyCart = useSelector((state: any) => state.buyCart);
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
+  const favoritProduct:IFavProduct[] = useSelector((state:any) => state.favoritProduct)
   // const x = useSelector((state: any) => console.log(state.buyCarty));
   const productListX = useContext(ProductListContext);
   let buyCartX = useContext(BuyCartContext);
@@ -80,53 +92,29 @@ function ProductDetailePage() {
     const finderParams = params.id;
     return finderParams;
   }
-  // function decreaseCounter() {
-  //     setCounter(counter -= 1)
-  //     return counter
-  // }
-  // function addBuyCart(productId: number | undefined | string) {
-  //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
-  //     if (buyCartIndexFinder === -1) {
-  //         buyCartX.setBuyCart([{ productId: productId, count: 1 }]);
-  //     }
-  //     else {
-  //         console.log("else")
-  //         const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-  //         currentItem.count = counter
-  //         buyCartX.setBuyCart([...buyCartX.buyCart]);
-  //     }
-  //     // console.log(buyCartX.buyCart)
-  // }
-  // function addBuyCart(productId: number | undefined | string) {
-  //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(item => item.productId === productId)
-  //     console.log("Buy cart index finder:", buyCartIndexFinder);
-  //     if (buyCartIndexFinder === -1) {
-  //         buyCartX.setBuyCart([...buyCartX.buyCart, { productId: productId, count: 1 }]);
-  //     }
-  //     else {
-  //         const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-  //         currentItem.count += 1;
-  //         buyCartX.setBuyCart([...buyCartX.buyCart]);
-  //     }
-  // }
-  // function removeFromBuyCart(productId: number | undefined | string) {
-  //     const buyCartIndexFinder = buyCartX?.buyCart.findIndex(product => product.productId === productId)
-  //     if (buyCartIndexFinder >= 0) {
-  //         if (buyCartX.buyCart[buyCartIndexFinder].count > 1) {
-  //             const currentItem = buyCartX?.buyCart[buyCartIndexFinder]
-  //             currentItem.count -= 1;
-  //             buyCartX.setBuyCart([...buyCartX.buyCart])
-  //         } else {
-  //             const filteredBuyCart = buyCartX.buyCart.filter(item => item.productId !== productId)
-  //             buyCartX.setBuyCart([...filteredBuyCart])
-  //         }
-  //     }
-  // }
+  // const [isFavorite, setIsFavorite] = useState(false);
+  // useEffect(() => {
+  //   const productExists = favoritProduct.some(product => product.id === productId);
+  //   setIsFavorite(productExists);
+  // }, [favoritProduct, id]);
+  // const isFavorit =  favoritProduct.some(product => product.id === productId)
+  const isFavorite =  favoritProduct.some(product => product.id === params.id)
+function handleFavoriteClick(productId:string |undefined){
+  const isFavorite =  favoritProduct.some(product => product.id === productId)
+ console.log(isFavorite)
+if (isFavorite) {
+  dispatch(removeFromFavorite({ id: productId }));
+} else {
+  dispatch(addToFavorite({ id: productId }));
+}
+
+}
   return (
     <div>
       {/* {console.log(fullReduxState)} */}
       {/* {console.log(params.id)} */}
       {/* {console.log(buyCarty)} */}
+      {console.log(favoritProduct)}
       <div className="w-full h-full md:hidden">
         <div className="invisible w-full h-[80px] md:hidden"></div>
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
@@ -151,7 +139,7 @@ function ProductDetailePage() {
                   alt={`${
                     productListX?.productList.find(
                       (item) => item?.id === params.id
-                    )?.name ?? "photo"
+                    )?.name ?? "photos"
                   }`}
                   src={
                     productListX?.productList.find(
@@ -187,7 +175,7 @@ function ProductDetailePage() {
                   alt={`${
                     productListX?.productList.find(
                       (item) => item?.id == params.id
-                    )?.name ?? "photo"
+                    )?.name ?? "photos"
                   }`}
                   src={
                     productListX?.productList.find(
@@ -438,8 +426,11 @@ function ProductDetailePage() {
                     </button>
                   </Link>
                 </div>
-                <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]">
-                  <IoMdHeartEmpty color="#A72F3B" />
+                <div className="w-[48px] h-[48px] text-[24px] cursor-pointer border-[1px] border-[#A72F3B] text-center pt-[11px] pb-[11px] pl-[11px] pr-[11px] rounded-[5px]"
+                      onClick={() => handleFavoriteClick( params.id)}
+                      >
+                        {isFavorite ? <MdFavorite color="#A72F3B"/> : <MdFavoriteBorder color="#A72F3B" />}
+                  
                 </div>
               </div>
               <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">

@@ -65,3 +65,4 @@ export const { addBuyCart, increasCounter, decreaseCounter ,removeFromLBuyCart} 
   buyCartReducer.actions;
 
 export default buyCartReducer.reducer;
+

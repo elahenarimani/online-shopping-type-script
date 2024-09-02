@@ -4,16 +4,12 @@ import {
   import HomePage from "../pages/homePage/HomePage";
 
 import ProductDetailePage from "../pages/productDetailePage/ProductDetailePage";
-// import BuyCart from "../pages/shoppingCartPage/ShoppingCart";
-// import ShoppingCart from "../pages/shoppingCartPage/CheckoutPage";
+
 import ShippingPage from "../pages/shippingPage/ShippingPage"
 import CheckoutPage from "../pages/checkoutPage/CheckoutPage"
 import PostData from "../postData/PostData"
 import ProductListPage from "../pages/productListPage/ProductListPage";
-// import ShippingPage from "../pages/shippingPage/ShippingPage"
-// import { useContext } from "react";
 
-// const productListX = useContext(ProductListContext)
 const router = createBrowserRouter([
     {
       path: "/",

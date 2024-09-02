@@ -182,7 +182,7 @@ function HomePage() {
       <main className="w-full h-full ">
         <div className="w-full h-full">
           <BannerSlider />
-            {/* <div className="swiper1">
+          {/* <div className="swiper1">
               <div className="swiper-container1 ">
                 <div className="swiper-slide w-full h-[100vh]">
                   {" "}
@@ -231,14 +231,11 @@ function HomePage() {
               <div className="swiper-pagination swiper-pagination1">klk</div>
             
             </div> */}
-           
-        
-          
         </div>
         <div className=" w-full pl-[30px] pr-[30px] xl:pl-[50px] xl:pr-[50px]  pt-[10px] pb-[10px]  ">
           <OffBox />
         </div>
-       <ProductCategory/>
+        <ProductCategory />
         <BoutiqueBanner />
 
         <div className="advantages w-full h-[150px] pt-[15px] pb-[15px] flex justify-center items-center gap-[15px] pr-[16px] pl-[16px]">
@@ -318,10 +315,18 @@ function HomePage() {
           <div className="quick-access-desktop w-full h-full flex justify-between items-start">
             <div className="flex flex-col justify-between items-center gap-[15px]">
               <p>خرید</p>
-              <p className="text-[#7B7B7B]">زنانه</p>
-              <p className="text-[#7B7B7B]">مردانه</p>
-              <p className="text-[#7B7B7B]">بچگانه</p>
-              <p className="text-[#7B7B7B]">زیبایی و سلامت</p>
+              <Link to={`/productList/زنانه`}>
+                <p className="text-[#7B7B7B]">زنانه</p>
+              </Link>
+              <Link to={`/productList/مردانه`}>
+                <p className="text-[#7B7B7B]">مردانه</p>
+              </Link>
+              <Link to={`/productList/بچگانه`}>
+                <p className="text-[#7B7B7B]">بچگانه</p>
+              </Link>
+              <Link to={`/productList/کفش`}>
+                <p className="text-[#7B7B7B]">کفش</p>
+              </Link>
             </div>
             <div className="flex flex-col justify-between items-center gap-[15px]">
               <p>خدمات مشتریان</p>

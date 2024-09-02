@@ -389,7 +389,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={`/productList/کفش و چکمه`}>
+        <Link to={`/productList/کفش`}>
           <div className="w-full bg-[#70666E] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -408,7 +408,7 @@ function BoutiqueBanner() {
             </div>
           </div>
         </Link>
-        <Link to={`/productList/کفش و چکمه`}>
+        <Link to={`/productList/کفش`}>
           <div className="w-full bg-[#603A2B] flex flex-row justify-between items-center">
             <div className="w-7/12 ">
               <img
@@ -452,44 +452,6 @@ function BoutiqueBanner() {
               <img
                 className="w-full h-full"
                 src="https://s8.uupload.ir/files/snapedit_1714043880271_ra8a.jpg"
-                alt="clothing"
-              ></img>
-            </div>
-            <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
-              <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
-                <p>تومان</p>
-              </div>
-              <p className="text-[15px] underline ">همین الان بخر</p>
-            </div>
-          </div>
-        </Link>
-        <Link  to={`/productList/بچگانه`}>
-          <div className="w-full bg-[#EB0006] flex flex-row justify-between items-center">
-            <div className="w-7/12 ">
-              <img
-                className="w-full h-full"
-                src="https://s8.uupload.ir/files/snapedit_1714041280076_ux8.jpg"
-                alt="clothing"
-              ></img>
-            </div>
-            <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
-              <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
-                <p>تومان</p>
-              </div>
-              <p className="text-[15px] underline ">همین الان بخر</p>
-            </div>
-          </div>
-        </Link>
-        <Link  to={`/productList/بچگانه`}>
-          <div className="w-full bg-[#FFB233] flex flex-row justify-between items-center">
-            <div className="w-7/12 ">
-              <img
-                className="w-full h-full"
-                src="https://s8.uupload.ir/files/snapedit_1714041743845_uee1.jpg"
                 alt="clothing"
               ></img>
             </div>
