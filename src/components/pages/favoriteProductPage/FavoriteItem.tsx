@@ -14,6 +14,7 @@ import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import  Button  from "../../button/Button";
 import FavoriteItemMDSize from "./FavoriteItemSMSize";
 import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
+import { removeFromFavorite } from "../../redux/reducers/favoriteProduct/FavoriteProduct";
 interface IFavProduct {
   id: string;
 }
@@ -86,47 +87,17 @@ function FavoriteItem() {
                     <p className=" text-[11px] mr-[8px]">{item?.name}</p>
                     {/* <p className="mr-[10px]  mb-[25px] mt-[10px] text-[11px]"> */}
                     <p className=" text-[11px] mr-[8px]">{item?.price}تومان</p>
-                    <div className="add-to-cart w-full flex flex-row justify-start items-center text-[11px] gap-[8px] mr-[8px]">
-                      <p className="w-[50px] important!">تعداد:</p>
-                      <button
-                        className="w-[16px] h-[16px]"
-                        onClick={() =>
-                          dispatch(increasCounter({ id: params.id }))
-                        }
-                      >
-                        <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white ">
-                          <FaPlus size={12} />
-                        </p>
-                      </button>
-                      <p className="w-[20px] flex justify-center items-center">
-                        {count > 0 ? count : 0}
-                      </p>
-                      <button
-                        className={`w-[16px] h-[16px] rounded-[50%] ${
-                          count > 0
-                            ? "bg-[#A72F3B] rounded-[50%]"
-                            : "opacity-50 rounded-[50%]"
-                        }`}
-                        disabled={count === 0}
-                        onClick={() =>
-                          dispatch(decreaseCounter({ id: params.id }))
-                        }
-                      >
-                        <p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white ">
-                          <FiMinus size={12} />
-                        </p>
-                      </button>
-                    </div>
-                    <Link to={`/checkout/cart/`} className="m-0 p-0">
+                    
+                   
                       <Button
                         className="w-full h-[32px]  bg-[#A72F3B] text-white flex justify-center items-center rounded-b-[5px]"
                         onClickHandler={() =>
-                          dispatch(addBuyCart(console.log("hi")))
+                          dispatch( removeFromFavorite({id : item?.id}))
                         }
                       >
-                        <p className="text-[11px]">رفتن به سبد خرید</p>
+                        <p className="text-[11px]">حذف محصول از لیست</p>
                       </Button>
-                    </Link>
+                    
                   </div>
                 </div>
               );
