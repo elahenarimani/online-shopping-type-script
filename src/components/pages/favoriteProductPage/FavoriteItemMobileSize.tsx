@@ -11,9 +11,8 @@ import {
   decreaseCounter,
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
-import  Button  from "../../button/Button";
-import FavoriteItemMDSize from "./FavoriteItemMDSize";
-import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
+import Button from "../../button/Button";
+import MobileHeader from "../../mobile-header/MobileHeader";
 interface IFavProduct {
   id: string;
 }
@@ -34,7 +33,7 @@ interface IState {
   id: string | number;
   count: number;
 }
-function FavoriteItem() {
+function FavoriteItemMobileSize() {
   const favoritProduct: IFavProduct[] = useSelector(
     (state: any) => state.favoritProduct
   );
@@ -53,15 +52,12 @@ function FavoriteItem() {
   return (
     <div>
       {/* {console.log(favoriteProductsDetails)} */}
-      <div className="mobile-favorite-list w-full h-full  sm:hidden">
-        <FavoriteItemMobileSize/>
-      </div>
-      <div className="sm-favorite-list w-full h-full hidden sm:block lg:hidden">
-      <FavoriteItemMDSize/>
-      </div>
-      <div className="desktop-favorite-list w-full h-full hidden lg:block">
-        <DesktopHeader />
-        <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[80px]">
+      <div className="invisible w-full h-[80px] "></div>
+      <div className="mobile-favorite-list w-full h-full ">
+        <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997] ">
+          <MobileHeader />
+        </div>
+        <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[16px]">
           <div className="w-[48px] h-[48px] text-[24px] cursor-pointer   pt-[11px] pb-[11px] pl-[11px] pr-[11px] ">
             <MdFavorite color="#A72F3B" />
           </div>
@@ -69,12 +65,12 @@ function FavoriteItem() {
             <p>علاقه مندی ها</p>
           </div>
         </div>
-        <div className="  max-w-full h-full m-auto ml-[80px] mr-[80px] mt-[20px] ">
-          <div className="w-full  grid  grid-cols-5 gap-[20px] ">
+        <div className="  max-w-full w-full h-full m-auto  mt-[16px] ">
+          <div className="max-w-full w-11/12   grid !ml-[16px] !mr-[16px] grid-cols-1 gap-[20px]  ">
             {favoriteProductsDetails?.map((item) => {
               return (
                 <div key={item?.id} className="">
-                  <div className="w-[180px] h-full border-solid border-[#E6E6E6] border-[1px] rounded-[5px] flex flex-col justify-start gap-[8px] pt-0 mt-0 pb-0 mb-0">
+                  <div className="w-full h-full border-solid border-[#E6E6E6] border-[1px] rounded-[5px] flex flex-col justify-start gap-[8px] pt-0 mt-0 pb-0 mb-0">
                     <div className="w-full h-full">
                       <img
                         src={item?.image[0]}
@@ -137,4 +133,4 @@ function FavoriteItem() {
     </div>
   );
 }
-export default FavoriteItem;
+export default FavoriteItemMobileSize;

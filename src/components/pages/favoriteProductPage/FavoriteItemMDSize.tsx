@@ -12,8 +12,6 @@ import {
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import  Button  from "../../button/Button";
-import FavoriteItemMDSize from "./FavoriteItemMDSize";
-import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
 interface IFavProduct {
   id: string;
 }
@@ -34,7 +32,7 @@ interface IState {
   id: string | number;
   count: number;
 }
-function FavoriteItem() {
+function FavoriteItemMDSize() {
   const favoritProduct: IFavProduct[] = useSelector(
     (state: any) => state.favoritProduct
   );
@@ -53,13 +51,8 @@ function FavoriteItem() {
   return (
     <div>
       {/* {console.log(favoriteProductsDetails)} */}
-      <div className="mobile-favorite-list w-full h-full  sm:hidden">
-        <FavoriteItemMobileSize/>
-      </div>
-      <div className="sm-favorite-list w-full h-full hidden sm:block lg:hidden">
-      <FavoriteItemMDSize/>
-      </div>
-      <div className="desktop-favorite-list w-full h-full hidden lg:block">
+
+      <div className="desktop-favorite-list w-full h-full ">
         <DesktopHeader />
         <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[80px]">
           <div className="w-[48px] h-[48px] text-[24px] cursor-pointer   pt-[11px] pb-[11px] pl-[11px] pr-[11px] ">
@@ -70,7 +63,7 @@ function FavoriteItem() {
           </div>
         </div>
         <div className="  max-w-full h-full m-auto ml-[80px] mr-[80px] mt-[20px] ">
-          <div className="w-full  grid  grid-cols-5 gap-[20px] ">
+          <div className="w-full  grid  grid-cols-3 gap-[20px] ">
             {favoriteProductsDetails?.map((item) => {
               return (
                 <div key={item?.id} className="">
@@ -137,4 +130,4 @@ function FavoriteItem() {
     </div>
   );
 }
-export default FavoriteItem;
+export default FavoriteItemMDSize;
