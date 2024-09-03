@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { ProductListContext } from "../../siteSetting/SiteSetting";
 import { BuyCartContext } from "../../siteSetting/SiteSetting";
 import { Outlet, useParams } from "react-router-dom";
-import MobileHeader from "../../mobile-header/MobileHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -45,11 +44,11 @@ import MobileProductDetaile from "./components/mobileProductDetaile/MobileProduc
 SwiperCore.use([Navigation, Pagination]);
 interface IProduct {
   id: string;
-  head_category: string;
+  headcategory: string;
   category: string;
   name: string;
   price: number;
-  in_stock: number;
+  instock: number;
   image: string[];
 }
 interface IState {
@@ -58,7 +57,6 @@ interface IState {
 }
 interface IFavProduct {
   id: string;
-  flag: boolean;
 }
 function ProductDetailePage() {
   const favoritProductX = useContext(FavoritProductContext);
@@ -180,15 +178,15 @@ function ProductDetailePage() {
                 <div>
                   <p className="text-[14px] text-[#9B9B9B]">فروشنده: کاستومی</p>
                 </div>
-                <div className="flex  flex-row justify-between items-center text-[28px] ">
-                  <p>
+                <div className="w-full flex  flex-row justify-between items-center text-[28px] ">
+                  <p className="w-full ">
                     {
                       productListX?.productList.find(
                         (item) => item?.id === params.id
                       )?.price
                     }
                   </p>
-                  <p>تومان</p>
+                  <p className="text-[14px]">تومان</p>
                 </div>
               </div>
               <div>
@@ -207,7 +205,7 @@ function ProductDetailePage() {
                   </div>
                 </div>
               </div>
-              <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
+              <div className="add-to-cart w-full flex flex-row justify-start items-center gap-[8px] ">
                 <p className="w-[50px] important!">تعداد:</p>
                 {/* <button className="w-[20px] h-[20px]" onClick={() => increasCounter()}><p className="w-full h-full rounded-[50%] bg-[#A72F3B] flex justify-center items-center text-white "><FaPlus size={15} /></p></button> */}
                 <button

@@ -43,11 +43,11 @@ import { removeFromFavorite } from "../../../../redux/reducers/favoriteProduct/F
 SwiperCore.use([Navigation, Pagination]);
 interface IProduct {
   id: string;
-  head_category: string;
+  headcategory: string;
   category: string;
   name: string;
   price: number;
-  in_stock: number;
+  instock: number;
   image: string[];
 }
 interface IState {
@@ -173,7 +173,7 @@ function MobileProductDetaile(){
               }
             </p>
           </div>
-          <div className="flex  flex-row justify-between items-center text-[19px] ">
+          <div className="w-full flex  flex-row justify-between items-center text-[14px] ">
             <p>
               {
                 productListX?.productList.find((item) => item?.id === params.id)
@@ -184,7 +184,7 @@ function MobileProductDetaile(){
           </div>
         </div>
         <div className="w-full h-full flex flex-row justify-between items-center mt-[15px] mb-[15px] pl-[16px] pr-[16px]">
-          <div className="w-full flex flex-row justify-start items-center gap-[8px] ">
+          <div className="add-to-cart w-full flex flex-row justify-start items-center gap-[8px] ">
             <p className="w-[50px] important!">تعداد:</p>
             <button
               className="w-[20px] h-[20px]"
