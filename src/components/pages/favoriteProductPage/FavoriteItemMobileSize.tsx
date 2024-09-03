@@ -12,7 +12,7 @@ import {
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import Button from "../../button/Button";
-import MobileHeader from "../../mobile-header/MobileHeader";
+import MobileHeader from "../homePage/components/mobile-header/MobileHeader";
 interface IFavProduct {
   id: string;
 }

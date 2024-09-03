@@ -11,7 +11,7 @@ import {
   decreaseCounter,
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
-import  Button  from "../../button/Button";
+import Button from "../../button/Button";
 interface IFavProduct {
   id: string;
 }
@@ -50,8 +50,6 @@ function FavoriteItemMDSize() {
   const count = currentItem ? currentItem.count : 0;
   return (
     <div>
-      {/* {console.log(favoriteProductsDetails)} */}
-
       <div className="desktop-favorite-list w-full h-full sm:block">
         <DesktopHeader />
         <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[80px]">
@@ -75,9 +73,7 @@ function FavoriteItemMDSize() {
                         className="w-full h-full rounded-t-[5px]  "
                       />
                     </div>
-                    {/* <p className="mr-[10px] mb-[10px] mt-[25px] text-[11px]"> */}
                     <p className=" text-[11px] mr-[8px]">{item?.name}</p>
-                    {/* <p className="mr-[10px]  mb-[25px] mt-[10px] text-[11px]"> */}
                     <p className=" text-[11px] mr-[8px]">{item?.price}تومان</p>
                     <div className="add-to-cart w-full flex flex-row justify-start items-center text-[11px] gap-[8px] mr-[8px]">
                       <p className="w-[50px] important!">تعداد:</p>

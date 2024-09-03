@@ -9,7 +9,7 @@ import { addBuyCart } from "../../../redux/reducers/buyCart/buyCartReducer";
 import MultiRangeSlider from "multi-range-slider-react";
 import { useEffect, useState } from "react";
 import "./productListMobileSize.css";
-import MobileHeader from "../../../mobile-header/MobileHeader";
+import MobileHeader from "../../homePage/components/mobile-header/MobileHeader";
 import DesktopHeader from "../../homePage/components/desktopHeader/DesktopHeader";
 interface IState {
   id: string | number;

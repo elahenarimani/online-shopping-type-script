@@ -14,7 +14,7 @@ import "swiper/css";
 import OffBox from "../../offBox1/OffBox";
 import BoutiqueBanner from "./components/boutiqueBanner/BoutiqueBanner";
 import ProductDetailePage from "../productDetailePage/ProductDetailePage";
-import MobileHeader from "../../mobile-header/MobileHeader";
+import MobileHeader from "./components/mobile-header/MobileHeader";
 import axios from "axios";
 import DesktopHeader from "./components/desktopHeader/DesktopHeader";
 import SearchBar from "./components/searchBar/SearchBar";
@@ -336,13 +336,16 @@ function HomePage() {
               <p className="text-[#7B7B7B]">حریم خصوصی</p>
             </div>
             <div className="flex flex-col justify-between items-center gap-[15px]">
-              <p>اطلاعات دیجی استایل</p>
-              <p className="text-[#7B7B7B]">درباره دیجی استایل</p>
-              <p className="text-[#7B7B7B]">تماس با دیجی استایل</p>
-              <p className="text-[#7B7B7B]">همکاری با دیجی استایل</p>
+              <p>اطلاعات کاستومی</p>
+              <p className="text-[#7B7B7B]">درباره کاستومی</p>
+              <p className="text-[#7B7B7B]">تماس با کاستومی</p>
+              <p className="text-[#7B7B7B]">همکاری با کاستومی</p>
             </div>
             <div className="flex flex-col justify-between items-start gap-[20px]">
+              <div className="flex flex-row justify-between items-center gap-[15px]">
               <p>تلفن پشتیبانی:</p>
+              <p>031-36536808</p>
+              </div>
               <div className="w-full h-full flex justify-around items-center gap-[80px]">
                 <div className="w-24px h-[24px]">
                   <FaInstagram color="#7B7B7B" className="w-full h-full" />
@@ -360,10 +363,9 @@ function HomePage() {
           </div>
         </div>
       </footer>
-      {/* <ProductDetailePage  /> */}
+     
     </div>
-    /* </ProductListContext.Provider>
-    </> */
+    
   );
 }
 export default HomePage;

@@ -1,4 +1,4 @@
-import MobileHeader from "../../mobile-header/MobileHeader";
+import MobileHeader from "../homePage/components/mobile-header/MobileHeader";
 import "./shippingPage.css";
 import Button from "../../button/Button";
 import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";

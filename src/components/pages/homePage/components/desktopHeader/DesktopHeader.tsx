@@ -1,4 +1,4 @@
-import { MdOutlineManageAccounts } from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -11,6 +11,8 @@ import HeadCover from "../../../../headCover/HeadCover";
 import Bag from "../../../../bag/Bag";
 import { useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
+import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 function DesktopHeader() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -98,11 +100,16 @@ function DesktopHeader() {
       </p>
       <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white ">
         <div className="search w-2/5 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
-        <div className=" w-full absolute top-0 right-0  z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
-            {showSearchBar && <SearchBar showSearchBar={showSearchBar}  setshowSearchBar={setshowSearchBar}/>}
-            </div>
+          <div className=" w-full absolute top-0 right-0  z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
+            {showSearchBar && (
+              <SearchBar
+                showSearchBar={showSearchBar}
+                setshowSearchBar={setshowSearchBar}
+              />
+            )}
+          </div>
           <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-            <CiSearch color="#A72F3B" />
+            <FiSearch color="#A72F3B" />
           </div>
           <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] ">
             {/* <SearchBar /> */}
@@ -111,26 +118,29 @@ function DesktopHeader() {
               placeholder="جستجو"
               onClick={() => handleOpen()}
             ></input>
-            
           </div>
         </div>
         <div className="w-[120px] h-[30px] cursor-pointer">
           <img
             className="w-full h-fulll"
             src="https://s8.uupload.ir/files/capture_85gu.png"
-           alt="logo"
+            alt="logo"
           ></img>
         </div>
         <div className="w-4/12 flex justify-end items-center gap-[10px]">
           <div className="text-[24px] cursor-pointer">
             <MdOutlineManageAccounts color="#A72F3B" />
           </div>
-          <div className="text-[24px] cursor-pointer">
-            <HiOutlineShoppingBag color="#A72F3B" />
-          </div>
-          <div className="text-[24px] cursor-pointer">
-            <IoMdHeartEmpty color="#A72F3B" />
-          </div>
+          <Link to={"/checkout/cart/"}>
+            <div className="text-[24px] cursor-pointer">
+              <HiOutlineShoppingBag color="#A72F3B" />
+            </div>
+          </Link>
+          <Link to={"/favorite"}>
+            <div className="text-[24px] cursor-pointer">
+              <MdFavoriteBorder color="#A72F3B" />
+            </div>
+          </Link>
         </div>
       </div>
       <div className="flex justify-center items-center gap-[40px] pt-[10px] pb-[10px] ">

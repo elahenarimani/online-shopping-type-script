@@ -171,9 +171,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">پالتو مردانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>15000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -190,9 +190,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">پیراهن مردانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>3500000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -209,9 +209,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">شلوار زنانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>5000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -228,9 +228,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">لباس ماکسی زنانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>11000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -247,7 +247,7 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">ست دخترانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
                 <p>2500000</p>
                 <p>تومان</p>
@@ -266,9 +266,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">پیراهن دخترانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>1500000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -285,9 +285,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">ست مردانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>4500000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -304,9 +304,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">ست مردانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>7500000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -323,9 +323,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">عینک آفتابی</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>6000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -342,9 +342,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">عینک آفتابی</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>3000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -361,7 +361,7 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">کیف زنانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
                 <p>2500000</p>
                 <p>تومان</p>
@@ -380,9 +380,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">کیف مجلسی</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>8500000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -399,9 +399,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">بوت زنانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>11000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -418,9 +418,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">نیم بوت مردانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>7000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -437,9 +437,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">کت دخترانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>4000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>
@@ -456,9 +456,9 @@ function BoutiqueBanner() {
               ></img>
             </div>
             <div className="w-5/12 h-full flex flex-col justify-center items-end gap-[10px] text-white pl-[10px]  ">
-              <p className="text-[22px] font-semibold">سویشرت مردانه</p>
+              <p className="text-[22px] font-semibold">سویشرت دخترانه</p>
               <div className="flex justify-between items-center gap-[3px] text-[18px]">
-                <p>2500000</p>
+                <p>3000000</p>
                 <p>تومان</p>
               </div>
               <p className="text-[15px] underline ">همین الان بخر</p>

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 // import { BuyCartContext } from "../../../../siteSetting/SiteSetting";
 import {  useParams } from "react-router-dom";
-import MobileHeader from "../../../../mobile-header/MobileHeader";
+import MobileHeader from "../../../homePage/components/mobile-header/MobileHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";

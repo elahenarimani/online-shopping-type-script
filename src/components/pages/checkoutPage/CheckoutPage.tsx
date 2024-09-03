@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ProductListContext } from "../../siteSetting/SiteSetting";
 import { Link } from "react-router-dom";
-import MobileHeader from "../../mobile-header/MobileHeader";
+import MobileHeader from "../homePage/components/mobile-header/MobileHeader";
 import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
 import "./checkoutPage.css";
 import { BuyCartContext } from "../../siteSetting/SiteSetting";

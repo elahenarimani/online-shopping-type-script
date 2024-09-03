@@ -167,7 +167,7 @@ import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import MultiRangeSlider from "multi-range-slider-react";
 import { useEffect, useState } from "react";
 import "./productListPage.css";
-import MobileHeader from "../../mobile-header/MobileHeader";
+import MobileHeader from "../homePage/components/mobile-header/MobileHeader";
 import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
 import ProductListMobileSize from "./components/ProductListMobileSize";
 import ProductListSMSize from "./components/ProductListSMSize";
