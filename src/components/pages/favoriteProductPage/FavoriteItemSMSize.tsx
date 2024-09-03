@@ -52,7 +52,7 @@ function FavoriteItemMDSize() {
     <div>
       {/* {console.log(favoriteProductsDetails)} */}
 
-      <div className="desktop-favorite-list w-full h-full ">
+      <div className="desktop-favorite-list w-full h-full sm:block">
         <DesktopHeader />
         <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[80px]">
           <div className="w-[48px] h-[48px] text-[24px] cursor-pointer   pt-[11px] pb-[11px] pl-[11px] pr-[11px] ">

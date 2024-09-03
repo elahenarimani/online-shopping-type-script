@@ -169,6 +169,8 @@ import { useEffect, useState } from "react";
 import "./productListPage.css";
 import MobileHeader from "../../mobile-header/MobileHeader";
 import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
+import ProductListMobileSize from "./components/ProductListMobileSize";
+import ProductListSMSize from "./components/ProductListSMSize";
 interface IState {
   id: string | number;
   count: number;
@@ -208,14 +210,34 @@ function ProductListPage() {
   }, [minValue, maxValue, productListX]);
   return (
     <div>
-      <div className="mobile-product-list lg:hidden max-w-full h-full pr-[20px] pl-[20px] flex flex-col justify-start items-center">
+{/* 
+<div className="mobile-favorite-list w-full h-full  sm:hidden">
+        <FavoriteItemMobileSize/>
+      </div>
+      <div className="sm-favorite-list w-full h-full hidden sm:block lg:hidden">
+      <FavoriteItemMDSize/>
+      </div>
+      <div className="desktop-favorite-list w-full h-full hidden lg:block">
+        <DesktopHeader /> */}
+
+
+      <div className="mobile-product-list w-full h-full  sm:hidden">
+        <ProductListMobileSize/>
+      </div>
+      <div className="sm-product-list w-full h-full hidden sm:block lg:hidden">
+      <ProductListSMSize/>
+      </div>
+      <div className="desktop-product-list w-full h-full hidden lg:block"></div>
+
+
+      {/* <div className="mobile-product-list lg:hidden max-w-full h-full pr-[20px] pl-[20px] flex flex-col justify-start items-center">
         <div className="invisible w-full h-[80px] md:hidden"></div>
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
           <MobileHeader />
         </div>
-        {/* <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]"> */}
+       
         <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-white ">
-          {/* <FilterPrice /> */}
+          
           <MultiRangeSlider
             min={0}
             max={15000000}
@@ -261,7 +283,12 @@ function ProductListPage() {
               }
             })}
         </div>
-      </div>
+      </div> */}
+
+
+
+
+
 
       <div className="desktop-product-list w-full h-full hidden lg:block">
         <DesktopHeader />

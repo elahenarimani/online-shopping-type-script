@@ -12,7 +12,7 @@ import {
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
 import  Button  from "../../button/Button";
-import FavoriteItemMDSize from "./FavoriteItemMDSize";
+import FavoriteItemMDSize from "./FavoriteItemSMSize";
 import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
 interface IFavProduct {
   id: string;
