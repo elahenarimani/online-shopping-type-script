@@ -46,7 +46,7 @@ function DesktopTotalPrice({ filteredProductList }: IDesktopTotalPrice) {
     [buyCarty, productListX?.productList]
   );
   return (
-    <div className="h-[250px] border-solid border-2 border-[#E6E6E6] rounded-[5px] p-[25px] gap-[10px] flex flex-col justify-between items-center gap-[5px] ">
+    <div className="h-[250px] border-solid border-2 border-[#E6E6E6] rounded-[5px] p-[25px] gap-[10px] flex flex-col justify-between items-center ">
       <div className="w-full flex  justify-between items-center gap-[10px]">
         <p>جمع کل سفارش:</p>
         <div className="flex justify-between items-center gap-[3px] font-bold ">

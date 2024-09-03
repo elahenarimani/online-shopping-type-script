@@ -14,6 +14,9 @@ import DesktopTotalPrice from "./components/desktopTotalPrice/DesktopTotalPrice"
 import { useSelector } from "react-redux";
 import MobileCheckout from "./components/mobileCheckout/MobileCheckout";
 import MobileTotalPrice from "./components/mobileTotalPrice/MobileTotalPrice";
+import { MdFavorite } from "react-icons/md";
+import { HiMiniShoppingBag } from "react-icons/hi2";
+import CheckoutSMSize from "./CheckoutSMSize";
 // import DesktopCheckout from "./components/desktopCheckout/DesktopCheckout";
 
 // import { increasCounterInCheckout } from "../../redux/reducers/buyCart/buyCartReducer";
@@ -109,12 +112,36 @@ function CheckoutPage() {
   return (
     <div>
       {/* {console.log(buyCarty)} */}
-      <div className="mobile-wrapper w-full h-full  md:hidden">
-        <div className="invisible w-full h-[80px] md:hidden"></div>
-        <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
+      <div className="mobile-wrapper w-full h-full  sm:hidden">
+        <div className="invisible w-full h-[144px] sm:hidden"></div>
+        <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  sm:hidden">
           <MobileHeader />
+
+
+
+
+          {/* <div className="mobile-product-list w-full h-full  sm:hidden">
+            <ProductListMobileSize />
+          </div> */}
+         
+          {/* <div className="desktop-product-list w-full h-full hidden lg:block"></div> */}
+
+
+
+
+
+
+          <div className="bascket-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[16px]">
+            <div className="w-[48px] h-[48px] text-[24px] cursor-pointer   pt-[11px] pb-[11px] pl-[11px] pr-[11px] ">
+              <HiMiniShoppingBag color="#A72F3B" />
+            </div>
+            <div>
+              <p>سبد خرید شما</p>
+            </div>
+          </div>
         </div>
-        <div className="w-full p-[15px] flex flex-col justify-between gap-[10px]">
+       
+        <div className="w-full p-[15px] flex flex-col justify-between gap-[10px] mt-[8px]">
           {
             filteredProductList?.map((item) => {
               const cartItem = buyCarty.find((cart) => cart.id == item.id);
@@ -188,10 +215,22 @@ function CheckoutPage() {
           <p>ثبت و مرحله بعد</p>
         </div> */}
       </div>
-      <div className="desktop-wrapper hidden md:block  w-full h-full ">
+      <div className="sm-checkout w-full h-full hidden sm:block lg:hidden">
+            <CheckoutSMSize />
+      </div>
+      <div className="desktop-wrapper hidden lg:block  w-full h-full ">
         <DesktopHeader />
-        <div className="product-detaile-wrapper h-screen  max-w-[70%] ">
-          <p className="mb-[10px]">سبد خرید شما</p>
+
+        <div className="favorite-header w-full h-[64px] bg-[#F0F0F0] flex justify-start items-center gap-[10px] pr-[80px]">
+          <div className="w-[48px] h-[48px] text-[24px] cursor-pointer   pt-[11px] pb-[11px] pl-[11px] pr-[11px] ">
+            <HiMiniShoppingBag color="#A72F3B" />
+          </div>
+          <div>
+            <p>سبد خرید شما</p>
+          </div>
+        </div>
+
+        <div className="product-detaile-wrapper h-screen  max-w-[70%] mt-[16px] ">
           <div className="w-full h-full flex flex-row justify-between items-start gap-[25px]">
             <div className="w-3/4">
               {filteredProductList?.map((item) => {

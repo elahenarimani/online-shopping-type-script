@@ -11,7 +11,7 @@ import {
   decreaseCounter,
 } from "../../redux/reducers/buyCart/buyCartReducer";
 import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
-import  Button  from "../../button/Button";
+import Button from "../../button/Button";
 import FavoriteItemMDSize from "./FavoriteItemSMSize";
 import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
 import { removeFromFavorite } from "../../redux/reducers/favoriteProduct/FavoriteProduct";
@@ -55,10 +55,10 @@ function FavoriteItem() {
     <div>
       {/* {console.log(favoriteProductsDetails)} */}
       <div className="mobile-favorite-list w-full h-full  sm:hidden">
-        <FavoriteItemMobileSize/>
+        <FavoriteItemMobileSize />
       </div>
       <div className="sm-favorite-list w-full h-full hidden sm:block lg:hidden">
-      <FavoriteItemMDSize/>
+        <FavoriteItemMDSize />
       </div>
       <div className="desktop-favorite-list w-full h-full hidden lg:block">
         <DesktopHeader />
@@ -83,21 +83,18 @@ function FavoriteItem() {
                         className="w-full h-full rounded-t-[5px]  "
                       />
                     </div>
-                    {/* <p className="mr-[10px] mb-[10px] mt-[25px] text-[11px]"> */}
                     <p className=" text-[11px] mr-[8px]">{item?.name}</p>
-                    {/* <p className="mr-[10px]  mb-[25px] mt-[10px] text-[11px]"> */}
                     <p className=" text-[11px] mr-[8px]">{item?.price}تومان</p>
-                    
-                   
+                    <div className="m-0 p-0">
                       <Button
                         className="w-full h-[32px]  bg-[#A72F3B] text-white flex justify-center items-center rounded-b-[5px]"
                         onClickHandler={() =>
-                          dispatch( removeFromFavorite({id : item?.id}))
+                          dispatch(removeFromFavorite({ id: item?.id }))
                         }
                       >
                         <p className="text-[11px]">حذف محصول از لیست</p>
                       </Button>
-                    
+                    </div>
                   </div>
                 </div>
               );
