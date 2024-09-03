@@ -47,17 +47,17 @@ function DesktopTotalPrice({ filteredProductList }: IDesktopTotalPrice) {
   );
   return (
     <div className="h-[250px] border-solid border-2 border-[#E6E6E6] rounded-[5px] p-[25px] gap-[10px] flex flex-col justify-between items-center ">
-      <div className="w-full flex  justify-between items-center gap-[10px]">
-        <p>جمع کل سفارش:</p>
+      <div className="w-full flex  justify-between items-center gap-[10px] text-[12px]">
+        <p className="whitespace-nowrap overflow-hidden text-ellipsis">جمع کل سفارش:</p>
         <div className="flex justify-between items-center gap-[3px] font-bold ">
-          <p>{totalPrice}</p>
+          <p className="text-[14px]">{totalPrice}</p>
           <p>تومان</p>
         </div>
       </div>
-      <div className="w-full flex justify-between items-center gap-[3px]">
-        <p>قیمت نهایی:</p>
+      <div className="w-full flex justify-between items-center gap-[3px] text-[12px]">
+        <p className="whitespace-nowrap overflow-hidden text-ellipsis">قیمت نهایی:</p>
         <div className="flex justify-between items-center gap-[3px] font-bold ">
-          <p>{totalPrice}</p>
+          <p  className="text-[14px]">{totalPrice}</p>
           <p>تومان</p>
         </div>
       </div>

@@ -69,7 +69,7 @@ function MobileHeader() {
               <HiOutlineShoppingBag color="#A72F3B" />
             </div>
             <div className="text-[24px]">
-              <FiSearch   color="#A72F3B" />
+              <FiSearch color="#A72F3B" />
             </div>
             <Link to={"/favorite"}>
               <div className="text-[24px]">
@@ -77,13 +77,15 @@ function MobileHeader() {
               </div>
             </Link>
           </div>
-          <div className="w-[96px] h-[24px]">
-            <img
-              className="w-full h-fulll"
-              src="https://s8.uupload.ir/files/capture_85gu.png"
-              alt="logo"
-            ></img>
-          </div>
+          <Link to={"/"}>
+            <div className="w-[96px] h-[24px]">
+              <img
+                className="w-full h-fulll"
+                src="https://s8.uupload.ir/files/capture_85gu.png"
+                alt="logo"
+              ></img>
+            </div>
+          </Link>
           <div className="text-[24px] pt-[10px] ">
             <button onClick={() => openClassifyModal()}>
               <PiListBold color="#A72F3B" />

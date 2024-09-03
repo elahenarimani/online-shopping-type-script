@@ -16,7 +16,7 @@ interface Isearch{
   price: number;
   image: string[];
 }
-interface ISearchBarContent {
+interface ISearchBarContent{
   id: number | string;
   // headCategory: string;
   // category: string;
@@ -49,7 +49,7 @@ function SearchBarContent({
     filteredProduct ,
     setFilteredProduct
     
-  }: ISearchBarContent) {
+  }:  ISearchBarContent ) {
     const dispatch: Function = useDispatch();
     // const [filteredData , setFilteredData] = useState([])
   return (
@@ -94,4 +94,4 @@ function SearchBarContent({
   )
 }
 
-export default SearchBarContent
+export default SearchBarContent;

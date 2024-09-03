@@ -120,13 +120,15 @@ function DesktopHeader() {
             ></input>
           </div>
         </div>
-        <div className="w-[120px] h-[30px] cursor-pointer">
-          <img
-            className="w-full h-fulll"
-            src="https://s8.uupload.ir/files/capture_85gu.png"
-            alt="logo"
-          ></img>
-        </div>
+        <Link to={"/"}>
+          <div className="w-[120px] h-[30px] cursor-pointer">
+            <img
+              className="w-full h-fulll"
+              src="https://s8.uupload.ir/files/capture_85gu.png"
+              alt="logo"
+            ></img>
+          </div>
+        </Link>
         <div className="w-4/12 flex justify-end items-center gap-[10px]">
           <div className="text-[24px] cursor-pointer">
             <MdOutlineManageAccounts color="#A72F3B" />

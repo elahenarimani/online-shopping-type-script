@@ -7,8 +7,9 @@ import {
 import { CiSearch } from "react-icons/ci";
 import "./searchBar.css";
 import { useSelector } from "react-redux";
-import SearchBarContent from "./components/searchBoxRender/SearchBarContent";
+// import SearchBarContent from "./components/searchBoxRender/SearchBarContent"
 import { IoMdClose } from "react-icons/io";
+import Bar from "./components/searchBoxRender/Bar";
 interface ISearchBar {
   showSearchBar: boolean;
   setshowSearchBar: Function;
@@ -20,26 +21,19 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
     id: string | number;
     count: number;
   }
-  // const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
-  interface IProduct {
+    interface IProduct {
     id: string | number;
-    head_category: string;
+    headcategory: string;
     category: string;
     name: string;
     price: number;
-    in_stock: number;
+    instock: number;
     image: string[];
   }
   interface IProductList {
     productList?: IProduct[] | undefined;
     setProductList?: Function;
   }
-  // interface Isearch{
-  //   id: string | number;
-  //   name: string;
-  //   price: number;
-  //   image: string[];
-  // }
   interface IfilterProduct {
     filteredProduct: IProduct[] | undefined;
     setFilteredProduct: Function;
@@ -50,13 +44,6 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
   }
   const [filteredProduct, setFilteredProduct] = useState<IProduct[]>([]);
   const [wordInp, setWordInp] = useState("");
-  // const buyCartId = buyCarty.map((cartItem) => cartItem.id);
-  // console.log(buyCartId);
-  // const filteredProductList: IProduct[] | undefined =
-  //   productListX?.productList.filter((product) =>
-  //     buyCartId.includes(product.id)
-  //   );
-  // console.log(filteredProductList);
   function handleFilter(e: any) {
     setWordInp(e.target.value);
     const currentFilter: IProduct[] | undefined =[]
@@ -95,7 +82,7 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
           <IoMdClose color="#A72F3B" className="w-full h-full" />
         </div>
       </div>
-      {filteredProduct.length != 0 && (
+      {filteredProduct.length !== 0 && (
         <div className="searchReasult w-full h-[200px] overflow-hidden overflow-y-auto bg-white  flex  flex-col justify-between items-start gap-[10px] ">
           {/* {productListX?.productList.map((product) => { */}
           {/* // return <a target="_blank" className="w-[100px] h-[50px] flex justify-center">{product.name}</a>; */}
@@ -103,7 +90,8 @@ function SearchBar({ showSearchBar, setshowSearchBar }: ISearchBar) {
             // const cartItem = buyCarty.find((cart) => cart.id == item.id);
             // const count = cartItem ? cartItem.count : 0;
             return (
-              <SearchBarContent
+              // <SearchBarContent
+              <Bar
                 key={item.id}
                 id={item.id}
                 // headCategory={item.head_category}
