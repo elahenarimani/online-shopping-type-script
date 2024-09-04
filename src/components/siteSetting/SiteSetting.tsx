@@ -16,6 +16,10 @@ interface IProduct {
   instock: number;
   image: string[];
 }
+interface IProductList {
+  productList?: IProduct[];
+  setProductList?: Function;
+}
 interface IFavProduct {
   id: string;
   headcategory: string;
@@ -25,10 +29,7 @@ interface IFavProduct {
   instock: number;
   image: string[];
 }
-interface IProductList {
-  productList?: IProduct[];
-  setProductList?: Function;
-}
+
 interface IBuyCartItem {
   productId: number;
   count: number;
@@ -39,7 +40,7 @@ interface IBuyCart {
 }
 interface IFavoritProduct {
   favoritProduct?: IFavProduct[];
-  setFavoritProduct ?: Function;
+  setFavoritProduct?: Function;
 }
 const initialBuyCart: IBuyCartItem[] = [{ productId: 0, count: 0 }];
 export let BuyCartContext = createContext<IBuyCart>({
@@ -50,10 +51,14 @@ export const ProductListContext = createContext<null | {
   productList: IProduct[];
   setProductList: Function;
 }>(null);
-export const FavoritProductContext = createContext<[] |null | {
-  favoritProduct: IFavoritProduct [];
-  setFavoritProduct: Function;
-}>(null);
+export const FavoritProductContext = createContext<
+  | []
+  | null
+  | {
+      favoritProduct: IFavoritProduct[];
+      setFavoritProduct: Function;
+    }
+>(null);
 function SiteSetting({ children }: Iprops) {
   const [productList, setProductList] = useState<IProduct[]>([]);
   let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([]);
@@ -63,16 +68,12 @@ function SiteSetting({ children }: Iprops) {
       .get("https://66d432795b34bcb9ab3dece3.mockapi.io/products")
       .then((result) => setProductList(result.data));
   }, []);
-  
-
   return (
     <Provider store={store}>
       <PersistGate persistor={persistore}>
         <ProductListContext.Provider value={{ productList, setProductList }}>
           <BuyCartContext.Provider value={{ buyCart, setBuyCart }}>
-            {/* <FavoritProductContext.Provider  value={{ favoritProduct , setFavoritProduct }}> */}
-              {children}
-            {/* </FavoritProductContext.Provider> */}
+            {children}
           </BuyCartContext.Provider>
         </ProductListContext.Provider>
       </PersistGate>

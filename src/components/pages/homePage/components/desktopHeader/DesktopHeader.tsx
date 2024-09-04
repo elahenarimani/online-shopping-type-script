@@ -13,6 +13,17 @@ import { useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import SearchBarContent from "../searchBar/components/searchBoxRender/SearchResult";
+import SearchResult from "../searchBar/components/searchBoxRender/SearchResult";
+interface IProduct {
+  id: string;
+  headcategory: string;
+  category: string;
+  name: string;
+  price: number;
+  instock: number;
+  image: string[];
+}
 function DesktopHeader() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
@@ -89,17 +100,21 @@ function DesktopHeader() {
       zIndex: "9999",
     },
   };
-  const [showSearchBar, setshowSearchBar] = useState(false);
-  function handleOpen() {
-    setshowSearchBar(true);
+  interface IShoeResult{
+    showSearchResult: IProduct[]
+    setshowSearchResult: Function
   }
+  const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
+  // function handleOpen() {
+  //   setshowSearchBar(true);
+  // }
   return (
     <div className=" w-full h-full ">
       <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
         با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
       </p>
       <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white ">
-        <div className="search w-2/5 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
+        {/* <div className="search w-2/5 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
           <div className=" w-full absolute top-0 right-0  z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
             {showSearchBar && (
               <SearchBar
@@ -112,13 +127,16 @@ function DesktopHeader() {
             <FiSearch color="#A72F3B" />
           </div>
           <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] ">
-            {/* <SearchBar /> */}
             <input
               className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px]"
               placeholder="جستجو"
               onClick={() => handleOpen()}
             ></input>
           </div>
+        </div> */}
+        <div className="w-2/5 h-full flex  flex-col justify-start items-start">
+          <SearchBar setshowSearchResult={setshowSearchResult}/>
+           <SearchResult showSearchResult={showSearchResult}/>
         </div>
         <Link to={"/"}>
           <div className="w-[120px] h-[30px] cursor-pointer">

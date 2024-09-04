@@ -42,7 +42,7 @@ function HomePage() {
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
           <MobileHeader />
         </div>
-        <div className="desktop-header hidden  lg:block w-full">
+        <div className="desktop-header hidden  lg:block w-full z-[1000000]">
           <DesktopHeader />
         </div>
       </div>
