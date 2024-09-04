@@ -156,10 +156,10 @@ const SearchBar = ({setshowSearchResult}:ISearchBar) => {
  
   function handleChange(value : string){
     setSearchInput(value)
-    filte(value)
+    filterData(value)
    
   }
-  function filte(value:string){
+  function filterData(value:string){
     const filteredData = productListX?.productList.filter(item => {
       return (
         value && item && item.name && item.name.includes(value)

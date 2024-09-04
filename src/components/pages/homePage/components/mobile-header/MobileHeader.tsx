@@ -8,13 +8,32 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+import SearchBarMob from "./components/searchComponent/SearchBarMob";
+interface IProduct {
+  id: string;
+  headcategory: string;
+  category: string;
+  name: string;
+  price: number;
+  instock: number;
+  image: string[];
+}
+interface ISearch{
+  searchModal:boolean
+  setSearchModal:Function
+}
 function MobileHeader() {
   const [classifyModal, setclassifyModal] = useState<boolean>(false);
+  const [searchModal , setSearchModal] = useState<boolean>(false)
+  const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   function openClassifyModal() {
     setclassifyModal(true);
   }
   function closeClassifyModal() {
     setclassifyModal(false);
+  }
+  function handleOpnSearchModal(){
+    setSearchModal(true)
   }
   interface ICustomClassifyModalStyles {
     content: {
@@ -68,9 +87,11 @@ function MobileHeader() {
             <div className="text-[24px]">
               <HiOutlineShoppingBag color="#A72F3B" />
             </div>
-            <div className="text-[24px]">
+            <div className="text-[24px]" onClick={handleOpnSearchModal}>
               <FiSearch color="#A72F3B" />
             </div>
+            {searchModal && (<SearchBarMob searchModal={searchModal} setSearchModal={setSearchModal}  setshowSearchResult={ setshowSearchResult} showSearchResult={showSearchResult}/>)}
+            
             <Link to={"/favorite"}>
               <div className="text-[24px]">
                 <MdFavoriteBorder color="#A72F3B" />
