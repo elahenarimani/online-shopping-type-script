@@ -76,14 +76,14 @@ interface ISearchBar {
 const SearchResult = ({ showSearchResult }: ISearchBar) => {
   const productListX = useContext(ProductListContext);
   return (
-    <div className="w-full">
+    <div className="w-full  h-[500px]">
       {/* {showSearchResult.map(item => <p>{item.name}</p>)} */}
-      <div className="w-full h-[500px] border-solid border border-[#E6E6E6] rounded-[5px]">
+     
         {showSearchResult.map((item) => {
           return (
             <div
               key={item.id}
-              className="w-full  p-[15px] flex  justify-between items-start gap-[10px]  z-10000000000000000 text-right text-[14px] "
+              className="w-full  p-[15px] flex  justify-between items-start gap-[10px]  z-10000000000000000 text-right text-[14px] border-solid border border-[#E6E6E6] rounded-[5px]"
             >
               <div className="   rounded-[5px] ">
                 <div className="w-full flex flex-row justify-between items-center gap-[50px] pl-[8px] pr-[8px]">
@@ -102,7 +102,7 @@ const SearchResult = ({ showSearchResult }: ISearchBar) => {
             </div>
           );
         })}
-      </div>
+    
     </div>
   );
 };

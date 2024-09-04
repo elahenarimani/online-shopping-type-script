@@ -2,7 +2,7 @@ import { CiSearch } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { PiListBold } from "react-icons/pi";
-import ClassifyMobModal from "../../../../classifyMobModal/ClassifyMobModal";
+import ClassifyMobModal from "../desktopHeader/components/classifyMobModal/ClassifyMobModal";
 import { useState } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";

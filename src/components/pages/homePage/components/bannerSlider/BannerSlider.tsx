@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
-
+import  "./bannerSlide.css"
 import { Controller } from "swiper/modules";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import SwiperCore, { Swiper as SwiperType } from "swiper";

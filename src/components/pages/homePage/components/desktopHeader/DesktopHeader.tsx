@@ -4,11 +4,11 @@ import { CiSearch } from "react-icons/ci";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Modal from "react-modal";
 import Women from "../../../../women/Women";
-import Men from "../../../../men/Men";
-import Child from "../../../../child/Child";
-import BeautyHealthy from "../../../../beauty-healthy/BeautyHealthy";
-import HeadCover from "../../../../headCover/HeadCover";
-import Bag from "../../../../bag/Bag";
+import Men from "./components/men/Men";
+import Child from "./components/child/Child";
+import BeautyHealthy from "./components/beauty-healthy/BeautyHealthy";
+import HeadCover from "./components/headCover/HeadCover";
+import Bag from "./components/bag/Bag";
 import { useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
 import { Link } from "react-router-dom";
@@ -100,43 +100,20 @@ function DesktopHeader() {
       zIndex: "9999",
     },
   };
-  interface IShoeResult{
-    showSearchResult: IProduct[]
-    setshowSearchResult: Function
+  interface IShoeResult {
+    showSearchResult: IProduct[];
+    setshowSearchResult: Function;
   }
   const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
-  // function handleOpen() {
-  //   setshowSearchBar(true);
-  // }
   return (
-    <div className=" w-full h-full ">
+    <div className=" w-full h-full  ">
       <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
         با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
       </p>
       <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white ">
-        {/* <div className="search w-2/5 h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
-          <div className=" w-full absolute top-0 right-0  z-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
-            {showSearchBar && (
-              <SearchBar
-                showSearchBar={showSearchBar}
-                setshowSearchBar={setshowSearchBar}
-              />
-            )}
-          </div>
-          <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-            <FiSearch color="#A72F3B" />
-          </div>
-          <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] ">
-            <input
-              className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px]"
-              placeholder="جستجو"
-              onClick={() => handleOpen()}
-            ></input>
-          </div>
-        </div> */}
         <div className="w-2/5 h-full flex  flex-col justify-start items-start">
-          <SearchBar setshowSearchResult={setshowSearchResult}/>
-           <SearchResult showSearchResult={showSearchResult}/>
+          <SearchBar setshowSearchResult={setshowSearchResult} />
+          {/* <SearchResult showSearchResult={showSearchResult} /> */}
         </div>
         <Link to={"/"}>
           <div className="w-[120px] h-[30px] cursor-pointer">
