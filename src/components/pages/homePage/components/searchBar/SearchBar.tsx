@@ -105,14 +105,96 @@
 //   );
 // }
 // export default SearchBar;
-import React, { useContext, useEffect, useState } from 'react'
-import { FiSearch } from 'react-icons/fi'
+// import React, { useContext, useEffect, useState } from 'react'
+// import { FiSearch } from 'react-icons/fi'
+// import { ProductListContext } from "../../../../siteSetting/SiteSetting";
+
+
+// interface ISearch {
+//   searchModal: boolean;
+//   setSearchModal: Function;
+//   setshowSearchResult : Function
+//   showSearchResult:IProduct[]
+// }
+// interface IProduct {
+//   id: string;
+//   headcategory: string;
+//   category: string;
+//   name: string;
+//   price: number;
+//   instock: number;
+//   image: string[];
+// }
+// interface IShoeResult{
+//   showSearchResult: IProduct[]
+//   setshowSearchResult: Function
+// }
+// interface IProductList {
+//   productList?: IProduct[];
+//   setProductList?: Function;
+// }
+// interface ISearchBar{
+//   setshowSearchResult : Function
+// }
+// const SearchBar= ({ searchModal, setSearchModal ,  setshowSearchResult ,showSearchResult} :ISearchBar) => {
+//   const productListX = useContext(ProductListContext);
+//   const [serchinput , setSearchInput] = useState<string>("")
+//   const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
+  
+ 
+//   function handleChange(value : string){
+//     setSearchInput(value)
+//     filterData(value)
+   
+//   }
+//   function filterData(value:string){
+//     const filteredData = productListX?.productList.filter(item => {
+//       return (
+//         value && item && item.name && item.name.includes(value)
+//       )
+//     })
+//     setshowSearchResult(filteredData)
+//   }
+//   return (
+//     <div className='w-full'>
+//          <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
+//           <div className=" w-full absolute top-0 right-0 ">
+           
+//           </div>
+//           <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
+//             <FiSearch color="#A72F3B" />
+//           </div>
+         
+//           <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] ">
+//             {/* <SearchBar /> */}
+//             <input
+//               className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px]"
+//               placeholder="جستجو"
+//               type='text'
+//               value={serchinput}
+//               onChange={(e:any) => handleChange(e.target.value)}
+//             />
+//           </div>
+         
+        
+//         </div>
+       
+//     </div>
+//   )
+// }
+
+// export default SearchBar
+import React, { useContext, useState } from "react";
+import { FiSearch } from "react-icons/fi";
+import { RiCloseFill } from "react-icons/ri";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
-import axios from 'axios';
-import SearchBarContent from './components/searchBoxRender/SearchResult';
+import "./searchBar.css";
+
 interface ISearch {
-  serchinput :string;
-  setSearchInput :Function
+  searchModal: boolean;
+  setSearchModal: Function;
+  setshowSearchResult : Function
+  showSearchResult:IProduct[]
 }
 interface IProduct {
   id: string;
@@ -123,41 +205,19 @@ interface IProduct {
   instock: number;
   image: string[];
 }
-interface IShoeResult{
-  showSearchResult: IProduct[]
-  setshowSearchResult: Function
-}
 interface IProductList {
   productList?: IProduct[];
   setProductList?: Function;
 }
-interface ISearchBar{
-  setshowSearchResult : Function
-}
-const SearchBar = ({setshowSearchResult}:ISearchBar) => {
+const SearchBar = ({ searchModal, setSearchModal ,  setshowSearchResult ,showSearchResult}: ISearch) => {
   const productListX = useContext(ProductListContext);
   const [serchinput , setSearchInput] = useState<string>("")
-  // async function fetchdata() {
-  //   let response = await fetch("https://66d432795b34bcb9ab3dece3.mockapi.io/products")
-  //   let product = await response.json()
-  // }
-  // fetchdata()
-  // function handleSearch(e:any){
-  //   const searchWord = e.target.value
-  //   setSearchInput(searchWord)
-  //   if(productListX?.productList &&  searchWord){
-  //     const filteredProduct = productListX.productList.filter((product) =>
-  //        product.name.includes(searchWord))
-  //     productListX?.setProductList(filteredProduct)
-  //   }else{
-  //     fetchdata()
-  //   }
-  // }
- 
+  function handleClsSearchModal() {
+    setSearchModal(false);
+  }
   function handleChange(value : string){
     setSearchInput(value)
-    filterData(value)
-   
+    filterData(value) 
   }
   function filterData(value:string){
     const filteredData = productListX?.productList.filter(item => {
@@ -168,36 +228,46 @@ const SearchBar = ({setshowSearchResult}:ISearchBar) => {
     setshowSearchResult(filteredData)
   }
   return (
-    <div className='w-full'>
-         <div className="search w-full h-[30px] border-[#D6D6D6] rounded-[8px] border-solid border-[1px] flex justify-start items-center relative">
-          <div className=" w-full absolute top-0 right-0 ">
-            {/* {showSearchBar && (
-              <SearchBar
-                showSearchBar={showSearchBar}
-                setshowSearchBar={setshowSearchBar}
-              />
-            )} */}
-          </div>
-          <div className="w-[26px] h-[26px] pr-[6px] pl-[6px]  pt-[4px] pb-[4px]">
-            <FiSearch color="#A72F3B" />
-          </div>
-          {/* {productListX?.productList?.filter(item => item.name.includes(serchinput)) ?? ""} */}
-          <div className=" w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] ">
-            {/* <SearchBar /> */}
-            <input
+    <div className="modal-search-wrapper w-1/2 h-[400px] fixed z-1  right-[8px] top-[60px]  rounded-[8px]">
+        <div className="search-mobile w-full h-[30px] rounded-[8px] border-solid border-[1px] flex justify-start items-center bg-[#F0F0F1] ">
+          <button
+            onClick={handleClsSearchModal}
+            className="flex justify-center items-center bg-[#F0F0F1] "
+          >
+            <div className="w-[26px] h-[26px]">
+              <RiCloseFill color="#A72F3B" className="w-full h-full" />
+            </div>
+          </button>
+          <div className="w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] bg-[#F0F0F1] rounded-l-[8px]">
+
+          {/* <input
               className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px]"
               placeholder="جستجو"
               type='text'
               value={serchinput}
               onChange={(e:any) => handleChange(e.target.value)}
             />
-          </div>
-         
-          {/* {productListX?.productList?.filter((item :IProduct[])=> item?.name?.includes(serchinput)) ?? ""} */}
-        </div>
-       
-    </div>
-  )
-}
+ */}
 
-export default SearchBar
+            <input className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px] rounded-[8px] bg-[#F0F0F1]" 
+             placeholder="جستجو"
+              type='text'
+              value={serchinput}
+              onChange={(e:any) => handleChange(e.target.value)}
+            ></input>
+          </div>
+       
+        </div >
+    <div className="overflow-y-scroll rounded-[8px]">
+    {showSearchResult.map(item => {
+          return(
+            <div className="w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  ">
+                <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
+            </div>
+          )
+        })}
+    </div>
+      </div>
+  );
+};
+export default SearchBar;

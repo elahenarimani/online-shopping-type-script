@@ -5,3 +5,7 @@
     box-shadow: 0px 10px 100px 100px 
     rgba(0,0,0,0.1);
 } */
+ .modal-search-wrapper{
+    width: 40%;
+    z-index: 10000000000000000000000000000000000000000000;
+ }

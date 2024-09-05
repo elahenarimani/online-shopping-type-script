@@ -26,7 +26,7 @@ function BannerSlider() {
     // scrollbar={{ draggable: true }}
 
     onSlideChange={() => console.log("slide change")}
-    className="swiper-container-1 w-full h-full "
+    className="swiper-container-1 w-full h-full  "
   >
     <SwiperSlide className="w-full h-[100vh]">
       <img

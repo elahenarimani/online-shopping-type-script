@@ -1,7 +1,7 @@
 import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdClose, IoMdHeartEmpty } from "react-icons/io";
 import Modal from "react-modal";
 import Women from "../../../../women/Women";
 import Men from "./components/men/Men";
@@ -13,8 +13,8 @@ import { useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import SearchBarContent from "../searchBar/components/searchBoxRender/SearchResult";
-import SearchResult from "../searchBar/components/searchBoxRender/SearchResult";
+// import SearchBarContent from "../searchBar/components/searchBoxRender/SearchResult";
+// import SearchResult from "../searchBar/components/searchBoxRender/SearchResult";
 interface IProduct {
   id: string;
   headcategory: string;
@@ -32,6 +32,8 @@ function DesktopHeader() {
   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] =
     useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
+  const [searchModal, setSearchModal] = useState<boolean>(false);
+  const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   const openWomenModal = () => {
     setWomenIsOpen(true);
   };
@@ -68,6 +70,9 @@ function DesktopHeader() {
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
+  function handleOpnSearchModal() {
+    setSearchModal(true);
+  }
   interface ICustomeStyles {
     content: {
       top: string;
@@ -104,17 +109,80 @@ function DesktopHeader() {
     showSearchResult: IProduct[];
     setshowSearchResult: Function;
   }
-  const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   return (
     <div className=" w-full h-full  ">
       <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
         با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
       </p>
       <div className="w-full h-[70px] p-[10px] flex justify-between items-center bg-white ">
-        <div className="w-2/5 h-full flex  flex-col justify-start items-start">
-          <SearchBar setshowSearchResult={setshowSearchResult} />
-          {/* <SearchResult showSearchResult={showSearchResult} /> */}
+        {/* <div className="w-2/5 h-[70px] flex items-center "> */}
+
+
+
+
+
+
+
+          {/* <div
+            className="searchRapper w-full h-[200px] bg-white p-[10px] border-[1px] border-[#767B7F] outline-[10px] outline-offset-2 outline-white border-solid  rounded-[8px] mt-[-2px] mr-0 ml-0 pl-0 z-10000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            onClick={handleOpnSearchModal}
+          >
+            <div className="search w-full h-[30px] border-[#D6D6D6] border-solid border-b-[1px] flex justify-between items-center  ">
+              <div className="w-[30px] h-[30px] pr-[6px] pl-[6px]  cursor-pointer pb-[6px]">
+                <CiSearch color="#A72F3B" className="w-full h-full" />
+              </div>
+              <div className="searchInput  w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] mt-[-10px]">
+                <input
+                  className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[5px]"
+                  placeholder="جستجو"
+                ></input>
+              </div>
+              <div className="w-[30px] h-[30px] pr-[6px] pl-[6px]  cursor-pointer pb-[5px] ">
+                <IoMdClose color="#A72F3B" className="w-full h-full" />
+              </div>
+            </div>
+          </div> */}
+          <div className="search-wrapper w-2/5 h-[30px] border-[1px] border-[#767B7F] border-solid rounded-[8px] flex justify-start items-center"
+          onClick={handleOpnSearchModal}>
+               <div className="w-[30px] h-[30px]  cursor-pointer flex justify-center items-center pr-[3px] pl-[3px]">
+                    <CiSearch color="#A72F3B" className="w-full h-full" />
+              </div>
+              <div className="searchInput  w-full h-full border-r-[1px] border-solid border-[#767B7F] pl-[6px] ">
+                <div
+                  className="w-full h-[23px] pr-[6px]  pb-[2px] pt-[7px] text-[12px] outline-none border-none text-[#B34B56] text-right "
+                  
+                >
+                                                <p>جستجو</p>
+
+                </div>
+                
+
+              </div>
+              {/* <div className="w-full pr-[5px] text-[#B34B56] text-[12px]">  
+                              <p>جستجو</p>
+                </div> */}
+
+          {/* </div> */}
+
+
+        
+
+
+
+          
+          {/* <SearchBar setshowSearchResult={setshowSearchResult} /> */}
+          {/* <div className="w-full h-full overflow-y-scroll"> */}
+          {/* {showSearchResult.length>0 ? (<SearchResult showSearchResult={showSearchResult} />)  : ""}   */}
+          {/* </div> */}
         </div>
+        {searchModal && (
+            <SearchBar
+              searchModal={searchModal}
+              setSearchModal={setSearchModal}
+              setshowSearchResult={setshowSearchResult}
+              showSearchResult={showSearchResult}
+            />
+          )}
         <Link to={"/"}>
           <div className="w-[120px] h-[30px] cursor-pointer">
             <img
