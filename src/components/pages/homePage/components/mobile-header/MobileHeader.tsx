@@ -88,7 +88,7 @@ function MobileHeader() {
             <div className="text-[24px]">
               <HiOutlineShoppingBag color="#A72F3B" />
             </div>
-            <div className="text-[24px]" onClick={handleOpnSearchModal}>
+            <div className="w-full text-[24px]" onClick={handleOpnSearchModal}>
               <FiSearch color="#A72F3B" />
             </div>
             {searchModal && (<SearchBarMob searchModal={searchModal} setSearchModal={setSearchModal}  setshowSearchResult={ setshowSearchResult} showSearchResult={showSearchResult}/>)}
