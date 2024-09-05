@@ -42,8 +42,8 @@ const SearchBarMob = ({ searchModal, setSearchModal ,  setshowSearchResult ,show
     setshowSearchResult(filteredData)
   }
   return (
-    <div className="modal-search-wrapper w-full min-h-[100vh] fixed z-1 left-[8px] right-[8px] top-[8px] bottom-[8px] mb-[8px] bg-transparent overflow-hidden">
-      <div className=" modal-content h-full bg-white rounded-[8px] pb-[8px] ">
+    <div className="modal-search-wrapper-mob w-full min-h-[100vh] fixed z-1 left-[8px] right-[8px] top-[8px] bottom-[8px] mb-[8px] bg-transparent overflow-hidden">
+      <div className=" modal-content-mob h-full bg-white rounded-[8px] pb-[8px] ">
         <div className="search-mobile w-full h-[30px] rounded-[8px] border-solid border-[1px] flex justify-start items-center bg-[#F0F0F1] ">
           <button
             onClick={handleClsSearchModal}

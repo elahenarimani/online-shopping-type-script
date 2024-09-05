@@ -32,8 +32,9 @@ function DesktopHeader() {
   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] =
     useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
-  const [searchModal, setSearchModal] = useState<boolean>(false);
-  const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
+  const [searchModalDes, setSearchModalDes] = useState<boolean>(false);
+  const [showSearchResultDes, setshowSearchResultDes] = useState<IProduct[]>([]);
+  // const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   const openWomenModal = () => {
     setWomenIsOpen(true);
   };
@@ -70,11 +71,16 @@ function DesktopHeader() {
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
-  function handleOpnSearchModal() {
+  function handleOpnDesSearchModal() {
     
-    setSearchModal(true);
+    setSearchModalDes(true);
 
   }
+  // function handleOpnSearchModal() {
+    
+  //   setSearchModal(true);
+
+  // }
   interface ICustomeStyles {
     content: {
       top: string;
@@ -108,6 +114,8 @@ function DesktopHeader() {
     },
   };
   interface IShoeResult {
+    showSearchResultDes: IProduct[];
+    setshowSearchResultDes: Function;
     showSearchResult: IProduct[];
     setshowSearchResult: Function;
   }
@@ -145,7 +153,7 @@ function DesktopHeader() {
             </div>
           </div> */}
           <div className="search-wrapper w-2/5 h-[30px] border-[1px] border-[#767B7F] border-solid rounded-[8px] flex justify-start items-center"
-          onClick={handleOpnSearchModal}>
+          onClick={handleOpnDesSearchModal}>
                <div className="w-[30px] h-[30px]  cursor-pointer flex justify-center items-center pr-[3px] pl-[3px]">
                     <CiSearch color="#A72F3B" className="w-full h-full" />
               </div>
@@ -177,12 +185,12 @@ function DesktopHeader() {
           {/* {showSearchResult.length>0 ? (<SearchResult showSearchResult={showSearchResult} />)  : ""}   */}
           {/* </div> */}
         </div>
-        {searchModal && (
+        {searchModalDes && (
             <SearchBar
-              searchModal={searchModal}
-              setSearchModal={setSearchModal}
-              setshowSearchResult={setshowSearchResult}
-              showSearchResult={showSearchResult}
+              searchModalDes={searchModalDes}
+              setSearchModalDes={setSearchModalDes}
+              setshowSearchResultDes={setshowSearchResultDes}
+              showSearchResultDes={showSearchResultDes}
             />
           )}
         <Link to={"/"}>

@@ -4,16 +4,16 @@ background-color:#A72F3B ;
 .search-item:hover {
     background-color:#A72F3B ;
 }
-.modal-search-wrapper{
+.modal-search-wrapper-mob{
     z-index: 100;
 }
-.modal-content{
+.modal-content-mob{
     max-width: 95% !important;
     min-width: 95% !important;
     width: 95%;
     /* overflow-y: auto; */
 }
-.modal-search-wrapper{
+.modal-search-wrapper-mob{
     overflow: hidden;
 }
 .search-render{

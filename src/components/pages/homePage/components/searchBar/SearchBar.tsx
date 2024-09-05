@@ -234,10 +234,10 @@ import { RiCloseFill } from "react-icons/ri";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 import "./searchBar.css";
 interface ISearch {
-  searchModal: boolean;
-  setSearchModal: Function;
-  setshowSearchResult: Function;
-  showSearchResult: IProduct[];
+  searchModalDes: boolean;
+  setSearchModalDes: Function;
+  setshowSearchResultDes: Function;
+  showSearchResultDes: IProduct[];
 }
 interface IProduct {
   id: string;
@@ -253,16 +253,16 @@ interface IProductList {
   setProductList?: Function;
 }
 const SearchBar = ({
-  searchModal,
-  setSearchModal,
-  setshowSearchResult,
-  showSearchResult,
+  searchModalDes,
+  setSearchModalDes,
+  setshowSearchResultDes,
+  showSearchResultDes,
 }: ISearch) => {
   const productListX = useContext(ProductListContext);
   const [serchinput, setSearchInput] = useState<string>("");
-  function handleClsSearchModal() {
-    setSearchModal(false);
-    showSearchResult.splice(0, showSearchResult.length);
+  function handleClsDesSearchModal() {
+    setSearchModalDes(false);
+    showSearchResultDes.splice(0, showSearchResultDes.length);
   }
   function handleChange(value: string) {
     setSearchInput(value);
@@ -272,14 +272,14 @@ const SearchBar = ({
     const filteredData = productListX?.productList.filter((item) => {
       return value && item && item.name && item.name.includes(value);
     });
-    setshowSearchResult(filteredData);
+    setshowSearchResultDes(filteredData);
   }
   return (
     <div className="modal-search-wrapper w-full min-h-[100vh] fixed z-1  right-[8px] top-[60px]  rounded-[8px] ">
       <div className="modal-content w-1/2 ">
         <div className="search-input w-full h-[30px] rounded-[8px] border-solid border-[1px] flex justify-start items-center bg-[#F0F0F1]  ">
           <button
-            onClick={handleClsSearchModal}
+            onClick={handleClsDesSearchModal}
             className="flex justify-center items-center bg-[#F0F0F1] "
           >
             <div className="w-[26px] h-[26px]">
@@ -297,7 +297,7 @@ const SearchBar = ({
           </div>
         </div>
         <div className="search-render h-[300px] overflow-y-auto cursor-pointer ">
-          {showSearchResult.map((item) => {
+          {showSearchResultDes.map((item) => {
             return (
               <div className="search-item w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  ">
                 <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
