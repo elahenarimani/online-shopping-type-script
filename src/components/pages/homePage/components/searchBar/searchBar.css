@@ -6,6 +6,26 @@
     rgba(0,0,0,0.1);
 } */
  .modal-search-wrapper{
-    width: 40%;
+    
     z-index: 10000000000000000000000000000000000000000000;
+    overflow-y: hidden !important;
  }
+ .modal-content{
+    width: 40%;
+    /* overflow-y: scroll; */
+ }
+ .search-render :hover {
+    background-color:#A72F3B;
+}
+.search-input{
+    /* overflow: hidden; */
+}
+.search-item-wrapper{
+    overflow-y: auto;
+}
+.elahe{
+    /* overflow-y: hidden; */
+}
+.search-render{
+    overflow-y: auto;
+}

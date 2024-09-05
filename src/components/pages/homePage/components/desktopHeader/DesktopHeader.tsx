@@ -71,7 +71,9 @@ function DesktopHeader() {
     setBagIsOpen(false);
   };
   function handleOpnSearchModal() {
+    
     setSearchModal(true);
+
   }
   interface ICustomeStyles {
     content: {
