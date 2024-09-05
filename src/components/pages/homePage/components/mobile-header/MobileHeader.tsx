@@ -34,6 +34,7 @@ function MobileHeader() {
   }
   function handleOpnSearchModal(){
     setSearchModal(true)
+    
   }
   interface ICustomClassifyModalStyles {
     content: {
