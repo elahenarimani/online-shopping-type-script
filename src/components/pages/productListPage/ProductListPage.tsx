@@ -210,7 +210,7 @@ function ProductListPage() {
   }, [minValue, maxValue, productListX]);
   return (
     <div>
-{/* 
+      {/* 
 <div className="mobile-favorite-list w-full h-full  sm:hidden">
         <FavoriteItemMobileSize/>
       </div>
@@ -220,15 +220,13 @@ function ProductListPage() {
       <div className="desktop-favorite-list w-full h-full hidden lg:block">
         <DesktopHeader /> */}
 
-
       <div className="mobile-product-list w-full h-full  sm:hidden">
-        <ProductListMobileSize/>
+        <ProductListMobileSize />
       </div>
       <div className="sm-product-list w-full h-full hidden sm:block lg:hidden">
-      <ProductListSMSize/>
+        <ProductListSMSize />
       </div>
       <div className="desktop-product-list w-full h-full hidden lg:block"></div>
-
 
       {/* <div className="mobile-product-list lg:hidden max-w-full h-full pr-[20px] pl-[20px] flex flex-col justify-start items-center">
         <div className="invisible w-full h-[80px] md:hidden"></div>
@@ -285,11 +283,6 @@ function ProductListPage() {
         </div>
       </div> */}
 
-
-
-
-
-
       <div className="desktop-product-list w-full h-full hidden lg:block">
         <DesktopHeader />
         <div className=" flex max-w-full h-full m-auto ml-[40px] mr-[40px]  justify-start items-start gap-[5px]">
@@ -318,23 +311,25 @@ function ProductListPage() {
               .map((item) => {
                 if (item.headcategory === params.headcategory) {
                   return (
-                    <div key={item.id} className="w-full">
-                      <div className="w-full h-full border-solid border-[#E6E6E6] border-[2px] rounded-[5px] flex flex-col justify-start pt-0 mt-0">
-                        <div className="w-full h-full">
-                          <img
-                            src={item.image[0]}
-                            alt="photos"
-                            className="w-full h-full  "
-                          />
+                    <Link to={`/product/${item.id}`}>
+                      <div key={item.id} className="w-full">
+                        <div className="w-full h-full border-solid border-[#E6E6E6] border-[2px] rounded-[5px] flex flex-col justify-start pt-0 mt-0">
+                          <div className="w-full h-full">
+                            <img
+                              src={item.image[0]}
+                              alt="photos"
+                              className="w-full h-full  "
+                            />
+                          </div>
+                          <p className="mr-[10px] mb-[10px] mt-[25px] text-[11px]">
+                            {item.name}
+                          </p>
+                          <p className="mr-[10px]  mb-[25px] mt-[10px] text-[11px]">
+                            {item.price}تومان
+                          </p>
                         </div>
-                        <p className="mr-[10px] mb-[10px] mt-[25px] text-[11px]">
-                          {item.name}
-                        </p>
-                        <p className="mr-[10px]  mb-[25px] mt-[10px] text-[11px]">
-                          {item.price}تومان
-                        </p>
                       </div>
-                    </div>
+                    </Link>
                   );
                 } else {
                   return null;
