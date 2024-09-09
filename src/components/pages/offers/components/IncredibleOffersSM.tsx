@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBuyCart } from "../../../redux/reducers/buyCart/buyCartReducer";
 import MultiRangeSlider from "multi-range-slider-react";
 import { useEffect, useState } from "react";
-import "./productListSMSize.css";
+import "./incredibleOffersSM.css";
 import MobileHeader from "../../homePage/components/mobile-header/MobileHeader";
 import DesktopHeader from "../../homePage/components/desktopHeader/DesktopHeader";
 interface IState {
   id: string | number;
   count: number;
 }
-function ProductListSMSize() {
+function IncredibleOffersSM() {
   const productListX = useContext(ProductListContext);
   const [minValue, set_minValue] = useState(0);
   const [maxValue, set_maxValue] = useState(15000000);
@@ -107,4 +107,4 @@ function ProductListSMSize() {
     </div>
   );
 }
-export default ProductListSMSize;
+export default IncredibleOffersSM;

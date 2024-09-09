@@ -7,14 +7,14 @@ import { addBuyCart } from "../../../redux/reducers/buyCart/buyCartReducer";
 // import FilterPrice from "./components/filterPrice/FilterPrice";
 import MultiRangeSlider from "multi-range-slider-react";
 import { useEffect, useState } from "react";
-import "./productListMobileSize.css";
+import "./incredibleOffersMobile.css";
 import MobileHeader from "../../homePage/components/mobile-header/MobileHeader";
 import DesktopHeader from "../../homePage/components/desktopHeader/DesktopHeader";
 interface IState {
   id: string | number;
   count: number;
 }
-function ProductListMobileSize() {
+function IncredibleOffersMobile() {
   const productListX = useContext(ProductListContext);
   const [minValue, set_minValue] = useState(0);
   const [maxValue, set_maxValue] = useState(15000000);
@@ -108,4 +108,4 @@ function ProductListMobileSize() {
     </div>
   );
 }
-export default ProductListMobileSize;
+export default IncredibleOffersMobile;
