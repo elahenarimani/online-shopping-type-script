@@ -49,59 +49,46 @@ function IncredibleOffersMobile() {
   }, [minValue, maxValue, productListX]);
   return (
     <div>
-      <div className="mobile-product-list  max-w-full h-full pr-[20px] pl-[20px] flex flex-col justify-start items-center">
+      <div className="mobile-incredible-offers  w-full h-full flex flex-col justify-start items-center">
         <div className="invisible w-full h-[80px] md:hidden"></div>
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  md:hidden">
           <MobileHeader />
         </div>
-        {/* <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]"> */}
-        <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-white ">
-          {/* <FilterPrice /> */}
-          <MultiRangeSlider
-            min={0}
-            max={15000000}
-            step={500000}
-            minValue={minValue}
-            maxValue={maxValue}
-            onInput={(e) => {
-              handleInput(e);
-            }}
-          />
-          <div className="max-w-full   flex justify-between items-center ">
-            <p>{maxValue}</p>
-            <p>{minValue}</p>
-          </div>
-        </div>
-        <div className="max-w-full h-full grid  grid-cols-1 gap-[15px] pt-[20px]">
+        <div className="min-w-[300px] max-w-[600px] h-full grid pl-[10px] pr-[10px] grid-cols-1 gap-[15px] pt-[20px]">
           {productListX?.productList
-            .filter(
-              (product) =>
-                product.price >= minValue && product.price <= maxValue
-            )
             .map((item) => {
-              if (item.headcategory === params.headcategory) {
                 return (
                   <Link to={`/product/${item.id}`}>
-                    <div key={item.id} className=" w-full">
-                      <div className="w-full  border-solid border-[#E6E6E6] border-[2px] rounded-[5px]  flex flex-col">
+                  <div key={item.id} className="w-full">
+                    <div className="w-full h-full border-solid border-[#E6E6E6] border-[1px] rounded-[5px] flex flex-col justify-start pt-0 mt-0">
+                      <div className="w-full ">
                         <img
                           src={item.image[0]}
                           alt="photos"
-                          className="w-full h-full"
+                          className="w-full h-[220px] object-contain rounded-[5px] "
                         />
-                        <p className="mr-[10px] mb-[10px] mt-[12px]">
+                      </div>
+                      <div className="w-full h-full flex flex-col justify-start items-stretch pr-[20px] pl-[20px] pt-[10px] pb-[10px]  gap-[8px]">
+                        <p className=" text-[12px] shrink basis-[33px] overflow-hidden text-ellipsis line-clamp-2 ">
                           {item.name}
                         </p>
-                        <p className="mr-[10px]  mb-[25px] mt-[5px]">
-                          {item.price} تومان
-                        </p>
+                        <div className="w-full flex flex-row justify-between items-center">
+                          <div className="w-[40px] h-[20px] bg-[#A72F3B] rounded-[15px] pl-[4px] pr-[4px] pt-[3px] pb-[3px] text-white text-[12px]  white-space">
+                            <p>25%</p>
+                          </div>
+                          <div className="w-full text-left">
+                            <span>{(25 / 100) * item.price}</span>
+                            <span className=" text-[12px]">تومان</span>
+                          </div>
+                        </div>
+                        <div className="w-full h-full flex flex-row justify-end items-center text-[12px] pl-[20px]">
+                          <p className="line-through"> {item.price}</p>
+                        </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
+                </Link>
                 );
-              } else {
-                return null;
-              }
             })}
         </div>
       </div>
