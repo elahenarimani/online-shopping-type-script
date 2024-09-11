@@ -233,6 +233,7 @@ import { FiSearch } from "react-icons/fi";
 import { RiCloseFill } from "react-icons/ri";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 import "./searchBar.css";
+import { Link } from "react-router-dom";
 interface ISearch {
   searchModalDes: boolean;
   setSearchModalDes: Function;
@@ -299,9 +300,11 @@ const SearchBar = ({
         <div className="search-render h-[300px] overflow-y-auto cursor-pointer ">
           {showSearchResultDes.map((item) => {
             return (
-              <div className="search-item w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  ">
-                <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
-              </div>
+              <Link to={`/product/${item.id}`}>
+                <div className="search-item w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  ">
+                  <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
+                </div>
+              </Link>
             );
           })}
         </div>

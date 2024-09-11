@@ -1,7 +1,0 @@
-.search-result-item:hover {
-    background-color: blueviolet;
-}
-.search-result-item:last-child {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
