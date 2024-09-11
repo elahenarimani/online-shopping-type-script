@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 import { Link } from "react-router-dom";
-
 const ProductCategory = () => {
   const productListX = useContext(ProductListContext);
   return (
@@ -36,9 +35,7 @@ const ProductCategory = () => {
             <p>عینک</p>
           </div>
         </Link>
-      
     </div>
   );
 };
-
 export default ProductCategory;
