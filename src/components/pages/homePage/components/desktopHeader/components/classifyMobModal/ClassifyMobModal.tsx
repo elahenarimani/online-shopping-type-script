@@ -13,8 +13,9 @@ function ClassifyMobModal({ isOpen, onRequestClose }: IClassifyMobModal) {
    const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
    const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
    const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
-   const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
-   const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
+   // const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] = useState<boolean>(false);
+   const [shoeIsOpen, setShoeIsOpen] = useState<boolean>(false);
+   const [sunglassessIsOpen, setSunglassessIsOpen] = useState<boolean>(false);
    const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
   
    const handleWomenBtnClick= () => {
@@ -26,11 +27,11 @@ function ClassifyMobModal({ isOpen, onRequestClose }: IClassifyMobModal) {
    const handleChildBtnClick=()=>{
       setChildIsOpen(!childIsOpen);
    }
-   const handleBeautyBtnClick=()=>{
-      setBeautyHealthyIsOpen(!beautyHealthyIsOpen);
+   const handleShoeClick=()=>{
+      setShoeIsOpen(!shoeIsOpen);
    }
-   const handleHeadCoverBtnClick=()=>{
-      setHeadCoverIsOpen(!headCoverIsOpen);
+   const handleSunglassesBtnClick=()=>{
+      setSunglassessIsOpen(!sunglassessIsOpen);
    }
    const handleBagBtnClick=()=>{
       setBagIsOpen(!bagIsOpen);
@@ -46,88 +47,86 @@ function ClassifyMobModal({ isOpen, onRequestClose }: IClassifyMobModal) {
          <div className="font-semibold text-[20px] pr-[10px]  pb-[5px]">
             <p>دسته بندی ها</p>
          </div>
-         <button onClick={() => handleWomenBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
+         <button onClick={() => handleWomenBtnClick()} className={`w-full pr-[10px]  ${!womenIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
             <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
                <p>زنانه</p>
                {womenIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
             </div>
-            {womenIsOpen &&
-               <ul className="list-none m-0 pr-[40px] text-right ">
-                  <li className="pt-[20px] pb-[5px]">بالا پوش</li>
+         </button>
+         {womenIsOpen &&
+               <ul className="w-full list-none m-0 pr-[40px] text-right border-b border-gray-300 border-solid ">
+                  <li className=" pb-[5px]">بالا پوش</li>
                   <li className="pt-[5px] pb-[5px]">شلوار</li>
                   <li className="pt-[5px] pb-[5px]">لباس اسپورت و راحتی</li>
                   <li className="pt-[5px] pb-[5px]">سایر محصولات</li>
-                  <li className="pt-[5px] pb-[5px]">جین</li>
+                  <li className="pt-[5px] pb-[10px]">جین</li>
                </ul>
             }
-         </button>
-         <button onClick={() => handleMenBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
+         <button onClick={() => handleMenBtnClick()} className={`w-full pr-[10px]  ${!menIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
             <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
                <p>مردانه</p>
                {menIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
             </div>
-            {menIsOpen &&
+         </button>
+          {menIsOpen &&
                <ul className="list-none m-0 pr-[40px] text-right ">
-                  <li className="pt-[20px] pb-[5px]">بالا پوش</li>
+                  <li className=" pb-[5px]">بالا پوش</li>
                   <li className="pt-[5px] pb-[5px]">شلوار</li>
                   <li className="pt-[5px] pb-[5px]">لباس اسپورت</li>
                   <li className="pt-[5px] pb-[5px]">سایر محصولات</li>
                </ul>
             }
-         </button>
-         <button onClick={() => handleChildBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
+         <button onClick={() => handleChildBtnClick()} className={`w-full pr-[10px]  ${!childIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
             <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
                <p>بچگانه</p>
                {childIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
             </div>
-            {childIsOpen &&
+         </button>
+         {childIsOpen &&
                <ul className="list-none m-0 pr-[40px] text-right ">
-                  <li className="pt-[20px] pb-[5px]">نوزادی</li>
+                  <li className=" pb-[5px]">نوزادی</li>
                   <li className="pt-[5px] pb-[5px]">دخترانه</li>
                   <li className="pt-[5px] pb-[5px]">پسرانه</li>
                </ul>
             }
-         </button>
-         <button onClick={() => handleBeautyBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
-            <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
-               <p>زیبایی و سلامت</p>
-               {beautyHealthyIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
-            </div>
-            {beautyHealthyIsOpen &&
-               <ul className="list-none m-0 pr-[40px] text-right ">
-                  <li className="pt-[20px] pb-[5px]">عطر و ادکلن</li>
-                  <li className="pt-[5px] pb-[5px]">آرایش و گریم</li>
-                  <li className="pt-[5px] pb-[5px]">مراقبت پوست</li>
-                  <li className="pt-[5px] pb-[5px]">آرایش و مراقبت مو</li>
-                  <li className="pt-[5px] pb-[5px]">بهداشت و مراقبت شخصی</li>
-               </ul>
-            }
-         </button>
-           <button onClick={() => handleHeadCoverBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
-            <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
-               <p>کلاه/روسری/شال</p>
-               {headCoverIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
-            </div>
-            {headCoverIsOpen &&
-               <ul className="list-none m-0 pr-[40px] text-right ">
-                 <li className="pt-[20px] pb-[5px]">کلاه</li>
-                 <li className="pt-[5px] pb-[5px]">شال</li>
-                 <li className="pt-[5px] pb-[5px]">روسری</li>
-               </ul>
-            }
-         </button>
-          <button onClick={() => handleBagBtnClick()} className="w-full border-b border-gray-300 border-solid pr-[10px]  pb-[9px]">
+         <button onClick={() => handleBagBtnClick()} className={`w-full pr-[10px]  ${!bagIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
             <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
                <p>کیف</p>
                {bagIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
             </div>
-            {bagIsOpen &&
+         </button>
+         {bagIsOpen &&
                <ul className="list-none m-0 pr-[40px] text-right ">
-                <li className="pt-[20px] pb-[5px]">کیف مجلسی</li>
+                <li className=" pb-[5px]">کیف مجلسی</li>
                 <li className="pt-[5px] pb-[5px]">کیف کوله پشتی</li>
                </ul>
             }
+           <button onClick={() =>  handleShoeClick()} className={`w-full pr-[10px]  ${!shoeIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
+            <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
+               <p>کفش</p>
+               {shoeIsOpen? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
+            </div>
          </button>
+         {shoeIsOpen &&
+               <ul className="list-none m-0 pr-[40px] text-right ">
+                 <li className="pb-[5px]">زنانه</li>
+                 <li className="pt-[5px] pb-[5px]">مردانه</li>
+                 <li className="pt-[5px] pb-[5px]">بچگانه</li>
+               </ul>
+            }
+         <button onClick={() => handleSunglassesBtnClick()} className={`w-full pr-[10px]  ${!sunglassessIsOpen ? 'border-b border-gray-300 border-solid pb-[9px]' : ''}`}>
+            <div className="w-full flex flex-row justify-start items-center gap-[8px] text-[18px] ">
+               <p>عینک</p>
+               {sunglassessIsOpen ? (<div><MdKeyboardArrowDown /></div>) : (<div><MdKeyboardArrowLeft /></div>)}
+            </div>
+         </button>
+         {sunglassessIsOpen &&
+                <ul className="list-none m-0 pr-[40px] text-right ">
+                <li className=" pb-[5px]">زنانه</li>
+                <li className="pt-[5px] pb-[5px]">مردانه</li>
+                <li className="pt-[5px] pb-[5px]">بچگانه</li>
+              </ul>
+            }
       </div>
    )
 }
