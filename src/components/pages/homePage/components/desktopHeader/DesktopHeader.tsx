@@ -6,13 +6,16 @@ import Modal, { Styles } from 'react-modal';
 import Women from "./components/women/Women";
 import Men from "./components/men/Men";
 import Child from "./components/child/Child";
-import BeautyHealthy from "./components/beauty-healthy/BeautyHealthy";
-import HeadCover from "./components/headCover/HeadCover";
+import BeautyHealthy from "./components/glasses/Sunglasses";
+import HeadCover from "./components/shoes/Shoes";
 import Bag from "./components/bag/Bag";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import shoes from "./components/shoes/Shoes";
+import Shoes from "./components/shoes/Shoes";
+import Sunglasses from "./components/glasses/Sunglasses";
 interface IProduct {
   id: string;
   headcategory: string;
@@ -25,9 +28,10 @@ interface IProduct {
 function DesktopHeader() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
-  const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
+  // const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
   const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
-  const [beautyHealthyIsOpen, setBeautyHealthyIsOpen] =
+  const [shoesIsOpen, setShoesIsOpen] = useState<boolean>(false);
+  const [sunglassesIsOpen, setSunglassesIsOpen] =
     useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
   const [searchModalDes, setSearchModalDes] = useState<boolean>(false);
@@ -53,27 +57,34 @@ function DesktopHeader() {
   const closeChildModal = () => {
     setChildIsOpen(false);
   };
-  const openBeautyHealthyModal = () => {
-    setBeautyHealthyIsOpen(true);
+  const openSunglassesModal = () => {
+    setSunglassesIsOpen(true);
   };
-  const closeBeautyHealthyModal = () => {
-    setBeautyHealthyIsOpen(false);
+  const closeSunglassesModal = () => {
+    setSunglassesIsOpen(false);
   };
-  const openHeadCoverModal = () => {
-    setHeadCoverIsOpen(true);
-  };
-  const closeHeadCoverModal = () => {
-    setHeadCoverIsOpen(false);
-  };
+  // const openHeadCoverModal = () => {
+  //   setHeadCoverIsOpen(true);
+  // };
+  // const closeHeadCoverModal = () => {
+  //   setHeadCoverIsOpen(false);
+  // };
   const openBagModal = () => {
     setBagIsOpen(true);
   };
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
+  function openshoesModal(){
+    setShoesIsOpen(true)
+  }
+  function closeShoesModal(){
+    setShoesIsOpen(false)
+  }
   function handleOpnDesSearchModal() {
     setSearchModalDes(true);
   }
+ 
   interface ICustomeStyles extends Styles {
     content: {
       top: string;
@@ -114,6 +125,23 @@ function DesktopHeader() {
     showSearchResult: IProduct[];
     setshowSearchResult: Function;
   }
+  const closeAllModals = () => {
+    setWomenIsOpen(false);
+    setMenIsOpen(false);
+    setShoesIsOpen(false)
+    setChildIsOpen(false);
+    setSunglassesIsOpen(false);
+    setBagIsOpen(false);
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      closeAllModals();
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className=" w-full h-full  relative">
       <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
@@ -173,16 +201,16 @@ function DesktopHeader() {
           <button onClick={() => openMenModal()}>
             <p className="cursor-pointer">مردانه</p>
           </button>
-          <button onClick={() => openMenModal()}>
+          <button onClick={() => openChildModal()}>
             <p className="cursor-pointer">بچگانه</p>
           </button>
           <button onClick={() => openBagModal()}>
             <p className="cursor-pointer">کیف</p>
           </button>
-          <button onClick={() => openChildModal()}>
+          <button onClick={() => openshoesModal()}>
             <p className="cursor-pointer">کفش</p>
           </button>
-          <button onClick={() => openBeautyHealthyModal()}>
+          <button onClick={() => openSunglassesModal()}>
             <p className="cursor-pointer">عینک</p>
           </button>
           
@@ -238,38 +266,6 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          {/* <button onClick={() => openBeautyHealthyModal()}>
-            <p className="cursor-pointer"> زیبایی و سلامت</p>
-          </button> */}
-          <Modal
-            isOpen={beautyHealthyIsOpen}
-            onRequestClose={closeBeautyHealthyModal}
-            contentLabel="Example Modal"
-            style={customStyles}
-          >
-            <div onMouseLeave={closeBeautyHealthyModal}>
-              <button onClick={() => closeBeautyHealthyModal()}></button>
-              <BeautyHealthy />
-            </div>
-          </Modal>
-        </div>
-        <div>
-          {/* <button onClick={() => openHeadCoverModal()}>
-            <p className="cursor-pointer">کلاه/روسری/شال</p>
-          </button> */}
-          <Modal
-            isOpen={headCoverIsOpen}
-            onRequestClose={closeHeadCoverModal}
-            contentLabel="Example Modal"
-            style={customStyles}
-          >
-            <div onMouseLeave={closeHeadCoverModal}>
-              <button onClick={() => closeHeadCoverModal()}></button>
-              <HeadCover />
-            </div>
-          </Modal>
-        </div>
-        <div>
           {/* <button onClick={() => openBagModal()}>
             <p className="cursor-pointer">کیف</p>
           </button> */}
@@ -282,6 +278,42 @@ function DesktopHeader() {
             <div onMouseLeave={closeBagModal}>
               <button onClick={() => closeBagModal()}></button>
               <Bag />
+            </div>
+          </Modal>
+        </div>
+
+
+
+        
+        <div>
+          {/* <button onClick={() => openHeadCoverModal()}>
+            <p className="cursor-pointer">کلاه/روسری/شال</p>
+          </button> */}
+          <Modal
+            isOpen={shoesIsOpen}
+            onRequestClose={closeShoesModal}
+            contentLabel="Example Modal"
+            style={customStyles}
+          >
+            <div onMouseLeave={closeShoesModal}>
+              <button onClick={() => closeShoesModal()}></button>
+              <Shoes />
+            </div>
+          </Modal>
+        </div>
+        <div>
+          {/* <button onClick={() => openBeautyHealthyModal()}>
+            <p className="cursor-pointer"> زیبایی و سلامت</p>
+          </button> */}
+          <Modal
+            isOpen={sunglassesIsOpen}
+            onRequestClose={closeSunglassesModal}
+            contentLabel="Example Modal"
+            style={customStyles}
+          >
+            <div onMouseLeave={closeSunglassesModal}>
+              <button onClick={() => closeSunglassesModal()}></button>
+              <Sunglasses />
             </div>
           </Modal>
         </div>
