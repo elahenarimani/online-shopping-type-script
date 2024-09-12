@@ -57,6 +57,10 @@ function ProductListMobileSize() {
         {/* <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]"> */}
         <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-white ">
           {/* <FilterPrice /> */}
+          <div className="pr-[8px]">
+            <span>محدوده قیمت</span>
+            <span className="text-[12px] pr-[4px]">(تومان)</span>
+          </div>
           <MultiRangeSlider
             min={0}
             max={15000000}

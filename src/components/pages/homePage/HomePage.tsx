@@ -45,7 +45,7 @@ function HomePage() {
         {/* <div className="invisible hidden  lg:block w-full h-auto ">
           <DesktopHeader />
         </div> */}
-        <div className="desktop-header hidden  lg:block w-full h-auto absolute z-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ">
+        <div className="desktop-header hidden  lg:block w-full h-auto absolute z-[1] ">
           <DesktopHeader />
         </div>
       </div>

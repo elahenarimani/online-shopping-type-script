@@ -2,7 +2,7 @@ import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { IoMdClose, IoMdHeartEmpty } from "react-icons/io";
-import Modal from "react-modal";
+import Modal, { Styles } from 'react-modal';
 import Women from "./components/women/Women";
 import Men from "./components/men/Men";
 import Child from "./components/child/Child";
@@ -74,16 +74,17 @@ function DesktopHeader() {
   function handleOpnDesSearchModal() {
     setSearchModalDes(true);
   }
-  interface ICustomeStyles {
+  interface ICustomeStyles extends Styles {
     content: {
       top: string;
       left: string;
       right: string;
       bottom: string;
-      zIndex: string;
       width?: string;
+      zIndex: string;
       transform: string;
       borderRadius?: string;
+      position?: 'absolute'; 
     };
     overlay?: {
       backgroundColor: string;
@@ -92,14 +93,15 @@ function DesktopHeader() {
   }
   const customStyles: ICustomeStyles = {
     content: {
-      top: "23%",
-      left: "auto",
-      right: "auto",
-      bottom: "auto",
+      top: "110px", 
+      left :"auto",
+      right :"auto",
+      bottom :"auto",
       width: "90%",
       zIndex: "9999",
       transform: "translate(-6% , 0)",
       borderRadius: "15px",
+      position: "absolute",  
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
@@ -113,7 +115,7 @@ function DesktopHeader() {
     setshowSearchResult: Function;
   }
   return (
-    <div className=" w-full h-full  ">
+    <div className=" w-full h-full  relative">
       <p className="w-full h-[40px] text-white bg-[#A72F3B] pt-[5px] pb-[5px] cursor-pointer text-center">
         با عضومیت در کاستومی اولین سفارش خود را رایگان تحویل بگیرید
       </p>
@@ -164,11 +166,33 @@ function DesktopHeader() {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-[40px] pt-[10px] pb-[10px] ">
-        <div>
-          <button onClick={() => openWomenModal()}>
+      <div className="items-wrapper flex justify-center items-center gap-[40px] pt-[10px] pb-[10px]">
+      <button onClick={() => openWomenModal()}>
             <p className="cursor-pointer">زنانه</p>
           </button>
+          <button onClick={() => openMenModal()}>
+            <p className="cursor-pointer">مردانه</p>
+          </button>
+          <button onClick={() => openMenModal()}>
+            <p className="cursor-pointer">بچگانه</p>
+          </button>
+          <button onClick={() => openBagModal()}>
+            <p className="cursor-pointer">کیف</p>
+          </button>
+          <button onClick={() => openChildModal()}>
+            <p className="cursor-pointer">کفش</p>
+          </button>
+          <button onClick={() => openBeautyHealthyModal()}>
+            <p className="cursor-pointer">عینک</p>
+          </button>
+          
+          
+      </div>
+      <div className="modal-wrapper  flex justify-center items-center gap-[40px] pt-[10px] pb-[10px] ">
+        <div>
+          {/* <button onClick={() => openWomenModal()}>
+            <p className="cursor-pointer">زنانه</p>
+          </button> */}
           <Modal
             isOpen={womenIsOpen}
             onRequestClose={closeWomenModal}
@@ -182,9 +206,9 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          <button onClick={() => openMenModal()}>
+          {/* <button onClick={() => openMenModal()}>
             <p className="cursor-pointer">مردانه</p>
-          </button>
+          </button> */}
           <Modal
             isOpen={menIsOpen}
             onRequestClose={closeMenModal}
@@ -198,9 +222,9 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          <button onClick={() => openChildModal()}>
+          {/* <button onClick={() => openChildModal()}>
             <p className="cursor-pointer">بچگانه</p>
-          </button>
+          </button> */}
           <Modal
             isOpen={childIsOpen}
             onRequestClose={closeChildModal}
@@ -214,9 +238,9 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          <button onClick={() => openBeautyHealthyModal()}>
+          {/* <button onClick={() => openBeautyHealthyModal()}>
             <p className="cursor-pointer"> زیبایی و سلامت</p>
-          </button>
+          </button> */}
           <Modal
             isOpen={beautyHealthyIsOpen}
             onRequestClose={closeBeautyHealthyModal}
@@ -230,9 +254,9 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          <button onClick={() => openHeadCoverModal()}>
+          {/* <button onClick={() => openHeadCoverModal()}>
             <p className="cursor-pointer">کلاه/روسری/شال</p>
-          </button>
+          </button> */}
           <Modal
             isOpen={headCoverIsOpen}
             onRequestClose={closeHeadCoverModal}
@@ -246,9 +270,9 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          <button onClick={() => openBagModal()}>
+          {/* <button onClick={() => openBagModal()}>
             <p className="cursor-pointer">کیف</p>
-          </button>
+          </button> */}
           <Modal
             isOpen={bagIsOpen}
             onRequestClose={closeBagModal}

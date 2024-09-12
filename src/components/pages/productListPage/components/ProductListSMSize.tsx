@@ -53,6 +53,10 @@ function ProductListSMSize() {
         <DesktopHeader />
         <div className=" flex max-w-full h-full m-auto ml-[40px] mr-[40px]  justify-start items-start gap-[5px]">
           <div className="max-w-[170px] min-w-[170px] mr-[20px] ml-[20px] pt-[80px]">
+          <div className="pr-[15px]">
+            <span>محدوده قیمت</span>
+            <span className="text-[12px] pr-[8px]">(تومان)</span>
+          </div>
             <MultiRangeSlider
               min={0}
               max={15000000}

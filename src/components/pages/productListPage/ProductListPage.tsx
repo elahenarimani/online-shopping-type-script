@@ -287,6 +287,11 @@ function ProductListPage() {
         <DesktopHeader />
         <div className=" flex max-w-full h-full m-auto ml-[40px] mr-[40px]  justify-start items-start gap-[5px]">
           <div className="max-w-[200px] min-w-[200px] mr-[20px] ml-[20px] pt-[80px]">
+           <div className="pr-[15px]">
+            <span>محدوده قیمت</span>
+            <span className="text-[12px] pr-[8px]">(تومان)</span>
+          </div>
+
             <MultiRangeSlider
               min={0}
               max={15000000}
@@ -297,7 +302,16 @@ function ProductListPage() {
                 handleInput(e);
               }}
             />
+            
             <div className="flex justify-between items-center ">
+              {/* <div>
+                <span>{maxValue}</span>
+                <span>تومان</span>
+              </div>
+              <div>
+                <span>{minValue}</span>
+                <span>تومان</span>
+              </div> */}
               <p>{maxValue}</p>
               <p>{minValue}</p>
             </div>
