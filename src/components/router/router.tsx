@@ -7,6 +7,7 @@ import PostData from "../postData/PostData";
 import ProductListPage from "../pages/productListPage/ProductListPage";
 import FavoriteItem from "../pages/favoriteProductPage/FavoriteItem";
 import IncredibleOffersPage from "../pages/offers/IncredibleOffersPage";
+import PutData from "../putData/PutData";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     element: <PostData />,
   },
   {
+    path:"/editting",
+    element:<PutData/>
+  },
+  {
     path: "/productList",
     children: [
       {
@@ -47,8 +52,8 @@ const router = createBrowserRouter([
     element: <FavoriteItem />,
   },
   {
-    path :"/incredibleOffers",
-    element : <IncredibleOffersPage/>
-  }
+    path: "/incredibleOffers",
+    element: <IncredibleOffersPage />,
+  },
 ]);
 export { router };

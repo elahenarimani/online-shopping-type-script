@@ -280,11 +280,7 @@ function DesktopHeader() {
               <Bag />
             </div>
           </Modal>
-        </div>
-
-
-
-        
+        </div> 
         <div>
           {/* <button onClick={() => openHeadCoverModal()}>
             <p className="cursor-pointer">کلاه/روسری/شال</p>

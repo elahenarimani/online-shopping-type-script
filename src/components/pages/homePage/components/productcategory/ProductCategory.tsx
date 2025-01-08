@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 import { Link } from "react-router-dom";
+import { ProductListContext } from "../../../../siteSetting/SiteSetting";
 const ProductCategory = () => {
   const productListX = useContext(ProductListContext);
   return (

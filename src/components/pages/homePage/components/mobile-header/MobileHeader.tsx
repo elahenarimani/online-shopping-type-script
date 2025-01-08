@@ -124,6 +124,7 @@ function MobileHeader() {
               <ClassifyMobModal
                 isOpen={classifyModal}
                 onRequestClose={() => closeClassifyModal()}
+                setclassifyModal={setclassifyModal}
               />
             </div>
           </Modal>

@@ -55,7 +55,7 @@ function ProductListMobileSize() {
           <MobileHeader />
         </div>
         {/* <div className="w-full h-[70px] border-[#E6E6E6] border-t-[2px] rounded-[5px]"> */}
-        <div className="h-[70px] fixed bottom-[1px] right-[5px] left-[5px] mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-white ">
+        <div className="h-[100px] fixed bottom-0 right-0 left-0 mt-[10px] mb-[10px] pr-[20px] pl-[20px]  bg-[#E1E6ED] pt-[8px]  pb-[8px]">
           {/* <FilterPrice /> */}
           <div className="pr-[8px]">
             <span>محدوده قیمت</span>

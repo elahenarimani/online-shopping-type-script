@@ -1,9 +1,8 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState, createContext } from "react";
 import { Provider } from "react-redux";
-import { store, persistore } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-
+import { store, persistore } from "../redux/store";
 interface Iprops {
   children: ReactElement;
 }
@@ -29,7 +28,6 @@ interface IFavProduct {
   instock: number;
   image: string[];
 }
-
 interface IBuyCartItem {
   productId: number;
   count: number;

@@ -1,33 +1,22 @@
-import React, { useState, useEffect, createContext, useRef } from "react";
-// import ReactModal from 'react-modal';
 import "./homePage.css";
-// import { PiListBold } from "react-icons/pi";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { TbRewindBackward15 } from "react-icons/tb";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { FaInstagram } from "react-icons/fa";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { LuTwitter } from "react-icons/lu";
-
 import "swiper/css";
-// import BannerSlider from "./components/bannerSlider/BannerSlider";
 import OffBox from "../../offBox1/OffBox";
 import BoutiqueBanner from "./components/boutiqueBanner/BoutiqueBanner";
-import ProductDetailePage from "../productDetailePage/ProductDetailePage";
 import MobileHeader from "./components/mobile-header/MobileHeader";
-import axios from "axios";
 import DesktopHeader from "./components/desktopHeader/DesktopHeader";
-import SearchBar from "./components/searchBar/SearchBar";
 import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
-import { Controller } from "swiper/modules";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import SwiperCore, { Swiper as SwiperType } from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
+import SwiperCore from "swiper";
 import { register } from "swiper/element/bundle";
 import BannerSlider from "./components/bannerSlider/BannerSlider";
 import { Link } from "react-router-dom";
@@ -42,9 +31,6 @@ function HomePage() {
         <div className="mobile-header w-full h-[80px] fixed top-0 z-[9997]  lg:hidden">
           <MobileHeader />
         </div>
-        {/* <div className="invisible hidden  lg:block w-full h-auto ">
-          <DesktopHeader />
-        </div> */}
         <div className="desktop-header hidden  lg:block w-full h-auto absolute z-[1] ">
           <DesktopHeader />
         </div>
@@ -187,6 +173,3 @@ function HomePage() {
   );
 }
 export default HomePage;
-function setIsModalOpen(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}

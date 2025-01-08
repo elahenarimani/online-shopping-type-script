@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { createSlice} from "@reduxjs/toolkit";
 interface IState {
   id: string | number;
   count: number;
@@ -9,17 +8,13 @@ const buyCartReducer = createSlice({
   name: "buyCartReducerx",
   initialState: initState,
   reducers: {
-  
-
     addBuyCart: function (state, action) {
       console.log(action.payload);
       console.log(state);
       const buyCartIndexFinder = state.findIndex(
-        item => item.id === action.payload.id
+        (item) => item.id === action.payload.id
       );
-
     },
-
     increasCounter: function (state, action) {
       let increaseCounterIndexFinder = state.findIndex(
         (item) => item?.id === action?.payload?.id
@@ -31,38 +26,33 @@ const buyCartReducer = createSlice({
         console.log(state);
       }
     },
-    decreaseCounter: function (state, action)  {
+    decreaseCounter: function (state, action) {
       const decreaseCounterIndexFinder = state.findIndex(
         (item) => item?.id === action?.payload?.id
       );
-      console.log(decreaseCounterIndexFinder)
+      console.log(decreaseCounterIndexFinder);
       if (decreaseCounterIndexFinder >= 0) {
         if (state[decreaseCounterIndexFinder].count > 1) {
           state[decreaseCounterIndexFinder].count -= 1;
-        }else{
-           state[decreaseCounterIndexFinder].count -= 1
-            state = state.splice(decreaseCounterIndexFinder , 1 );
-           console.log(state)
+        } else {
+          state[decreaseCounterIndexFinder].count -= 1;
+          state = state.splice(decreaseCounterIndexFinder, 1);
+          console.log(state);
         }
-       
       }
     },
-    removeFromLBuyCart : function (state , action){
+    removeFromLBuyCart: function (state, action) {
       const removeIndexFinder = state.findIndex(
         (item) => item.id === action?.payload?.id
-      )
-      state = state.splice(removeIndexFinder,1)
-
+      );
+      state = state.splice(removeIndexFinder, 1);
     },
-    
-    // increasCounterInCheckout : function (state , action){
-    //   state.map(item => item.id = action?.payload?.id   ? {...item , count : item.count + 1} : item)
-    // }
   },
 });
-
-export const { addBuyCart, increasCounter, decreaseCounter ,removeFromLBuyCart} =
-  buyCartReducer.actions;
-
+export const {
+  addBuyCart,
+  increasCounter,
+  decreaseCounter,
+  removeFromLBuyCart,
+} = buyCartReducer.actions;
 export default buyCartReducer.reducer;
-
