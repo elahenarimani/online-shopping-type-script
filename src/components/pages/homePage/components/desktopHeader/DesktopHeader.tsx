@@ -1,19 +1,14 @@
+import Modal, { Styles } from "react-modal";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
-import { IoMdClose, IoMdHeartEmpty } from "react-icons/io";
-import Modal, { Styles } from 'react-modal';
 import Women from "./components/women/Women";
 import Men from "./components/men/Men";
 import Child from "./components/child/Child";
-import BeautyHealthy from "./components/glasses/Sunglasses";
-import HeadCover from "./components/shoes/Shoes";
 import Bag from "./components/bag/Bag";
-import { useEffect, useState } from "react";
 import SearchBar from "../searchBar/SearchBar";
-import { Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
-import shoes from "./components/shoes/Shoes";
 import Shoes from "./components/shoes/Shoes";
 import Sunglasses from "./components/glasses/Sunglasses";
 interface IProduct {
@@ -28,17 +23,14 @@ interface IProduct {
 function DesktopHeader() {
   const [womenIsOpen, setWomenIsOpen] = useState<boolean>(false);
   const [menIsOpen, setMenIsOpen] = useState<boolean>(false);
-  // const [headCoverIsOpen, setHeadCoverIsOpen] = useState<boolean>(false);
   const [childIsOpen, setChildIsOpen] = useState<boolean>(false);
   const [shoesIsOpen, setShoesIsOpen] = useState<boolean>(false);
-  const [sunglassesIsOpen, setSunglassesIsOpen] =
-    useState<boolean>(false);
+  const [sunglassesIsOpen, setSunglassesIsOpen] = useState<boolean>(false);
   const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
   const [searchModalDes, setSearchModalDes] = useState<boolean>(false);
   const [showSearchResultDes, setshowSearchResultDes] = useState<IProduct[]>(
     []
   );
-  // const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   const openWomenModal = () => {
     setWomenIsOpen(true);
   };
@@ -63,28 +55,21 @@ function DesktopHeader() {
   const closeSunglassesModal = () => {
     setSunglassesIsOpen(false);
   };
-  // const openHeadCoverModal = () => {
-  //   setHeadCoverIsOpen(true);
-  // };
-  // const closeHeadCoverModal = () => {
-  //   setHeadCoverIsOpen(false);
-  // };
   const openBagModal = () => {
     setBagIsOpen(true);
   };
   const closeBagModal = () => {
     setBagIsOpen(false);
   };
-  function openshoesModal(){
-    setShoesIsOpen(true)
+  function openshoesModal() {
+    setShoesIsOpen(true);
   }
-  function closeShoesModal(){
-    setShoesIsOpen(false)
+  function closeShoesModal() {
+    setShoesIsOpen(false);
   }
   function handleOpnDesSearchModal() {
     setSearchModalDes(true);
   }
- 
   interface ICustomeStyles extends Styles {
     content: {
       top: string;
@@ -95,7 +80,7 @@ function DesktopHeader() {
       zIndex: string;
       transform: string;
       borderRadius?: string;
-      position?: 'absolute'; 
+      position?: "absolute";
     };
     overlay?: {
       backgroundColor: string;
@@ -104,31 +89,25 @@ function DesktopHeader() {
   }
   const customStyles: ICustomeStyles = {
     content: {
-      top: "110px", 
-      left :"auto",
-      right :"auto",
-      bottom :"auto",
+      top: "110px",
+      left: "auto",
+      right: "auto",
+      bottom: "auto",
       width: "90%",
       zIndex: "9999",
       transform: "translate(-6% , 0)",
       borderRadius: "15px",
-      position: "absolute",  
+      position: "absolute",
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0)",
       zIndex: "9999",
     },
   };
-  interface IShoeResult {
-    showSearchResultDes: IProduct[];
-    setshowSearchResultDes: Function;
-    showSearchResult: IProduct[];
-    setshowSearchResult: Function;
-  }
   const closeAllModals = () => {
     setWomenIsOpen(false);
     setMenIsOpen(false);
-    setShoesIsOpen(false)
+    setShoesIsOpen(false);
     setChildIsOpen(false);
     setSunglassesIsOpen(false);
     setBagIsOpen(false);
@@ -195,32 +174,27 @@ function DesktopHeader() {
         </div>
       </div>
       <div className="items-wrapper flex justify-center items-center gap-[40px] pt-[10px] pb-[10px]">
-      <button onClick={() => openWomenModal()}>
-            <p className="cursor-pointer">زنانه</p>
-          </button>
-          <button onClick={() => openMenModal()}>
-            <p className="cursor-pointer">مردانه</p>
-          </button>
-          <button onClick={() => openChildModal()}>
-            <p className="cursor-pointer">بچگانه</p>
-          </button>
-          <button onClick={() => openBagModal()}>
-            <p className="cursor-pointer">کیف</p>
-          </button>
-          <button onClick={() => openshoesModal()}>
-            <p className="cursor-pointer">کفش</p>
-          </button>
-          <button onClick={() => openSunglassesModal()}>
-            <p className="cursor-pointer">عینک</p>
-          </button>
-          
-          
+        <button onClick={() => openWomenModal()}>
+          <p className="cursor-pointer">زنانه</p>
+        </button>
+        <button onClick={() => openMenModal()}>
+          <p className="cursor-pointer">مردانه</p>
+        </button>
+        <button onClick={() => openChildModal()}>
+          <p className="cursor-pointer">بچگانه</p>
+        </button>
+        <button onClick={() => openBagModal()}>
+          <p className="cursor-pointer">کیف</p>
+        </button>
+        <button onClick={() => openshoesModal()}>
+          <p className="cursor-pointer">کفش</p>
+        </button>
+        <button onClick={() => openSunglassesModal()}>
+          <p className="cursor-pointer">عینک</p>
+        </button>
       </div>
       <div className="modal-wrapper  flex justify-center items-center gap-[40px] pt-[10px] pb-[10px] ">
         <div>
-          {/* <button onClick={() => openWomenModal()}>
-            <p className="cursor-pointer">زنانه</p>
-          </button> */}
           <Modal
             isOpen={womenIsOpen}
             onRequestClose={closeWomenModal}
@@ -234,9 +208,6 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          {/* <button onClick={() => openMenModal()}>
-            <p className="cursor-pointer">مردانه</p>
-          </button> */}
           <Modal
             isOpen={menIsOpen}
             onRequestClose={closeMenModal}
@@ -250,9 +221,6 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          {/* <button onClick={() => openChildModal()}>
-            <p className="cursor-pointer">بچگانه</p>
-          </button> */}
           <Modal
             isOpen={childIsOpen}
             onRequestClose={closeChildModal}
@@ -266,9 +234,6 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          {/* <button onClick={() => openBagModal()}>
-            <p className="cursor-pointer">کیف</p>
-          </button> */}
           <Modal
             isOpen={bagIsOpen}
             onRequestClose={closeBagModal}
@@ -280,11 +245,8 @@ function DesktopHeader() {
               <Bag />
             </div>
           </Modal>
-        </div> 
+        </div>
         <div>
-          {/* <button onClick={() => openHeadCoverModal()}>
-            <p className="cursor-pointer">کلاه/روسری/شال</p>
-          </button> */}
           <Modal
             isOpen={shoesIsOpen}
             onRequestClose={closeShoesModal}
@@ -298,9 +260,6 @@ function DesktopHeader() {
           </Modal>
         </div>
         <div>
-          {/* <button onClick={() => openBeautyHealthyModal()}>
-            <p className="cursor-pointer"> زیبایی و سلامت</p>
-          </button> */}
           <Modal
             isOpen={sunglassesIsOpen}
             onRequestClose={closeSunglassesModal}

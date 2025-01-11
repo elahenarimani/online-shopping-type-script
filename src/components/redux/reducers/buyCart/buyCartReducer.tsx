@@ -1,4 +1,4 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 interface IState {
   id: string | number;
   count: number;
@@ -11,9 +11,6 @@ const buyCartReducer = createSlice({
     addBuyCart: function (state, action) {
       console.log(action.payload);
       console.log(state);
-      const buyCartIndexFinder = state.findIndex(
-        (item) => item.id === action.payload.id
-      );
     },
     increasCounter: function (state, action) {
       let increaseCounterIndexFinder = state.findIndex(

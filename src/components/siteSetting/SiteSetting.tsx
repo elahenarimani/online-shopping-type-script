@@ -15,10 +15,6 @@ interface IProduct {
   instock: number;
   image: string[];
 }
-interface IProductList {
-  productList?: IProduct[];
-  setProductList?: Function;
-}
 interface IFavProduct {
   id: string;
   headcategory: string;
@@ -60,11 +56,11 @@ export const FavoritProductContext = createContext<
 function SiteSetting({ children }: Iprops) {
   const [productList, setProductList] = useState<IProduct[]>([]);
   let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([]);
-  const [favoritProduct, setFavoritProduct] = useState<IFavoritProduct[]>([]);
   useEffect(() => {
     axios
       .get("https://66d432795b34bcb9ab3dece3.mockapi.io/products")
-      .then((result) => setProductList(result.data));
+      .then((result) => setProductList(result.data))
+      .catch(err => console.log(err))
   }, []);
   return (
     <Provider store={store}>

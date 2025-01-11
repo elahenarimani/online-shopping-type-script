@@ -291,7 +291,6 @@ function ProductListPage() {
             <span>محدوده قیمت</span>
             <span className="text-[12px] pr-[8px]">(تومان)</span>
           </div>
-
             <MultiRangeSlider
               min={0}
               max={15000000}
@@ -302,7 +301,6 @@ function ProductListPage() {
                 handleInput(e);
               }}
             />
-            
             <div className="flex justify-between items-center ">
               {/* <div>
                 <span>{maxValue}</span>
