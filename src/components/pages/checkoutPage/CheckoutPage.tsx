@@ -13,7 +13,7 @@ import CheckoutSMSize from "./CheckoutSMSize";
 function CheckoutPage() {
   const productListX = useContext(ProductListContext);
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
-  const buyCartId = buyCarty.map((cartItem) => cartItem.id);
+  const buyCartId = buyCarty.map((cartItem) => cartItem.id);//extract id of buycart
   console.log(buyCartId);
   const filteredProductList: IProduct[] | undefined =
     productListX?.productList.filter((product) =>
@@ -57,7 +57,7 @@ function CheckoutPage() {
         </div>
         <div className="w-full p-[15px] flex flex-col justify-between gap-[10px] mt-[8px]">
           {filteredProductList?.map((item) => {
-            const cartItem = buyCarty.find((cart) => cart.id == item.id);
+            const cartItem = buyCarty.find((cart) => cart.id === item.id);
             const count = cartItem ? cartItem.count : 0;
             return (
               <MobileCheckout
@@ -95,7 +95,7 @@ function CheckoutPage() {
           <div className="w-full h-full flex flex-row justify-between items-start gap-[25px]">
             <div className="w-3/4">
               {filteredProductList?.map((item) => {
-                const cartItem = buyCarty.find((cart) => cart.id == item.id);
+                const cartItem = buyCarty.find((cart) => cart.id === item.id);
                 const count = cartItem ? cartItem.count : 0;
                 return (
                   <DesktopCheckout
@@ -108,17 +108,6 @@ function CheckoutPage() {
                     image={item.image}
                     inStock={item.instock}
                     count={count}
-                    //             "id": "5",
-                    // "head_category": "آفتابی عینک",
-                    // "category": "زنانه",
-                    // "name": "عینک قهوه ای طرح پلیان",
-                    // "price": 5000000,
-                    // "in_stock": 10,
-                    // "image": [
-                    //   "https://cdn.dsmcdn.com/mnresize/600/-/ty68/product/media/images/20210327/18/75712859/81415201/1/1_org_zoom.jpg",
-                    //   "https://cdn.dsmcdn.com/mnresize/200/-/ty44/product/media/images/20210327/18/75712859/81415201/4/4_org_zoom.jpg",
-                    //   "https://cdn.dsmcdn.com/mnresize/200/-/ty75/product/media/images/20210327/18/75712859/81415201/3/3_org_zoom.jpg"
-                    // ]
                   />
                 );
               })}
