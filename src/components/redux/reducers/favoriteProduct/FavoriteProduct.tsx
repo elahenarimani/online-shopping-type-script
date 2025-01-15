@@ -16,6 +16,7 @@ const favoriteProductReducer: any = createSlice({
       }
     },
     removeFromFavorite: function (state, action) {
+      console.log(action.payload);
       return state.filter((product) => product.id !== action.payload.id);
     },
   },

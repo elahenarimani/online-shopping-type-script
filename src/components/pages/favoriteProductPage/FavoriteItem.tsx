@@ -3,14 +3,7 @@ import DesktopHeader from "../homePage/components/desktopHeader/DesktopHeader";
 import { useContext } from "react";
 import { ProductListContext } from "../../siteSetting/SiteSetting";
 import { MdFavorite } from "react-icons/md";
-import { FiMinus } from "react-icons/fi";
-import { FaPlus } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
-import {
-  increasCounter,
-  decreaseCounter,
-} from "../../redux/reducers/buyCart/buyCartReducer";
-import { addBuyCart } from "../../redux/reducers/buyCart/buyCartReducer";
+import { useParams } from "react-router-dom";
 import Button from "../../button/Button";
 import FavoriteItemMDSize from "./FavoriteItemSMSize";
 import FavoriteItemMobileSize from "./FavoriteItemMobileSize";
@@ -50,10 +43,8 @@ function FavoriteItem() {
   const dispatch: Function = useDispatch();
   const buyCarty: IState[] = useSelector((state: any) => state.buyCarty);
   const currentItem = buyCarty.find((item) => item.id === params.id);
-  const count = currentItem ? currentItem.count : 0;
   return (
     <div>
-      {/* {console.log(favoriteProductsDetails)} */}
       <div className="mobile-favorite-list w-full h-full  sm:hidden">
         <FavoriteItemMobileSize />
       </div>
