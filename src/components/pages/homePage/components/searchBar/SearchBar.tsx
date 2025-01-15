@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { RiCloseFill } from "react-icons/ri";
@@ -67,7 +66,10 @@ const SearchBar = ({
           {showSearchResultDes.map((item) => {
             return (
               <Link to={`/product/${item.id}`}>
-                <div className="search-item w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  "  onClick={handleClsDesSearchModal}>
+                <div
+                  className="search-item w-full h-[33px] color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]  "
+                  onClick={handleClsDesSearchModal}
+                >
                   <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
                 </div>
               </Link>

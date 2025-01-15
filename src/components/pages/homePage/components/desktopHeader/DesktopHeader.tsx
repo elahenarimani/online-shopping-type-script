@@ -111,7 +111,7 @@ function DesktopHeader() {
     setChildIsOpen(false);
     setSunglassesIsOpen(false);
     setBagIsOpen(false);
-    setSearchModalDes(false)
+    setSearchModalDes(false);
   };
   useEffect(() => {
     const handleScroll = () => {

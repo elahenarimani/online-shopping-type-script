@@ -1,14 +1,12 @@
-import { CiSearch } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder, MdOutlineManageAccounts } from "react-icons/md";
 import { PiListBold } from "react-icons/pi";
-import ClassifyMobModal from "../desktopHeader/components/classifyMobModal/ClassifyMobModal";
 import { useState } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import { IoSearch } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import SearchBarMob from "./components/searchComponent/SearchBarMob";
+import ClassifyMobModal from "../desktopHeader/components/classifyMobModal/ClassifyMobModal";
 interface IProduct {
   id: string;
   headcategory: string;
@@ -18,13 +16,9 @@ interface IProduct {
   instock: number;
   image: string[];
 }
-interface ISearch{
-  searchModal:boolean
-  setSearchModal:Function
-}
 function MobileHeader() {
   const [classifyModal, setclassifyModal] = useState<boolean>(false);
-  const [searchModal , setSearchModal] = useState<boolean>(false)
+  const [searchModal, setSearchModal] = useState<boolean>(false);
   const [showSearchResult, setshowSearchResult] = useState<IProduct[]>([]);
   function openClassifyModal() {
     setclassifyModal(true);
@@ -32,9 +26,8 @@ function MobileHeader() {
   function closeClassifyModal() {
     setclassifyModal(false);
   }
-  function handleOpnSearchModal(){
-    setSearchModal(true)
-    
+  function handleOpnSearchModal() {
+    setSearchModal(true);
   }
   interface ICustomClassifyModalStyles {
     content: {
@@ -48,8 +41,6 @@ function MobileHeader() {
       marginRight: string;
       transform: string;
       borderRadius?: string;
-      // overflow: string;
-      // scrolling:string
     };
     overlay?: {
       backgroundColor: string;
@@ -67,7 +58,6 @@ function MobileHeader() {
       zIndex: "9999",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      // overflow: 'visible'
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -85,14 +75,22 @@ function MobileHeader() {
         </div>
         <div className="item-shopping-wrapper w-full h-[40px] pl-[16px] pr-[16px] pb-[1px] flex flex-row justify-between items-center border-b-[1px] border-solid boder-[#F4F1EE] bg-white">
           <div className="w-[24px] h-[24px] flex justify-start gap-[5px]">
-            <div className="text-[24px]">
-              <HiOutlineShoppingBag color="#A72F3B" />
-            </div>
+            <Link to={"/checkout/cart/"}>
+              <div className="text-[24px]">
+                <HiOutlineShoppingBag color="#A72F3B" />
+              </div>
+            </Link>
             <div className="w-full text-[24px]" onClick={handleOpnSearchModal}>
               <FiSearch color="#A72F3B" />
             </div>
-            {searchModal && (<SearchBarMob searchModal={searchModal} setSearchModal={setSearchModal}  setshowSearchResult={ setshowSearchResult} showSearchResult={showSearchResult}/>)}
-            
+            {searchModal && (
+              <SearchBarMob
+                searchModal={searchModal}
+                setSearchModal={setSearchModal}
+                setshowSearchResult={setshowSearchResult}
+                showSearchResult={showSearchResult}
+              />
+            )}
             <Link to={"/favorite"}>
               <div className="text-[24px]">
                 <MdFavoriteBorder color="#A72F3B" />
