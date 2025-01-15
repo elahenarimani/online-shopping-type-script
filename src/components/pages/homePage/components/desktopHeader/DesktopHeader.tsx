@@ -117,9 +117,9 @@ function DesktopHeader() {
     const handleScroll = () => {
       closeAllModals();
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);//execute handleScroll function when user scrool
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);//cleanup
     };
   }, []);
   return (
