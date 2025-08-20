@@ -253,8 +253,6 @@ function OffBoxSlider() {
       slidesPerView={"auto"}
       loop={false}
       navigation={true}
-      // scrollbar={{ draggable: true }}
-
       onSlideChange={() => console.log("slide change")}
       className="swiper-container-2"
     >

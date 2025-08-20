@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { RiCloseFill } from "react-icons/ri";
 import { ProductListContext } from "../../../../siteSetting/SiteSetting";
@@ -41,8 +41,8 @@ const SearchBar = ({
     setshowSearchResultDes(filteredData);
   }
   return (
-    <div className="modal-search-wrapper w-full min-h-[100vh] fixed z-1  right-[8px] top-[60px]  rounded-[8px] ">
-      <div className="modal-content w-1/2 ">
+    <div className="modal-search-wrapper w-full min-h-[100vh] fixed z-1 right-[8px] top-[60px] rounded-[8px]">
+      <div className="modal-content w-1/2">
         <div className="search-input w-full h-[30px] rounded-[8px] border-solid border-[1px] flex justify-start items-center bg-[#F0F0F1]  ">
           <button
             onClick={handleClsDesSearchModal}

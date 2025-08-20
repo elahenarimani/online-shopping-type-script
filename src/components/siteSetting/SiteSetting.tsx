@@ -1,7 +1,8 @@
-import axios from "axios";
 import { ReactElement, useEffect, useState, createContext } from "react";
+import axios from "axios";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+
 import { store, persistore } from "../redux/store";
 interface Iprops {
   children: ReactElement;
@@ -37,10 +38,12 @@ interface IFavoritProduct {
   setFavoritProduct?: Function;
 }
 const initialBuyCart: IBuyCartItem[] = [{ productId: 0, count: 0 }];
+
 export let BuyCartContext = createContext<IBuyCart>({
   buyCart: initialBuyCart,
   setBuyCart: Function,
 });
+
 export const ProductListContext = createContext<null | {
   productList: IProduct[];
   setProductList: Function;
@@ -53,6 +56,7 @@ export const FavoritProductContext = createContext<
       setFavoritProduct: Function;
     }
 >(null);
+
 function SiteSetting({ children }: Iprops) {
   const [productList, setProductList] = useState<IProduct[]>([]);
   let [buyCart, setBuyCart] = useState<IBuyCartItem[]>([]);

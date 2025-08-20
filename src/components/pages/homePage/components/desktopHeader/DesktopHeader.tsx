@@ -8,9 +8,9 @@ import Women from "./components/women/Women";
 import Men from "./components/men/Men";
 import Child from "./components/child/Child";
 import Bag from "./components/bag/Bag";
-import SearchBar from "../searchBar/SearchBar";
 import Shoes from "./components/shoes/Shoes";
 import Sunglasses from "./components/glasses/Sunglasses";
+import SearchBar from "../searchBar/SearchBar";
 interface IProduct {
   id: string;
   headcategory: string;
@@ -154,7 +154,7 @@ function DesktopHeader() {
             <img
               className="w-full h-fulll"
               src="https://s8.uupload.ir/files/capture_85gu.png"
-              alt="logo"
+              alt="a logo"
             ></img>
           </div>
         </Link>

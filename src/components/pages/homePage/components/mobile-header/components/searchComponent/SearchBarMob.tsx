@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import { FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { RiCloseFill } from "react-icons/ri";
 import { ProductListContext } from "../../../../../../siteSetting/SiteSetting";
 import "./searchBarMob.css";
-import { Link } from "react-router-dom";
 interface ISearch {
   searchModal: boolean;
   setSearchModal: Function;
@@ -18,10 +17,6 @@ interface IProduct {
   price: number;
   instock: number;
   image: string[];
-}
-interface IProductList {
-  productList?: IProduct[];
-  setProductList?: Function;
 }
 const SearchBarMob = ({
   searchModal,
@@ -58,15 +53,6 @@ const SearchBarMob = ({
             </div>
           </button>
           <div className="w-full h-[30px] border-r-[1px] border-solid border-[#767B7F] pl-[6px] flex items-center pr-[4px] bg-[#F0F0F1] rounded-l-[8px]">
-            {/* <input
-              className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px]"
-              placeholder="جستجو"
-              type='text'
-              value={serchinput}
-              onChange={(e:any) => handleChange(e.target.value)}
-            />
- */}
-
             <input
               className="w-full h-[23px] pr-[6px] text-[12px] outline-none border-none pb-[4px] placeholder-[#B34B56] pt-[5px] pb-[10px] rounded-[8px] bg-[#F0F0F1]"
               placeholder="جستجو"
@@ -79,8 +65,11 @@ const SearchBarMob = ({
         <div className="search-render w-full h-full overflow-auto">
           {showSearchResult.map((item) => {
             return (
-              <Link to={`/product/${item.id}`} >
-                <div className="search-item w-full h-full-screen color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]" onClick={handleClsSearchModal}>
+              <Link to={`/product/${item.id}`}>
+                <div
+                  className="search-item w-full h-full-screen color-black bg-white flex flex-col justify-start items-start text-right pr-[16px]"
+                  onClick={handleClsSearchModal}
+                >
                   <p className="w-full h-[32px] pt-[8px]">{item.name}</p>
                 </div>
               </Link>
@@ -88,10 +77,7 @@ const SearchBarMob = ({
           })}
         </div>
       </div>
-
-      {/* <SearchResultMob showSearchResult={showSearchResult} /> */}
     </div>
   );
 };
-
 export default SearchBarMob;
